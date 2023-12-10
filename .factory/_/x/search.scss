@@ -1,0 +1,10 @@
+[role='search'] {
+  input {
+    flex: 1;
+  }
+  p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+}

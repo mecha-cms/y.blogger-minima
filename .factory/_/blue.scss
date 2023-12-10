@@ -1,5 +1,27 @@
 .skin\:blue {
-  @include skin(
-
-  );
+  --color-1: #eee;
+  --color-2: #579;
+  --color-button: #ccc;
+  --color-link-1: #fc6;
+  --color-link-2: #a7a;
+  --color-link: #9bd;
+  --color-title-link-1: #ccc;
+  --color-title-link: inherit;
+  --color-title: #fc6;
+  --color: #ccc;
+  --face-1: 'Trebuchet MS', Trebuchet, sans-serif;
+  --face-2: monospace;
+  --face: 'Trebuchet MS', Trebuchet, sans-serif;
+  --fill-alert: rgba(51, 51, 51, 0.5);
+  --fill-button: #357 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  --fill-input: #135 linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)) repeat-x 0 0;
+  --fill-mark: #246;
+  --fill: #135;
+  --stroke-1: #{rgba(#468, 0.5)};
+  --stroke-alert: rgba(255, 255, 255, 0.5);
+  --stroke-button-1: rgba(255, 255, 255, 0.15);
+  --stroke-button: rgba(255, 255, 255, 0.05);
+  --stroke-input: #246 #246 #357;
+  --stroke: #468;
+  --title: 700;
 }

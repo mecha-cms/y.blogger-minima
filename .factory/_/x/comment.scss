@@ -8,13 +8,13 @@
 .comments {
   h3,
   h4 {
-    color: #c60;
+    color: var(--color-title);
     font-size: 125%;
   }
 }
 
 .comment-footer {
-  @include all-caps(0.2em, #999);
+  @include all-caps(0.2em, var(--color-2));
 }
 
 .comment-header {
@@ -33,7 +33,7 @@
     textarea {
       + br {
         + small {
-          color: #999;
+          color: var(--color-2);
         }
       }
     }

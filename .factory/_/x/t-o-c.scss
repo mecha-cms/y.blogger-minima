@@ -1,0 +1,15 @@
+[role='doc-toc'] {
+  [role='doc-pagelist'] {
+    li {
+      &::after,
+      &::before {
+        border-color: var(--stroke, #000);
+      }
+      &:last-child {
+        &::after {
+          background: var(--fill, #fff);
+        }
+      }
+    }
+  }
+}

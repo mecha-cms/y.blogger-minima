@@ -1,6 +1,7 @@
 [role='alert'] {
-  background: rgba(204, 204, 204, 0.5);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  background: var(--fill-alert);
+  border: 1px solid;
+  border-color: var(--stroke-alert);
   padding: 0.25em 0.75em;
   text-align: center;
   + article {

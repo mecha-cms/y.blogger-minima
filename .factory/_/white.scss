@@ -1,0 +1,27 @@
+.skin\:white {
+  --color-1: #666;
+  --color-2: #999;
+  --color-button: #fff;
+  --color-link-1: #c60;
+  --color-link-2: #999;
+  --color-link: #58a;
+  --color-title-link-1: #a40;
+  --color-title-link: inherit;
+  --color-title: #c60;
+  --color: #333;
+  --face-1: 'Trebuchet MS', Trebuchet, sans-serif;
+  --face-2: monospace;
+  --face: Georgia, serif;
+  --fill-alert: rgba(204, 204, 204, 0.5);
+  --fill-button: #58a linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  --fill-input: #fff linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)) repeat-x 0 0;
+  --fill-mark: #fea;
+  --fill: #fff;
+  --stroke-1: #{rgba(#ccc, 0.5)};
+  --stroke-alert: rgba(0, 0, 0, 0.5);
+  --stroke-button-1: rgba(255, 255, 255, 0.75);
+  --stroke-button: rgba(255, 255, 255, 0.5);
+  --stroke-input: #aaa #ccc #ccc;
+  --stroke: #ccc;
+  --title: 400;
+}

@@ -1,3 +1,4 @@
+/*! Originally developed by the Blogger Team on 26 February 2004. */
 * {
   background: 0 0;
   border: 0;
@@ -12,20 +13,21 @@
 }
 
 :root {
-  background: #fff;
-  color: #333;
-  font: normal normal 13px/1.5 Georgia, serif;
+  background: var(--fill);
+  color: var(--color);
+  font: 400 normal 13px/1.5 var(--face);
 }
 
 a,
 details summary,
 [role=link] {
-  color: #58a;
+  color: var(--color-link);
 }
 a img,
 details summary img,
 [role=link] img {
-  border: 1px solid #ccc;
+  border: 1px solid;
+  border-color: var(--stroke);
   padding: 4px;
 }
 a:focus,
@@ -34,7 +36,7 @@ details summary:focus,
 a:hover,
 details summary:hover,
 [role=link]:hover {
-  color: #c60;
+  color: var(--color-link-1);
   text-decoration: underline;
 }
 a:focus:visited,
@@ -43,7 +45,7 @@ details summary:focus:visited,
 a:hover:visited,
 details summary:hover:visited,
 [role=link]:hover:visited {
-  color: #999;
+  color: var(--color-link-2);
 }
 a[aria-current],
 details summary[aria-current],
@@ -93,7 +95,7 @@ u {
 }
 
 blockquote {
-  color: #666;
+  color: var(--color-1);
   font-size: 1.185em;
   margin-left: 1.15rem;
   margin-right: 1.15rem;
@@ -101,17 +103,18 @@ blockquote {
 
 caption,
 figcaption {
-  color: #666;
-  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  color: var(--color-1);
+  font-family: var(--face-1);
   font-size: 80%;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin: 0.5em 0 0;
+  margin: 0.5rem 0 0;
   text-align: center;
 }
 
 code {
-  font-family: monospace;
+  font-family: var(--face-2);
 }
 
 label,
@@ -128,12 +131,16 @@ ul {
 }
 
 fieldset {
-  border: 1px solid #ccc;
+  border: 1px solid;
+  border-color: var(--stroke);
   padding: 1.15rem;
 }
 
 figure {
   text-align: center;
+}
+figure img {
+  display: block;
 }
 
 h1,
@@ -142,8 +149,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #666;
-  line-height: 1.25;
+  color: var(--color-1);
 }
 
 /* <https://www.modularscale.com/?10,60&px&1.5> */
@@ -173,13 +179,15 @@ h6 {
 
 hr {
   border: 0;
-  border-top: 1px dotted #ccc;
+  border-top: 1px dotted;
+  border-color: var(--stroke);
 }
 
 legend {
-  color: #666;
-  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  color: var(--color-1);
+  font-family: var(--face-1);
   font-size: 80%;
+  font-weight: var(--title);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   padding: 0 0.5em;
@@ -190,7 +198,7 @@ legend + * {
 
 mark,
 [role=mark] {
-  background: #fea;
+  background: var(--fill-mark);
 }
 
 img {
@@ -203,8 +211,8 @@ ol {
 }
 
 pre code {
-  background: #333;
-  color: #fff;
+  background: var(--fill-code, var(--color));
+  color: var(--color-code, var(--fill));
   display: block;
   overflow: auto;
   padding: 0.5em 0.75em;
@@ -240,7 +248,8 @@ table caption {
 }
 table td,
 table th {
-  border: 1px solid #ccc;
+  border: 1px solid;
+  border-color: var(--stroke);
   padding: 0.25em 0.5em;
   vertical-align: top;
 }
@@ -312,19 +321,16 @@ button[type=submit],
 [type=submit][role=button],
 select,
 textarea {
-  accent-color: #58a;
-  background-color: #fff;
-  background-image: linear-gradient(#f5f5f5, #fff);
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  border-top-color: #aaa;
+  accent-color: var(--color-link);
+  background: var(--fill-input, var(--fill));
+  border: 1px solid;
+  border-color: var(--stroke-input, var(--stroke));
   color: inherit;
   display: inline-block;
   height: 2em;
   line-height: calc(2em - 2px);
   outline: 0;
   padding: 0 0.5em;
-  text-decoration: none !important;
   vertical-align: middle;
   width: 12em;
 }
@@ -355,16 +361,18 @@ button[type=submit],
 [type=button][role=button],
 [type=reset][role=button],
 [type=submit][role=button] {
-  background-color: #58a;
-  background-image: linear-gradient(#58a, #468);
+  background: var(--fill-button, var(--fill));
   border-width: 0;
-  color: #fff !important;
+  color: var(--color-button) !important;
   cursor: pointer;
-  outline: 1px solid #fff;
-  outline-color: rgba(255, 255, 255, 0.5);
+  line-height: 2em;
+  outline: 1px solid;
+  outline-color: var(--stroke-button);
   outline-offset: -3px;
   padding-left: 0.65em;
   padding-right: 0.65em;
+  text-align: center;
+  text-decoration: none !important;
   width: auto;
 }
 button:focus,
@@ -387,7 +395,7 @@ input[type=submit]:focus,
 [type=submit][role=searchbox]:focus,
 [type=submit][role=spinbutton]:focus,
 [type=submit][role=textbox]:focus {
-  outline-color: rgba(255, 255, 255, 0.75);
+  outline-color: var(--stroke-button-1);
 }
 
 button::-moz-focus-inner,
@@ -520,14 +528,6 @@ select {
   cursor: pointer;
 }
 
-[role=combobox],
-[role=listbox],
-select {
-  -moz-padding-start: calc(0.5em - 3px);
-  /* <https://github.com/twbs/bootstrap/issues/32636> */
-  appearance: none;
-}
-
 ::-moz-color-swatch {
   border: 0;
 }
@@ -544,13 +544,13 @@ select {
 textarea {
   height: auto;
   line-height: inherit;
-  padding-bottom: 0.35em;
-  padding-top: 0.35em;
+  padding-bottom: 0.25em;
+  padding-top: 0.25em;
   resize: vertical;
 }
 
 [role=status] {
-  color: #999;
+  color: var(--color-2);
 }
 
 :disabled {
@@ -559,8 +559,9 @@ textarea {
 }
 
 [role=alert] {
-  background: rgba(204, 204, 204, 0.5);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  background: var(--fill-alert);
+  border: 1px solid;
+  border-color: var(--stroke-alert);
   padding: 0.25em 0.75em;
   text-align: center;
 }
@@ -583,15 +584,16 @@ details [role=alert] summary {
 
 .comments h3,
 .comments h4 {
-  color: #c60;
+  color: var(--color-title);
   font-size: 125%;
 }
 
 .comment-footer,
 .comment-header {
-  color: #999;
-  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  color: var(--color-2);
+  font-family: var(--face-1);
   font-size: 80%;
+  font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
@@ -612,7 +614,7 @@ details [role=alert] summary {
 .form-comment p [role=textbox] + br + small,
 .form-comment p select + br + small,
 .form-comment p textarea + br + small {
-  color: #999;
+  color: var(--color-2);
 }
 
 [role=doc-endnotes] {
@@ -623,34 +625,63 @@ details [role=alert] summary {
   margin-top: 1.15em;
 }
 
+[role=search] input,
+[role=search] button,
+[role=search] [role=button],
+[role=search] [role=combobox],
+[role=search] [role=listbox],
+[role=search] [role=searchbox],
+[role=search] [role=spinbutton],
+[role=search] [role=textbox] {
+  flex: 1;
+}
+[role=search] p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+[role=doc-toc] [role=doc-pagelist] li::after,
+[role=doc-toc] [role=doc-pagelist] li::before {
+  border-color: var(--stroke, #000);
+}
+[role=doc-toc] [role=doc-pagelist] li:last-child::after {
+  background: var(--fill, #fff);
+}
+
 body > div {
   margin: 0 auto;
   padding: 10px;
   width: 680px;
 }
+body > div > footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.15rem;
+  justify-content: space-between;
+  padding-bottom: 1.15rem;
+}
+body > div > footer p {
+  margin: 0;
+}
 body > div > header {
-  border: 1px solid #ccc;
-  color: #666;
+  background: transparent none no-repeat 50% 50%;
+  background-size: cover;
+  border: 1px solid;
+  border-color: var(--stroke);
+  color: var(--color-1);
   letter-spacing: 0.2em;
+  outline: 1px solid;
+  outline-color: var(--stroke-1);
+  outline-offset: -7px;
   padding: 1.5rem;
-  position: relative;
   text-align: center;
   text-transform: uppercase;
-}
-body > div > header::before {
-  border: inherit;
-  bottom: 5px;
-  content: "";
-  left: 5px;
-  pointer-events: none;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  z-index: -1;
 }
 body > div > header h1 {
   color: inherit;
   font-size: 200%;
+  font-weight: var(--title);
   letter-spacing: 0.2em;
   margin: 0 0 0.25em;
 }
@@ -682,20 +713,23 @@ details body > div > header h1 summary:hover:visited {
   color: inherit;
 }
 body > div > header p {
-  color: #999;
-  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  color: var(--color-2);
+  font-family: var(--face-1);
   font-size: 80%;
+  font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin: 0;
 }
 body > div > nav {
-  color: #666;
-  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  color: var(--color-1);
+  font-family: var(--face-1);
   font-size: 80%;
+  font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted;
+  border-color: var(--stroke);
   line-height: 2.7rem;
   text-align: center;
 }
@@ -734,7 +768,8 @@ body > div > nav + div > aside {
 }
 body > div > header + div > aside > div,
 body > div > nav + div > aside > div {
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted;
+  border-color: var(--stroke);
   padding-bottom: 1.15rem;
 }
 body > div > header + div > aside > div li [role=status],
@@ -763,9 +798,10 @@ body > div > nav + div > aside > div::after {
 }
 body > div > header + div > aside > div > h3,
 body > div > nav + div > aside > div > h3 {
-  color: #999;
-  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  color: var(--color-2);
+  font-family: var(--face-1);
   font-size: 80%;
+  font-weight: var(--title);
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
@@ -787,7 +823,8 @@ body > div > nav + div > main {
 }
 body > div > header + div > main > article,
 body > div > nav + div > main > article {
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted;
+  border-color: var(--stroke);
   padding-bottom: 1.15rem;
 }
 body > div > header + div > main > article > div::after,
@@ -802,9 +839,10 @@ body > div > nav + div > main > article > div + footer {
 }
 body > div > header + div > main > article > footer,
 body > div > nav + div > main > article > footer {
-  color: #999;
-  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  color: var(--color-2);
+  font-family: var(--face-1);
   font-size: 80%;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -812,7 +850,7 @@ body > div > header + div > main > article > header h2,
 body > div > header + div > main > article > header h3,
 body > div > nav + div > main > article > header h2,
 body > div > nav + div > main > article > header h3 {
-  color: #c60;
+  color: var(--color-title);
   font-size: 150%;
   margin-top: 0.4rem;
 }
@@ -832,7 +870,7 @@ body > div > nav + div > main > article > header h3 a,
 body > div > nav + div > main > article > header h3 [role=link],
 body > div > nav + div > main > article > header h3 details summary,
 details body > div > nav + div > main > article > header h3 summary {
-  color: inherit;
+  color: var(--color-title-link);
   text-decoration: none;
 }
 body > div > header + div > main > article > header h2 a:focus,
@@ -867,16 +905,52 @@ body > div > nav + div > main > article > header h3 a:hover,
 body > div > nav + div > main > article > header h3 [role=link]:hover,
 body > div > nav + div > main > article > header h3 details summary:hover,
 details body > div > nav + div > main > article > header h3 summary:hover {
-  color: #a40;
+  color: var(--color-title-link-1);
   text-decoration: none;
+}
+body > div > header + div > main > article > header h2 a:focus:visited,
+body > div > header + div > main > article > header h2 [role=link]:focus:visited,
+body > div > header + div > main > article > header h2 details summary:focus:visited,
+details body > div > header + div > main > article > header h2 summary:focus:visited,
+body > div > header + div > main > article > header h2 a:hover:visited,
+body > div > header + div > main > article > header h2 [role=link]:hover:visited,
+body > div > header + div > main > article > header h2 details summary:hover:visited,
+details body > div > header + div > main > article > header h2 summary:hover:visited,
+body > div > header + div > main > article > header h3 a:focus:visited,
+body > div > header + div > main > article > header h3 [role=link]:focus:visited,
+body > div > header + div > main > article > header h3 details summary:focus:visited,
+details body > div > header + div > main > article > header h3 summary:focus:visited,
+body > div > header + div > main > article > header h3 a:hover:visited,
+body > div > header + div > main > article > header h3 [role=link]:hover:visited,
+body > div > header + div > main > article > header h3 details summary:hover:visited,
+details body > div > header + div > main > article > header h3 summary:hover:visited,
+body > div > nav + div > main > article > header h2 a:focus:visited,
+body > div > nav + div > main > article > header h2 [role=link]:focus:visited,
+body > div > nav + div > main > article > header h2 details summary:focus:visited,
+details body > div > nav + div > main > article > header h2 summary:focus:visited,
+body > div > nav + div > main > article > header h2 a:hover:visited,
+body > div > nav + div > main > article > header h2 [role=link]:hover:visited,
+body > div > nav + div > main > article > header h2 details summary:hover:visited,
+details body > div > nav + div > main > article > header h2 summary:hover:visited,
+body > div > nav + div > main > article > header h3 a:focus:visited,
+body > div > nav + div > main > article > header h3 [role=link]:focus:visited,
+body > div > nav + div > main > article > header h3 details summary:focus:visited,
+details body > div > nav + div > main > article > header h3 summary:focus:visited,
+body > div > nav + div > main > article > header h3 a:hover:visited,
+body > div > nav + div > main > article > header h3 [role=link]:hover:visited,
+body > div > nav + div > main > article > header h3 details summary:hover:visited,
+details body > div > nav + div > main > article > header h3 summary:hover:visited {
+  color: var(--color-title-link-2, var(--color-title-link-1));
 }
 body > div > header + div > main > article > header p time,
 body > div > nav + div > main > article > header p time {
-  color: #999;
-  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  color: var(--color-2);
+  font-family: var(--face-1);
   font-size: 80%;
+  font-weight: var(--title);
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  display: block;
 }
 body > div > header + div > main > article > header + div,
 body > div > nav + div > main > article > header + div {
@@ -905,313 +979,98 @@ body > div > nav + div > main > article + nav {
   body > div > nav + div > aside {
     display: flex;
     flex-wrap: wrap;
-    gap: 2.5rem;
+    gap: 2rem;
     width: auto;
   }
   body > div > header + div > aside > div,
   body > div > nav + div > aside > div {
     flex: 1;
   }
+  body > div > header + div > aside > div + div,
+  body > div > nav + div > aside > div + div {
+    margin-top: 0;
+  }
 }
 .skin\:black {
-  background: #000;
-  color: #ccc;
-  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  --color-1: #ccc;
+  --color-2: #777;
+  --color-button: #ccc;
+  --color-link-1: #ad9;
+  --color-link-2: #a7a;
+  --color-link: #9ad;
+  --color-title-link-1: #cf9;
+  --color-title-link: inherit;
+  --color-title: #ad9;
+  --color: #ccc;
+  --face-1: "Trebuchet MS", Trebuchet, sans-serif;
+  --face-2: monospace;
+  --face: "Trebuchet MS", Trebuchet, sans-serif;
+  --fill-alert: rgba(51, 51, 51, 0.5);
+  --fill-button: #333 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  --fill-input: #000 linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.05)) repeat-x 0 0;
+  --fill-mark: #333;
+  --fill: #000;
+  --stroke-1: rgba(51, 51, 51, 0.5);
+  --stroke-alert: rgba(255, 255, 255, 0.5);
+  --stroke-button-1: rgba(255, 255, 255, 0.15);
+  --stroke-button: rgba(255, 255, 255, 0.05);
+  --stroke-input: #222 #222 #333;
+  --stroke: #333;
+  --title: 700;
 }
-.skin\:black [role=link],
-.skin\:black a,
-.skin\:black details summary,
-details .skin\:black summary {
-  color: #9ad;
+
+.skin\:white {
+  --color-1: #666;
+  --color-2: #999;
+  --color-button: #fff;
+  --color-link-1: #c60;
+  --color-link-2: #999;
+  --color-link: #58a;
+  --color-title-link-1: #a40;
+  --color-title-link: inherit;
+  --color-title: #c60;
+  --color: #333;
+  --face-1: "Trebuchet MS", Trebuchet, sans-serif;
+  --face-2: monospace;
+  --face: Georgia, serif;
+  --fill-alert: rgba(204, 204, 204, 0.5);
+  --fill-button: #58a linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  --fill-input: #fff linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)) repeat-x 0 0;
+  --fill-mark: #fea;
+  --fill: #fff;
+  --stroke-1: rgba(204, 204, 204, 0.5);
+  --stroke-alert: rgba(0, 0, 0, 0.5);
+  --stroke-button-1: rgba(255, 255, 255, 0.75);
+  --stroke-button: rgba(255, 255, 255, 0.5);
+  --stroke-input: #aaa #ccc #ccc;
+  --stroke: #ccc;
+  --title: 400;
 }
-.skin\:black [role=link]:focus,
-.skin\:black [role=link]:hover,
-.skin\:black a:focus,
-.skin\:black details summary:focus,
-details .skin\:black summary:focus,
-.skin\:black a:hover,
-.skin\:black details summary:hover,
-details .skin\:black summary:hover {
-  color: #ad9;
-}
-.skin\:black [role=link]:focus:visited,
-.skin\:black [role=link]:hover:visited,
-.skin\:black a:focus:visited,
-.skin\:black details summary:focus:visited,
-details .skin\:black summary:focus:visited,
-.skin\:black a:hover:visited,
-.skin\:black details summary:hover:visited,
-details .skin\:black summary:hover:visited {
-  color: #a7a;
-}
-.skin\:black [role=link][aria-current],
-.skin\:black [role=link][aria-disabled],
-.skin\:black a[aria-current],
-.skin\:black details summary[aria-current],
-details .skin\:black summary[aria-current],
-.skin\:black a[aria-disabled],
-.skin\:black details summary[aria-disabled],
-details .skin\:black summary[aria-disabled] {
-  color: inherit;
-}
-.skin\:black [role=link][aria-current]:visited,
-.skin\:black [role=link][aria-disabled]:visited,
-.skin\:black a[aria-current]:visited,
-.skin\:black details summary[aria-current]:visited,
-details .skin\:black summary[aria-current]:visited,
-.skin\:black a[aria-disabled]:visited,
-.skin\:black details summary[aria-disabled]:visited,
-details .skin\:black summary[aria-disabled]:visited {
-  color: inherit;
-}
-.skin\:black blockquote,
-.skin\:black caption,
-.skin\:black figcaption,
-.skin\:black h1,
-.skin\:black h2,
-.skin\:black h3,
-.skin\:black h4,
-.skin\:black h5,
-.skin\:black h6,
-.skin\:black legend {
-  color: #777;
-}
-.skin\:black a img,
-.skin\:black [role=link] img,
-.skin\:black details summary img,
-details .skin\:black summary img,
-.skin\:black fieldset,
-.skin\:black hr,
-.skin\:black table td,
-.skin\:black table th {
-  border-color: #333;
-}
-.skin\:black pre code {
-  background: #ccc;
-  color: #000;
-}
-.skin\:black [role=alert] {
-  background: rgba(51, 51, 51, 0.5);
-  border-color: rgba(255, 255, 255, 0.8);
-}
-.skin\:black [role=doc-toc] li:last-child::after {
-  background: #000;
-}
-.skin\:black [role=status] {
-  color: #777;
-}
-.skin\:black [role=combobox],
-.skin\:black [role=listbox],
-.skin\:black [role=searchbox],
-.skin\:black [role=spinbutton],
-.skin\:black [role=textbox],
-.skin\:black button,
-.skin\:black [role=button],
-.skin\:black input,
-.skin\:black select,
-.skin\:black textarea {
-  accent-color: #9ad;
-  background-color: #000;
-  background-image: linear-gradient(#000, rgba(255, 255, 255, 0.05));
-  border-color: #333 #333 #444;
-}
-.skin\:black [role=button],
-.skin\:black button,
-.skin\:black [type=button][role=combobox],
-.skin\:black [type=button][role=listbox],
-.skin\:black [type=button][role=searchbox],
-.skin\:black [type=button][role=spinbutton],
-.skin\:black [type=button][role=textbox],
-.skin\:black [type=reset][role=combobox],
-.skin\:black [type=reset][role=listbox],
-.skin\:black [type=reset][role=searchbox],
-.skin\:black [type=reset][role=spinbutton],
-.skin\:black [type=reset][role=textbox],
-.skin\:black [type=submit][role=combobox],
-.skin\:black [type=submit][role=listbox],
-.skin\:black [type=submit][role=searchbox],
-.skin\:black [type=submit][role=spinbutton],
-.skin\:black [type=submit][role=textbox],
-.skin\:black input[type=button],
-.skin\:black input[type=reset],
-.skin\:black input[type=submit] {
-  background-color: #333;
-  background-image: linear-gradient(#333, #222);
-  color: #ccc !important;
-  outline-color: transparent;
-}
-.skin\:black [role=checkbox],
-.skin\:black [role=radio],
-.skin\:black [role=slider],
-.skin\:black [role=switch],
-.skin\:black input[type=checkbox],
-.skin\:black button[type=checkbox],
-.skin\:black [type=checkbox][role=button],
-.skin\:black [type=checkbox][role=combobox],
-.skin\:black [type=checkbox][role=listbox],
-.skin\:black [type=checkbox][role=searchbox],
-.skin\:black [type=checkbox][role=spinbutton],
-.skin\:black [type=checkbox][role=textbox],
-.skin\:black input[type=file],
-.skin\:black button[type=file],
-.skin\:black [type=file][role=button],
-.skin\:black [type=file][role=combobox],
-.skin\:black [type=file][role=listbox],
-.skin\:black [type=file][role=searchbox],
-.skin\:black [type=file][role=spinbutton],
-.skin\:black [type=file][role=textbox],
-.skin\:black input[type=image],
-.skin\:black button[type=image],
-.skin\:black [type=image][role=button],
-.skin\:black [type=image][role=combobox],
-.skin\:black [type=image][role=listbox],
-.skin\:black [type=image][role=searchbox],
-.skin\:black [type=image][role=spinbutton],
-.skin\:black [type=image][role=textbox],
-.skin\:black input[type=radio],
-.skin\:black button[type=radio],
-.skin\:black [type=radio][role=button],
-.skin\:black [type=radio][role=combobox],
-.skin\:black [type=radio][role=listbox],
-.skin\:black [type=radio][role=searchbox],
-.skin\:black [type=radio][role=spinbutton],
-.skin\:black [type=radio][role=textbox],
-.skin\:black input[type=range],
-.skin\:black button[type=range],
-.skin\:black [type=range][role=button],
-.skin\:black [type=range][role=combobox],
-.skin\:black [type=range][role=listbox],
-.skin\:black [type=range][role=searchbox],
-.skin\:black [type=range][role=spinbutton],
-.skin\:black [type=range][role=textbox] {
-  background: 0 0;
-}
-.skin\:black > body > div > header {
-  border-color: #333;
-  color: #ccc;
-}
-.skin\:black > body > div > header h1 {
-  color: inherit;
-  font-weight: bold;
-}
-.skin\:black > body > div > header h1 a,
-.skin\:black > body > div > header h1 [role=link],
-.skin\:black > body > div > header h1 details summary,
-details .skin\:black > body > div > header h1 summary {
-  color: inherit;
-}
-.skin\:black > body > div > header h1 a:focus,
-.skin\:black > body > div > header h1 [role=link]:focus,
-.skin\:black > body > div > header h1 details summary:focus,
-details .skin\:black > body > div > header h1 summary:focus,
-.skin\:black > body > div > header h1 a:hover,
-.skin\:black > body > div > header h1 [role=link]:hover,
-.skin\:black > body > div > header h1 details summary:hover,
-details .skin\:black > body > div > header h1 summary:hover {
-  color: inherit;
-}
-.skin\:black > body > div > header h1 a:focus:visited,
-.skin\:black > body > div > header h1 [role=link]:focus:visited,
-.skin\:black > body > div > header h1 details summary:focus:visited,
-details .skin\:black > body > div > header h1 summary:focus:visited,
-.skin\:black > body > div > header h1 a:hover:visited,
-.skin\:black > body > div > header h1 [role=link]:hover:visited,
-.skin\:black > body > div > header h1 details summary:hover:visited,
-details .skin\:black > body > div > header h1 summary:hover:visited {
-  color: inherit;
-}
-.skin\:black > body > div > header p {
-  color: #777;
-}
-.skin\:black > body > div > nav {
-  border-bottom-color: #333;
-  color: #ccc;
-}
-.skin\:black > body > div > header + div > aside > div,
-.skin\:black > body > div > nav + div > aside > div {
-  border-bottom-color: #333;
-}
-.skin\:black > body > div > header + div > aside > div h3,
-.skin\:black > body > div > nav + div > aside > div h3 {
-  color: #777;
-}
-.skin\:black > body > div > header + div > main > article,
-.skin\:black > body > div > nav + div > main > article {
-  border-bottom-color: #333;
-}
-.skin\:black > body > div > header + div > main > article > footer,
-.skin\:black > body > div > nav + div > main > article > footer {
-  color: #777;
-}
-.skin\:black > body > div > header + div > main > article > header h2,
-.skin\:black > body > div > header + div > main > article > header h3,
-.skin\:black > body > div > nav + div > main > article > header h2,
-.skin\:black > body > div > nav + div > main > article > header h3 {
-  color: #ad9;
-}
-.skin\:black > body > div > header + div > main > article > header h2 a,
-.skin\:black > body > div > header + div > main > article > header h2 [role=link],
-.skin\:black > body > div > header + div > main > article > header h2 details summary,
-details .skin\:black > body > div > header + div > main > article > header h2 summary,
-.skin\:black > body > div > header + div > main > article > header h3 a,
-.skin\:black > body > div > header + div > main > article > header h3 [role=link],
-.skin\:black > body > div > header + div > main > article > header h3 details summary,
-details .skin\:black > body > div > header + div > main > article > header h3 summary,
-.skin\:black > body > div > nav + div > main > article > header h2 a,
-.skin\:black > body > div > nav + div > main > article > header h2 [role=link],
-.skin\:black > body > div > nav + div > main > article > header h2 details summary,
-details .skin\:black > body > div > nav + div > main > article > header h2 summary,
-.skin\:black > body > div > nav + div > main > article > header h3 a,
-.skin\:black > body > div > nav + div > main > article > header h3 [role=link],
-.skin\:black > body > div > nav + div > main > article > header h3 details summary,
-details .skin\:black > body > div > nav + div > main > article > header h3 summary {
-  color: inherit;
-}
-.skin\:black > body > div > header + div > main > article > header h2 a:focus,
-.skin\:black > body > div > header + div > main > article > header h2 [role=link]:focus,
-.skin\:black > body > div > header + div > main > article > header h2 details summary:focus,
-details .skin\:black > body > div > header + div > main > article > header h2 summary:focus,
-.skin\:black > body > div > header + div > main > article > header h2 a:hover,
-.skin\:black > body > div > header + div > main > article > header h2 [role=link]:hover,
-.skin\:black > body > div > header + div > main > article > header h2 details summary:hover,
-details .skin\:black > body > div > header + div > main > article > header h2 summary:hover,
-.skin\:black > body > div > header + div > main > article > header h3 a:focus,
-.skin\:black > body > div > header + div > main > article > header h3 [role=link]:focus,
-.skin\:black > body > div > header + div > main > article > header h3 details summary:focus,
-details .skin\:black > body > div > header + div > main > article > header h3 summary:focus,
-.skin\:black > body > div > header + div > main > article > header h3 a:hover,
-.skin\:black > body > div > header + div > main > article > header h3 [role=link]:hover,
-.skin\:black > body > div > header + div > main > article > header h3 details summary:hover,
-details .skin\:black > body > div > header + div > main > article > header h3 summary:hover,
-.skin\:black > body > div > nav + div > main > article > header h2 a:focus,
-.skin\:black > body > div > nav + div > main > article > header h2 [role=link]:focus,
-.skin\:black > body > div > nav + div > main > article > header h2 details summary:focus,
-details .skin\:black > body > div > nav + div > main > article > header h2 summary:focus,
-.skin\:black > body > div > nav + div > main > article > header h2 a:hover,
-.skin\:black > body > div > nav + div > main > article > header h2 [role=link]:hover,
-.skin\:black > body > div > nav + div > main > article > header h2 details summary:hover,
-details .skin\:black > body > div > nav + div > main > article > header h2 summary:hover,
-.skin\:black > body > div > nav + div > main > article > header h3 a:focus,
-.skin\:black > body > div > nav + div > main > article > header h3 [role=link]:focus,
-.skin\:black > body > div > nav + div > main > article > header h3 details summary:focus,
-details .skin\:black > body > div > nav + div > main > article > header h3 summary:focus,
-.skin\:black > body > div > nav + div > main > article > header h3 a:hover,
-.skin\:black > body > div > nav + div > main > article > header h3 [role=link]:hover,
-.skin\:black > body > div > nav + div > main > article > header h3 details summary:hover,
-details .skin\:black > body > div > nav + div > main > article > header h3 summary:hover {
-  color: #cf9;
-}
-.skin\:black > body > div > header + div > main > article > header p time,
-.skin\:black > body > div > nav + div > main > article > header p time {
-  color: #777;
-}
-.skin\:black .comments h3,
-.skin\:black .comments h4 {
-  color: #ad9;
-}
-.skin\:black .comment-header {
-  color: #777;
-}
-.skin\:black .comment-header .comment-author {
-  color: inherit;
+
+.skin\:blue {
+  --color-1: #eee;
+  --color-2: #579;
+  --color-button: #ccc;
+  --color-link-1: #fc6;
+  --color-link-2: #a7a;
+  --color-link: #9bd;
+  --color-title-link-1: #ccc;
+  --color-title-link: inherit;
+  --color-title: #fc6;
+  --color: #ccc;
+  --face-1: "Trebuchet MS", Trebuchet, sans-serif;
+  --face-2: monospace;
+  --face: "Trebuchet MS", Trebuchet, sans-serif;
+  --fill-alert: rgba(51, 51, 51, 0.5);
+  --fill-button: #357 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  --fill-input: #135 linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)) repeat-x 0 0;
+  --fill-mark: #246;
+  --fill: #135;
+  --stroke-1: rgba(68, 102, 136, 0.5);
+  --stroke-alert: rgba(255, 255, 255, 0.5);
+  --stroke-button-1: rgba(255, 255, 255, 0.15);
+  --stroke-button: rgba(255, 255, 255, 0.05);
+  --stroke-input: #246 #246 #357;
+  --stroke: #468;
+  --title: 700;
 }

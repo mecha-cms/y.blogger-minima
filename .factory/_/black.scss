@@ -1,22 +1,27 @@
 .skin\:black {
-  @include skin(
-    $color: #ccc,
-    $color-1: #777,
-    $color-2: #ccc,
-    $color-button: #ccc,
-    $color-link: #9ad,
-    $color-link-1: #ad9,
-    $color-link-2: #a7a,
-    $color-title: #ad9,
-    $color-title-link: false,
-    $color-title-link-1: #cf9,
-    $color-title-link-2: false,
-    $fill: #000,
-    $stroke: #333,
-  );
-  font-family: 'Trebuchet MS', Trebuchet, sans-serif;
-  [role='alert'] {
-    background: rgba(51, 51, 51, 0.5);
-    border-color: rgba(255, 255, 255, 0.8);
-  }
+  --color-1: #ccc;
+  --color-2: #777;
+  --color-button: #ccc;
+  --color-link-1: #ad9;
+  --color-link-2: #a7a;
+  --color-link: #9ad;
+  --color-title-link-1: #cf9;
+  --color-title-link: inherit;
+  --color-title: #ad9;
+  --color: #ccc;
+  --face-1: 'Trebuchet MS', Trebuchet, sans-serif;
+  --face-2: monospace;
+  --face: 'Trebuchet MS', Trebuchet, sans-serif;
+  --fill-alert: rgba(51, 51, 51, 0.5);
+  --fill-button: #333 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  --fill-input: #000 linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.05)) repeat-x 0 0;
+  --fill-mark: #333;
+  --fill: #000;
+  --stroke-1: #{rgba(#333, 0.5)};
+  --stroke-alert: rgba(255, 255, 255, 0.5);
+  --stroke-button-1: rgba(255, 255, 255, 0.15);
+  --stroke-button: rgba(255, 255, 255, 0.05);
+  --stroke-input: #222 #222 #333;
+  --stroke: #333;
+  --title: 700;
 }

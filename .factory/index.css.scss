@@ -1,8 +1,9 @@
-@mixin all-caps($letter-spacing: 0.2em, $color: #999) {
+@mixin all-caps($letter-spacing: 0.2em, $color: #999, $weight: 400) {
   color: $color;
   font: {
-    family: 'Trebuchet MS', Trebuchet, sans-serif;
+    family: var(--face-1);
     size: 80%;
+    weight: $weight;
   }
   letter-spacing: $letter-spacing;
   text-transform: uppercase;
@@ -14,208 +15,7 @@
   display: table;
 }
 
-@mixin skin(
-  $color, // Text color
-  $color-1, // Text color accent
-  $color-2, // Header text color accent
-  $color-button, // Button text color
-  $color-link, // Link text color
-  $color-link-1, // Focus/hover link text color
-  $color-link-2: false, // Visited link text color
-  $color-title, // Title text color
-  $color-title-link, // Title link text color
-  $color-title-link-1, // Title focus/hover link text color
-  $color-title-link-2: false, // Title visited link text color
-  $fill, // Background color
-  $stroke, // Border color
-) {
-  background: $fill;
-  color: $color;
-  [role='link'],
-  a {
-    color: $color-link;
-    &:focus,
-    &:hover {
-      color: $color-link-1;
-      @if $color-link-2 {
-        &:visited {
-          color: $color-link-2;
-        }
-      }
-    }
-    &[aria-current],
-    &[aria-disabled] {
-      color: inherit;
-      &:visited {
-        color: inherit;
-      }
-    }
-  }
-  blockquote,
-  caption,
-  figcaption,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  legend {
-    color: $color-1;
-  }
-  a img,
-  fieldset,
-  hr,
-  table td,
-  table th {
-    border-color: $stroke;
-  }
-  pre {
-    code {
-      background: $color;
-      color: $fill;
-    }
-  }
-  [role='doc-toc'] {
-    li {
-      &:last-child {
-        &::after {
-          background: $fill;
-        }
-      }
-    }
-  }
-  [role='status'] {
-    color: $color-1;
-  }
-  [role='combobox'],
-  [role='listbox'],
-  [role='searchbox'],
-  [role='spinbutton'],
-  [role='textbox'],
-  button,
-  input,
-  select,
-  textarea {
-    accent-color: $color-link;
-    background: {
-      color: $fill;
-      image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.05));
-    }
-    border-color: $stroke;
-  }
-  [role='button'],
-  button,
-  input[type='button'],
-  input[type='reset'],
-  input[type='submit'] {
-    background: {
-      color: $stroke;
-      image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
-    }
-    color: $color-button !important;
-    outline-color: transparent;
-  }
-  [role='checkbox'],
-  [role='radio'],
-  [role='slider'],
-  [role='switch'],
-  input[type='checkbox'],
-  input[type='file'],
-  input[type='image'],
-  input[type='radio'],
-  input[type='range'] {
-    background: 0 0;
-  }
-  > body {
-    > div {
-      > header {
-        border-color: $stroke;
-        color: $color-2;
-        outline-color: rgba($stroke, 0.5);
-        h1 {
-          color: inherit;
-          font-weight: bold;
-          a {
-            color: inherit;
-            &:focus,
-            &:hover {
-              color: inherit;
-              &:visited {
-                color: inherit;
-              }
-            }
-          }
-        }
-        p {
-          color: $color-1;
-        }
-      }
-      > nav {
-        border-bottom-color: $stroke;
-        color: $color-2;
-      }
-      > header,
-      > nav {
-        + div {
-          > aside {
-            > div {
-              border-bottom-color: $stroke;
-              h3 {
-                color: $color-1;
-              }
-            }
-          }
-          > main {
-            > article {
-              border-bottom-color: $stroke;
-              > footer {
-                color: $color-1;
-              }
-              > header {
-                h2,
-                h3 {
-                  color: $color-title;
-                  a {
-                    @if $color-title-link {
-                      color: $color-title-link;
-                    } @else {
-                      color: inherit;
-                    }
-                    &:focus,
-                    &:hover {
-                      color: $color-title-link-1;
-                      @if $color-title-link-2 {
-                        &:visited {
-                          color: $color-title-link-2;
-                        }
-                      }
-                    }
-                  }
-                }
-                p {
-                  time {
-                    color: $color-1;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  .comments h3,
-  .comments h4 {
-    color: $color-title;
-  }
-  .comment-header {
-    color: $color-1;
-    .comment-author {
-      color: inherit;
-    }
-  }
-}
+/*! Originally developed by the Blogger Team on 26 February 2004. */
 
 * {
   background: 0 0;
@@ -231,23 +31,24 @@
 }
 
 :root {
-  background: #fff;
-  color: #333;
-  font: normal normal 13px/1.5 Georgia, serif;
+  background: var(--fill);
+  color: var(--color);
+  font: 400 normal 13px/1.5 var(--face);
 }
 
 a {
-  color: #58a;
+  color: var(--color-link);
   img {
-    border: 1px solid #ccc;
+    border: 1px solid;
+    border-color: var(--stroke);
     padding: 4px;
   }
   &:focus,
   &:hover {
-    color: #c60;
+    color: var(--color-link-1);
     text-decoration: underline;
     &:visited {
-      color: #999;
+      color: var(--color-link-2);
     }
   }
   &[aria-current],
@@ -292,7 +93,7 @@ th {
 }
 
 blockquote {
-  color: #666;
+  color: var(--color-1);
   font-size: 1.185em;
   margin: {
     left: 1.15rem;
@@ -302,13 +103,13 @@ blockquote {
 
 caption,
 figcaption {
-  @include all-caps(0.1em, #666);
-  margin: 0.5em 0 0;
+  @include all-caps(0.1em, var(--color-1));
+  margin: 0.5rem 0 0;
   text-align: center;
 }
 
 code {
-  font-family: monospace;
+  font-family: var(--face-2);
 }
 
 [role='deletion'],
@@ -343,12 +144,16 @@ ul {
 }
 
 fieldset {
-  border: 1px solid #ccc;
+  border: 1px solid;
+  border-color: var(--stroke);
   padding: 1.15rem;
 }
 
 figure {
   text-align: center;
+  img {
+    display: block;
+  }
 }
 
 h1,
@@ -357,8 +162,8 @@ h3,
 h4,
 h5,
 h6 {
-  color: #666;
-  line-height: 1.25;
+  color: var(--color-1);
+  // line-height: 1.25;
 }
 
 /* <https://www.modularscale.com/?10,60&px&1.5> */
@@ -388,11 +193,12 @@ h6 {
 
 hr {
   border: 0;
-  border-top: 1px dotted #ccc;
+  border-top: 1px dotted;
+  border-color: var(--stroke);
 }
 
 legend {
-  @include all-caps(0.2em, #666);
+  @include all-caps(0.2em, var(--color-1), var(--title));
   padding: 0 0.5em;
   + * {
     margin-top: 0;
@@ -400,7 +206,7 @@ legend {
 }
 
 mark {
-  background: #fea;
+  background: var(--fill-mark);
 }
 
 [role='mark'] {
@@ -418,8 +224,8 @@ ol {
 
 pre {
   code {
-    background: #333;
-    color: #fff;
+    background: var(--fill-code, var(--color));
+    color: var(--color-code, var(--fill));
     display: block;
     overflow: auto;
     padding: 0.5em 0.75em;
@@ -455,7 +261,8 @@ table {
   }
   td,
   th {
-    border: 1px solid #ccc;
+    border: 1px solid;
+    border-color: var(--stroke);
     padding: 0.25em 0.5em;
     vertical-align: top;
   }
@@ -499,44 +306,39 @@ video {
 input,
 select,
 textarea {
-  accent-color: #58a;
-  background: {
-    color: #fff;
-    image: linear-gradient(#f5f5f5, #fff);
-  }
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  border-top-color: #aaa;
+  accent-color: var(--color-link);
+  background: var(--fill-input, var(--fill));
+  border: 1px solid;
+  border-color: var(--stroke-input, var(--stroke));
   color: inherit;
   display: inline-block;
   height: 2em;
-  line-height: calc(2em - 2px);
+  line-height: calc(2em - 2px); // Minus the border width
   outline: 0;
   padding: 0 0.5em;
-  text-decoration: none !important;
   vertical-align: middle;
   width: 12em;
 }
 
 button {
   @extend input;
-  background: {
-    color: #58a;
-    image: linear-gradient(#58a, #468);
-  }
+  background: var(--fill-button, var(--fill));
   border-width: 0;
-  color: #fff !important;
+  color: var(--color-button) !important;
   cursor: pointer;
-  outline: 1px solid #fff;
-  outline-color: rgba(255, 255, 255, 0.5);
+  line-height: 2em;
+  outline: 1px solid;
+  outline-color: var(--stroke-button);
   outline-offset: -3px;
   padding: {
     left: 0.65em;
     right: 0.65em;
   }
+  text-align: center;
+  text-decoration: none !important;
   width: auto;
   &:focus {
-    outline-color: rgba(255, 255, 255, 0.75);
+    outline-color: var(--stroke-button-1);
   }
 }
 
@@ -607,13 +409,6 @@ select {
   cursor: pointer;
 }
 
-[role='combobox'],
-[role='listbox'],
-select {
-  -moz-padding-start: calc(0.5em - 3px); /* <https://github.com/twbs/bootstrap/issues/32636> */
-  appearance: none;
-}
-
 @each $v in (-moz-color-swatch, -webkit-color-swatch) {
   ::#{$v} {
     border: 0;
@@ -629,14 +424,14 @@ textarea {
   height: auto;
   line-height: inherit;
   padding: {
-    bottom: 0.35em;
-    top: 0.35em;
+    bottom: 0.25em;
+    top: 0.25em;
   }
   resize: vertical;
 }
 
 [role='status'] {
-  color: #999;
+  color: var(--color-2);
 }
 
 :disabled {
@@ -648,27 +443,44 @@ textarea {
 @import './_/x/comment';
 @import './_/x/markdown';
 @import './_/x/part';
+@import './_/x/search';
+@import './_/x/t-o-c';
 
 body {
   > div {
     margin: 0 auto;
     padding: 10px;
     width: 680px;
+    > footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.15rem;
+      justify-content: space-between;
+      padding-bottom: 1.15rem;
+      p {
+        margin: 0;
+      }
+    }
     > header {
-      background-size: cover;
       background: transparent none no-repeat 50% 50%;
-      border: 1px solid #ccc;
-      color: #666;
+      background-size: cover;
+      border: 1px solid;
+      border-color: var(--stroke);
+      color: var(--color-1);
       letter-spacing: 0.2em;
       // Make the inner border color a bit softer. This will give it a nice accent :)
-      outline: 1px solid rgba(#ccc, 0.5);
-      outline-offset: -5px;
+      outline: 1px solid;
+      outline-color: var(--stroke-1);
+      outline-offset: -7px;
       padding: 1.5rem;
       text-align: center;
       text-transform: uppercase;
       h1 {
         color: inherit;
-        font-size: 200%;
+        font: {
+          size: 200%;
+          weight: var(--title);
+        }
         letter-spacing: 0.2em;
         margin: 0 0 0.25em;
         a {
@@ -684,13 +496,14 @@ body {
         }
       }
       p {
-        @include all-caps(0.2em, #999);
+        @include all-caps(0.2em, var(--color-2));
         margin: 0;
       }
     }
     > nav {
-      @include all-caps(0.2em, #666);
-      border-bottom: 1px dotted #ccc;
+      @include all-caps(0.2em, var(--color-1));
+      border-bottom: 1px dotted;
+      border-color: var(--stroke);
       line-height: 2.7rem;
       text-align: center;
       > ul {
@@ -722,7 +535,8 @@ body {
         > aside {
           width: 220px;
           > div {
-            border-bottom: 1px dotted #ccc;
+            border-bottom: 1px dotted;
+            border-color: var(--stroke);
             padding-bottom: 1.15rem;
             li {
               [role='status'] {
@@ -742,7 +556,7 @@ body {
               @include clear();
             }
             > h3 {
-              @include all-caps(0.2em, #999);
+              @include all-caps(0.2em, var(--color-2), var(--title));
             }
             > ol,
             > ul {
@@ -758,7 +572,8 @@ body {
           flex: 1;
           min-width: 0;
           > article {
-            border-bottom: 1px dotted #ccc;
+            border-bottom: 1px dotted;
+            border-color: var(--stroke);
             padding-bottom: 1.15rem;
             > div {
               &::after {
@@ -769,27 +584,31 @@ body {
               }
             }
             > footer {
-              @include all-caps(0.1em, #999);
+              @include all-caps(0.1em, var(--color-2));
             }
             > header {
               h2,
               h3 {
-                color: #c60;
+                color: var(--color-title);
                 font-size: 150%;
                 margin-top: 0.4rem;
                 a {
-                  color: inherit;
+                  color: var(--color-title-link);
                   text-decoration: none;
                   &:focus,
                   &:hover {
-                    color: #a40;
+                    color: var(--color-title-link-1);
                     text-decoration: none;
+                    &:visited {
+                      color: var(--color-title-link-2, var(--color-title-link-1));
+                    }
                   }
                 }
               }
               p {
                 time {
-                  @include all-caps(0.2em, #999);
+                  @include all-caps(0.2em, var(--color-2), var(--title));
+                  display: block;
                 }
               }
               + div {
@@ -822,10 +641,13 @@ body {
           > aside {
             display: flex;
             flex-wrap: wrap;
-            gap: 2.5rem;
+            gap: 2rem;
             width: auto;
             > div {
               flex: 1;
+              + div {
+                margin-top: 0;
+              }
             }
           }
         }
@@ -835,5 +657,6 @@ body {
 }
 
 @import './_/black';
+@import './_/white';
 @import './_/blue';
-@import './_/ochre';
+// @import './_/ochre';

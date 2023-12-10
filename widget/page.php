@@ -1,0 +1,1 @@
+<?= self::widget('page/' . ($site->is('home') ? 'random' : 'recent'));
