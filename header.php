@@ -1,4 +1,5 @@
-<header>
+<?php $banner = $state->y->{'blogger-minima'}->banner ?? ""; ?>
+<header<?= $banner ? ' style="background-image: url(' . eat($banner) . ');"' : ""; ?>>
   <h1>
     <a<?= $site->is('home') ? ' aria-current="page"' : ""; ?> href="<?= eat($url); ?>">
       <?= $site->title; ?>

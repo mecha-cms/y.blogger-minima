@@ -1,0 +1,37 @@
+---
+title: Blogger: Minima
+description: Port of a classic Blogger template.
+image: /lot/y/blogger-minima/index.png
+images:
+- /lot/y/blogger-minima/index.png
+- /lot/y/blogger-minima/index/1.png
+- /lot/y/blogger-minima/index/2.png
+- /lot/y/blogger-minima/index/3.png
+author: Taufik Nurrohman
+link: https://www.styleshout.com/legacy-templates
+type: Markdown
+version: 1.0.0
+...
+
+This is not a clone of the original Minima template. I didn’t make it from the original source code, but by refactoring
+it using more modern HTML and CSS syntax.
+
+### Options
+
+Other color schemes of this template have been combined into one. You can enable other color variants via
+`.\lot\y\blogger-minima\state.php` file:
+
+~~~ .php
+<?php
+
+return [
+    'image' => null,
+    'skin' => ['name' => 'white']
+];
+~~~
+
+The default color variant is `white`. There are several other color variants you can try, including `black`, `blue`, and
+`ochre`. These are the official color variants provided by the designer of this template in the past.
+
+You can add an image URL to the `banner` property to set a background image of the header. The image will automatically
+resize to fit its container.
