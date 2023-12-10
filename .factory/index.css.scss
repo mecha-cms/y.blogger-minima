@@ -14,6 +14,208 @@
   display: table;
 }
 
+@mixin skin(
+  $color, // Text color
+  $color-1, // Text color accent
+  $color-2, // Header text color accent
+  $color-button, // Button text color
+  $color-link, // Link text color
+  $color-link-1, // Focus/hover link text color
+  $color-link-2: false, // Visited link text color
+  $color-title, // Title text color
+  $color-title-link, // Title link text color
+  $color-title-link-1, // Title focus/hover link text color
+  $color-title-link-2: false, // Title visited link text color
+  $fill, // Background color
+  $stroke, // Border color
+) {
+  background: $fill;
+  color: $color;
+  [role='link'],
+  a {
+    color: $color-link;
+    &:focus,
+    &:hover {
+      color: $color-link-1;
+      @if $color-link-2 {
+        &:visited {
+          color: $color-link-2;
+        }
+      }
+    }
+    &[aria-current],
+    &[aria-disabled] {
+      color: inherit;
+      &:visited {
+        color: inherit;
+      }
+    }
+  }
+  blockquote,
+  caption,
+  figcaption,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  legend {
+    color: $color-1;
+  }
+  a img,
+  fieldset,
+  hr,
+  table td,
+  table th {
+    border-color: $stroke;
+  }
+  pre {
+    code {
+      background: $color;
+      color: $fill;
+    }
+  }
+  [role='doc-toc'] {
+    li {
+      &:last-child {
+        &::after {
+          background: $fill;
+        }
+      }
+    }
+  }
+  [role='status'] {
+    color: $color-1;
+  }
+  [role='combobox'],
+  [role='listbox'],
+  [role='searchbox'],
+  [role='spinbutton'],
+  [role='textbox'],
+  button,
+  input,
+  select,
+  textarea {
+    accent-color: $color-link;
+    background: {
+      color: $fill;
+      image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.05));
+    }
+    border-color: $stroke;
+  }
+  [role='button'],
+  button,
+  input[type='button'],
+  input[type='reset'],
+  input[type='submit'] {
+    background: {
+      color: $stroke;
+      image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+    }
+    color: $color-button !important;
+    outline-color: transparent;
+  }
+  [role='checkbox'],
+  [role='radio'],
+  [role='slider'],
+  [role='switch'],
+  input[type='checkbox'],
+  input[type='file'],
+  input[type='image'],
+  input[type='radio'],
+  input[type='range'] {
+    background: 0 0;
+  }
+  > body {
+    > div {
+      > header {
+        border-color: $stroke;
+        color: $color-2;
+        h1 {
+          color: inherit;
+          font-weight: bold;
+          a {
+            color: inherit;
+            &:focus,
+            &:hover {
+              color: inherit;
+              &:visited {
+                color: inherit;
+              }
+            }
+          }
+        }
+        p {
+          color: $color-1;
+        }
+      }
+      > nav {
+        border-bottom-color: $stroke;
+        color: $color-2;
+      }
+      > header,
+      > nav {
+        + div {
+          > aside {
+            > div {
+              border-bottom-color: $stroke;
+              h3 {
+                color: $color-1;
+              }
+            }
+          }
+          > main {
+            > article {
+              border-bottom-color: $stroke;
+              > footer {
+                color: $color-1;
+              }
+              > header {
+                h2,
+                h3 {
+                  color: $color-title;
+                  a {
+                    @if $color-title-link {
+                      color: $color-title-link;
+                    } @else {
+                      color: inherit;
+                    }
+                    &:focus,
+                    &:hover {
+                      color: $color-title-link-1;
+                      @if $color-title-link-2 {
+                        &:visited {
+                          color: $color-title-link-2;
+                        }
+                      }
+                    }
+                  }
+                }
+                p {
+                  time {
+                    color: $color-1;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .comments h3,
+  .comments h4 {
+    color: $color-title;
+  }
+  .comment-header {
+    color: $color-1;
+    .comment-author {
+      color: inherit;
+    }
+  }
+}
+
 * {
   background: 0 0;
   border: 0;
