@@ -1,0 +1,1217 @@
+* {
+  background: 0 0;
+  border: 0;
+  box-sizing: border-box;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+:root {
+  background: #fff;
+  color: #333;
+  font: normal normal 13px/1.5 Georgia, serif;
+}
+
+a,
+details summary,
+[role=link] {
+  color: #58a;
+}
+a img,
+details summary img,
+[role=link] img {
+  border: 1px solid #ccc;
+  padding: 4px;
+}
+a:focus,
+details summary:focus,
+[role=link]:focus,
+a:hover,
+details summary:hover,
+[role=link]:hover {
+  color: #c60;
+  text-decoration: underline;
+}
+a:focus:visited,
+details summary:focus:visited,
+[role=link]:focus:visited,
+a:hover:visited,
+details summary:hover:visited,
+[role=link]:hover:visited {
+  color: #999;
+}
+a[aria-current],
+details summary[aria-current],
+[aria-current][role=link],
+a[aria-disabled],
+details summary[aria-disabled],
+[aria-disabled][role=link] {
+  color: inherit;
+  cursor: inherit;
+  text-decoration: none;
+}
+a[aria-current]:visited,
+details summary[aria-current]:visited,
+[aria-current][role=link]:visited,
+a[aria-disabled]:visited,
+details summary[aria-disabled]:visited,
+[aria-disabled][role=link]:visited {
+  color: inherit;
+}
+
+abbr {
+  cursor: help;
+}
+
+b,
+dt,
+strong,
+th {
+  font-weight: bold;
+}
+
+i,
+dfn,
+em,
+var {
+  font-style: italic;
+}
+
+s,
+[role=deletion],
+del {
+  text-decoration: line-through;
+}
+
+u {
+  text-decoration: underline;
+}
+
+blockquote {
+  color: #666;
+  font-size: 1.185em;
+  margin-left: 1.15rem;
+  margin-right: 1.15rem;
+}
+
+caption,
+figcaption {
+  color: #666;
+  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  font-size: 80%;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0.5em 0 0;
+  text-align: center;
+}
+
+code {
+  font-family: monospace;
+}
+
+label,
+details summary {
+  cursor: pointer;
+  user-select: none;
+}
+
+dl,
+ol,
+ul {
+  margin-left: 1.15rem;
+  margin-right: 1.15rem;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  padding: 1.15rem;
+}
+
+figure {
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #666;
+  line-height: 1.25;
+}
+
+/* <https://www.modularscale.com/?10,60&px&1.5> */
+h1 {
+  font-size: 3.375rem;
+}
+
+h2 {
+  font-size: 2.667rem;
+}
+
+h3 {
+  font-size: 2.25rem;
+}
+
+h4 {
+  font-size: 1.778rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1.185rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dotted #ccc;
+}
+
+legend {
+  color: #666;
+  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  font-size: 80%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0 0.5em;
+}
+legend + * {
+  margin-top: 0;
+}
+
+mark,
+[role=mark] {
+  background: #fea;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+ol {
+  list-style: decimal;
+}
+
+pre code {
+  background: #333;
+  color: #fff;
+  display: block;
+  overflow: auto;
+  padding: 0.5em 0.75em;
+  white-space: pre-wrap;
+}
+
+small,
+sub,
+sup {
+  font-size: 0.79em;
+}
+
+sub,
+sup {
+  line-height: 0;
+}
+
+sub {
+  vertical-align: sub;
+}
+
+sup {
+  vertical-align: super;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+table caption {
+  caption-side: bottom;
+}
+table td,
+table th {
+  border: 1px solid #ccc;
+  padding: 0.25em 0.5em;
+  vertical-align: top;
+}
+
+ul {
+  list-style: disc;
+}
+
+audio,
+video {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+* + blockquote,
+* + details,
+* + dl,
+* + dt,
+* + fieldset,
+* + figure,
+* + form,
+* + h1,
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6,
+* + hr,
+* + ol,
+* + p,
+* + pre,
+* + table,
+* + ul {
+  margin-top: 1.15rem;
+}
+
+input,
+[role=combobox],
+[role=listbox],
+[role=searchbox],
+[role=spinbutton],
+[role=textbox],
+[type=button][role=combobox],
+[type=button][role=listbox],
+[type=button][role=searchbox],
+[type=button][role=spinbutton],
+[type=button][role=textbox],
+[type=reset][role=combobox],
+[type=reset][role=listbox],
+[type=reset][role=searchbox],
+[type=reset][role=spinbutton],
+[type=reset][role=textbox],
+[type=submit][role=combobox],
+[type=submit][role=listbox],
+[type=submit][role=searchbox],
+[type=submit][role=spinbutton],
+[type=submit][role=textbox],
+button,
+[role=button],
+input[type=button],
+button[type=button],
+input[type=reset],
+button[type=reset],
+input[type=submit],
+button[type=submit],
+[type=button][role=button],
+[type=reset][role=button],
+[type=submit][role=button],
+select,
+textarea {
+  accent-color: #58a;
+  background-color: #fff;
+  background-image: linear-gradient(#f5f5f5, #fff);
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  border-top-color: #aaa;
+  color: inherit;
+  display: inline-block;
+  height: 2em;
+  line-height: calc(2em - 2px);
+  outline: 0;
+  padding: 0 0.5em;
+  text-decoration: none !important;
+  vertical-align: middle;
+  width: 12em;
+}
+
+button,
+[role=button],
+input[type=button],
+[type=button][role=combobox],
+[type=button][role=listbox],
+[type=button][role=searchbox],
+[type=button][role=spinbutton],
+[type=button][role=textbox],
+button[type=button],
+input[type=reset],
+[type=reset][role=combobox],
+[type=reset][role=listbox],
+[type=reset][role=searchbox],
+[type=reset][role=spinbutton],
+[type=reset][role=textbox],
+button[type=reset],
+input[type=submit],
+[type=submit][role=combobox],
+[type=submit][role=listbox],
+[type=submit][role=searchbox],
+[type=submit][role=spinbutton],
+[type=submit][role=textbox],
+button[type=submit],
+[type=button][role=button],
+[type=reset][role=button],
+[type=submit][role=button] {
+  background-color: #58a;
+  background-image: linear-gradient(#58a, #468);
+  border-width: 0;
+  color: #fff !important;
+  cursor: pointer;
+  outline: 1px solid #fff;
+  outline-color: rgba(255, 255, 255, 0.5);
+  outline-offset: -3px;
+  padding-left: 0.65em;
+  padding-right: 0.65em;
+  width: auto;
+}
+button:focus,
+[role=button]:focus,
+input[type=button]:focus,
+[type=button][role=combobox]:focus,
+[type=button][role=listbox]:focus,
+[type=button][role=searchbox]:focus,
+[type=button][role=spinbutton]:focus,
+[type=button][role=textbox]:focus,
+input[type=reset]:focus,
+[type=reset][role=combobox]:focus,
+[type=reset][role=listbox]:focus,
+[type=reset][role=searchbox]:focus,
+[type=reset][role=spinbutton]:focus,
+[type=reset][role=textbox]:focus,
+input[type=submit]:focus,
+[type=submit][role=combobox]:focus,
+[type=submit][role=listbox]:focus,
+[type=submit][role=searchbox]:focus,
+[type=submit][role=spinbutton]:focus,
+[type=submit][role=textbox]:focus {
+  outline-color: rgba(255, 255, 255, 0.75);
+}
+
+button::-moz-focus-inner,
+[role=button]::-moz-focus-inner,
+input[type=button]::-moz-focus-inner,
+button[type=button]::-moz-focus-inner,
+input[type=reset]::-moz-focus-inner,
+button[type=reset]::-moz-focus-inner,
+input[type=submit]::-moz-focus-inner,
+button[type=submit]::-moz-focus-inner,
+input::-moz-focus-inner,
+[role=combobox]::-moz-focus-inner,
+[role=listbox]::-moz-focus-inner,
+[role=searchbox]::-moz-focus-inner,
+[role=spinbutton]::-moz-focus-inner,
+[role=textbox]::-moz-focus-inner {
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+input[type=color],
+button[type=color],
+[type=color][role=button],
+[type=color][role=combobox],
+[type=color][role=listbox],
+[type=color][role=searchbox],
+[type=color][role=spinbutton],
+[type=color][role=textbox],
+input[type=image],
+button[type=image],
+[type=image][role=button],
+[type=image][role=combobox],
+[type=image][role=listbox],
+[type=image][role=searchbox],
+[type=image][role=spinbutton],
+[type=image][role=textbox] {
+  height: 2.25em;
+  padding: 0;
+  width: 2.25em;
+}
+
+input[type=image],
+button[type=image],
+[type=image][role=button],
+[type=image][role=combobox],
+[type=image][role=listbox],
+[type=image][role=searchbox],
+[type=image][role=spinbutton],
+[type=image][role=textbox] {
+  height: auto;
+  width: auto;
+}
+
+[role=checkbox],
+[role=radio],
+[role=switch],
+input[type=checkbox],
+button[type=checkbox],
+[type=checkbox][role=button],
+[type=checkbox][role=combobox],
+[type=checkbox][role=listbox],
+[type=checkbox][role=searchbox],
+[type=checkbox][role=spinbutton],
+[type=checkbox][role=textbox],
+input[type=radio],
+button[type=radio],
+[type=radio][role=button],
+[type=radio][role=combobox],
+[type=radio][role=listbox],
+[type=radio][role=searchbox],
+[type=radio][role=spinbutton],
+[type=radio][role=textbox] {
+  height: 1em;
+  width: 1em;
+}
+
+[role=checkbox],
+[role=radio],
+[role=slider],
+[role=switch],
+input[type=checkbox],
+button[type=checkbox],
+[type=checkbox][role=button],
+[type=checkbox][role=combobox],
+[type=checkbox][role=listbox],
+[type=checkbox][role=searchbox],
+[type=checkbox][role=spinbutton],
+[type=checkbox][role=textbox],
+input[type=file],
+button[type=file],
+[type=file][role=button],
+[type=file][role=combobox],
+[type=file][role=listbox],
+[type=file][role=searchbox],
+[type=file][role=spinbutton],
+[type=file][role=textbox],
+input[type=image],
+button[type=image],
+[type=image][role=button],
+[type=image][role=combobox],
+[type=image][role=listbox],
+[type=image][role=searchbox],
+[type=image][role=spinbutton],
+[type=image][role=textbox],
+input[type=radio],
+button[type=radio],
+[type=radio][role=button],
+[type=radio][role=combobox],
+[type=radio][role=listbox],
+[type=radio][role=searchbox],
+[type=radio][role=spinbutton],
+[type=radio][role=textbox],
+input[type=range],
+button[type=range],
+[type=range][role=button],
+[type=range][role=combobox],
+[type=range][role=listbox],
+[type=range][role=searchbox],
+[type=range][role=spinbutton],
+[type=range][role=textbox] {
+  background: 0 0;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+select {
+  cursor: pointer;
+}
+
+[role=combobox],
+[role=listbox],
+select {
+  -moz-padding-start: calc(0.5em - 3px);
+  /* <https://github.com/twbs/bootstrap/issues/32636> */
+  appearance: none;
+}
+
+::-moz-color-swatch {
+  border: 0;
+}
+
+::-webkit-color-swatch {
+  border: 0;
+}
+
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+[role=textbox][aria-multiline=true],
+textarea {
+  height: auto;
+  line-height: inherit;
+  padding-bottom: 0.35em;
+  padding-top: 0.35em;
+  resize: vertical;
+}
+
+[role=status] {
+  color: #999;
+}
+
+:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+[role=alert] {
+  background: rgba(204, 204, 204, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 0.25em 0.75em;
+  text-align: center;
+}
+[role=alert] + article {
+  margin-top: 1.15em;
+}
+[role=alert] a,
+[role=alert] [role=link],
+[role=alert] details summary,
+details [role=alert] summary {
+  text-decoration: underline;
+}
+
+.comments,
+.comments-body,
+.comments-footer,
+.form-comment {
+  margin-top: 1.15rem;
+}
+
+.comments h3,
+.comments h4 {
+  color: #c60;
+  font-size: 125%;
+}
+
+.comment-footer,
+.comment-header {
+  color: #999;
+  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  font-size: 80%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.comment-header .comment-author {
+  color: inherit;
+  font: inherit;
+  font-weight: bold;
+}
+
+.form-comment p input + br + small,
+.form-comment p button + br + small,
+.form-comment p [role=button] + br + small,
+.form-comment p [role=combobox] + br + small,
+.form-comment p [role=listbox] + br + small,
+.form-comment p [role=searchbox] + br + small,
+.form-comment p [role=spinbutton] + br + small,
+.form-comment p [role=textbox] + br + small,
+.form-comment p select + br + small,
+.form-comment p textarea + br + small {
+  color: #999;
+}
+
+[role=doc-endnotes] {
+  margin-top: 1.15em;
+}
+
+[role=doc-pagelist] {
+  margin-top: 1.15em;
+}
+
+body > div {
+  margin: 0 auto;
+  padding: 10px;
+  width: 680px;
+}
+body > div > header {
+  border: 1px solid #ccc;
+  color: #666;
+  letter-spacing: 0.2em;
+  padding: 1.5rem;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+body > div > header::before {
+  border: inherit;
+  bottom: 5px;
+  content: "";
+  left: 5px;
+  pointer-events: none;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: -1;
+}
+body > div > header h1 {
+  color: inherit;
+  font-size: 200%;
+  letter-spacing: 0.2em;
+  margin: 0 0 0.25em;
+}
+body > div > header h1 a,
+body > div > header h1 [role=link],
+body > div > header h1 details summary,
+details body > div > header h1 summary {
+  color: inherit;
+}
+body > div > header h1 a:focus,
+body > div > header h1 [role=link]:focus,
+body > div > header h1 details summary:focus,
+details body > div > header h1 summary:focus,
+body > div > header h1 a:hover,
+body > div > header h1 [role=link]:hover,
+body > div > header h1 details summary:hover,
+details body > div > header h1 summary:hover {
+  color: inherit;
+  text-decoration: none;
+}
+body > div > header h1 a:focus:visited,
+body > div > header h1 [role=link]:focus:visited,
+body > div > header h1 details summary:focus:visited,
+details body > div > header h1 summary:focus:visited,
+body > div > header h1 a:hover:visited,
+body > div > header h1 [role=link]:hover:visited,
+body > div > header h1 details summary:hover:visited,
+details body > div > header h1 summary:hover:visited {
+  color: inherit;
+}
+body > div > header p {
+  color: #999;
+  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  font-size: 80%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0;
+}
+body > div > nav {
+  color: #666;
+  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  font-size: 80%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-bottom: 1px dotted #ccc;
+  line-height: 2.7rem;
+  text-align: center;
+}
+body > div > nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body > div > nav > ul > li > a,
+body > div > nav > ul > li > [role=link],
+details body > div > nav > ul > li > summary {
+  display: block;
+  font-weight: bold;
+  padding: 0 1.15rem;
+}
+body > div > nav > ul > li > a:focus,
+body > div > nav > ul > li > [role=link]:focus,
+details body > div > nav > ul > li > summary:focus,
+body > div > nav > ul > li > a:hover,
+body > div > nav > ul > li > [role=link]:hover,
+details body > div > nav > ul > li > summary:hover {
+  text-decoration: none;
+}
+body > div > header + div,
+body > div > nav + div {
+  display: flex;
+  gap: 2.5rem;
+  margin: 1.15rem 0;
+}
+body > div > header + div > aside,
+body > div > nav + div > aside {
+  width: 220px;
+}
+body > div > header + div > aside > div,
+body > div > nav + div > aside > div {
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 1.15rem;
+}
+body > div > header + div > aside > div li [role=status],
+body > div > nav + div > aside > div li [role=status] {
+  float: right;
+}
+body > div > header + div > aside > div li [role=status]::after,
+body > div > nav + div > aside > div li [role=status]::after {
+  content: ")";
+}
+body > div > header + div > aside > div li [role=status]::before,
+body > div > nav + div > aside > div li [role=status]::before {
+  content: "(";
+}
+body > div > header + div > aside > div li::after,
+body > div > nav + div > aside > div li::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+body > div > header + div > aside > div::after,
+body > div > nav + div > aside > div::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+body > div > header + div > aside > div > h3,
+body > div > nav + div > aside > div > h3 {
+  color: #999;
+  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  font-size: 80%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+body > div > header + div > aside > div > ol,
+body > div > header + div > aside > div > ul,
+body > div > nav + div > aside > div > ol,
+body > div > nav + div > aside > div > ul {
+  list-style: none;
+  margin-left: 0;
+}
+body > div > header + div > aside > div + div,
+body > div > nav + div > aside > div + div {
+  margin-top: 1.15rem;
+}
+body > div > header + div > main,
+body > div > nav + div > main {
+  flex: 1;
+  min-width: 0;
+}
+body > div > header + div > main > article,
+body > div > nav + div > main > article {
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 1.15rem;
+}
+body > div > header + div > main > article > div::after,
+body > div > nav + div > main > article > div::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+body > div > header + div > main > article > div + footer,
+body > div > nav + div > main > article > div + footer {
+  margin-top: 1.15rem;
+}
+body > div > header + div > main > article > footer,
+body > div > nav + div > main > article > footer {
+  color: #999;
+  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  font-size: 80%;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+body > div > header + div > main > article > header h2,
+body > div > header + div > main > article > header h3,
+body > div > nav + div > main > article > header h2,
+body > div > nav + div > main > article > header h3 {
+  color: #c60;
+  font-size: 150%;
+  margin-top: 0.4rem;
+}
+body > div > header + div > main > article > header h2 a,
+body > div > header + div > main > article > header h2 [role=link],
+body > div > header + div > main > article > header h2 details summary,
+details body > div > header + div > main > article > header h2 summary,
+body > div > header + div > main > article > header h3 a,
+body > div > header + div > main > article > header h3 [role=link],
+body > div > header + div > main > article > header h3 details summary,
+details body > div > header + div > main > article > header h3 summary,
+body > div > nav + div > main > article > header h2 a,
+body > div > nav + div > main > article > header h2 [role=link],
+body > div > nav + div > main > article > header h2 details summary,
+details body > div > nav + div > main > article > header h2 summary,
+body > div > nav + div > main > article > header h3 a,
+body > div > nav + div > main > article > header h3 [role=link],
+body > div > nav + div > main > article > header h3 details summary,
+details body > div > nav + div > main > article > header h3 summary {
+  color: inherit;
+  text-decoration: none;
+}
+body > div > header + div > main > article > header h2 a:focus,
+body > div > header + div > main > article > header h2 [role=link]:focus,
+body > div > header + div > main > article > header h2 details summary:focus,
+details body > div > header + div > main > article > header h2 summary:focus,
+body > div > header + div > main > article > header h2 a:hover,
+body > div > header + div > main > article > header h2 [role=link]:hover,
+body > div > header + div > main > article > header h2 details summary:hover,
+details body > div > header + div > main > article > header h2 summary:hover,
+body > div > header + div > main > article > header h3 a:focus,
+body > div > header + div > main > article > header h3 [role=link]:focus,
+body > div > header + div > main > article > header h3 details summary:focus,
+details body > div > header + div > main > article > header h3 summary:focus,
+body > div > header + div > main > article > header h3 a:hover,
+body > div > header + div > main > article > header h3 [role=link]:hover,
+body > div > header + div > main > article > header h3 details summary:hover,
+details body > div > header + div > main > article > header h3 summary:hover,
+body > div > nav + div > main > article > header h2 a:focus,
+body > div > nav + div > main > article > header h2 [role=link]:focus,
+body > div > nav + div > main > article > header h2 details summary:focus,
+details body > div > nav + div > main > article > header h2 summary:focus,
+body > div > nav + div > main > article > header h2 a:hover,
+body > div > nav + div > main > article > header h2 [role=link]:hover,
+body > div > nav + div > main > article > header h2 details summary:hover,
+details body > div > nav + div > main > article > header h2 summary:hover,
+body > div > nav + div > main > article > header h3 a:focus,
+body > div > nav + div > main > article > header h3 [role=link]:focus,
+body > div > nav + div > main > article > header h3 details summary:focus,
+details body > div > nav + div > main > article > header h3 summary:focus,
+body > div > nav + div > main > article > header h3 a:hover,
+body > div > nav + div > main > article > header h3 [role=link]:hover,
+body > div > nav + div > main > article > header h3 details summary:hover,
+details body > div > nav + div > main > article > header h3 summary:hover {
+  color: #a40;
+  text-decoration: none;
+}
+body > div > header + div > main > article > header p time,
+body > div > nav + div > main > article > header p time {
+  color: #999;
+  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+  font-size: 80%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+body > div > header + div > main > article > header + div,
+body > div > nav + div > main > article > header + div {
+  margin-top: 1.15rem;
+}
+body > div > header + div > main > article + article,
+body > div > nav + div > main > article + article {
+  margin-top: 1.15rem;
+}
+body > div > header + div > main > article + nav,
+body > div > nav + div > main > article + nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.15rem;
+}
+
+@media (max-width: 680px) {
+  body > div {
+    width: auto;
+  }
+  body > div > header + div,
+  body > div > nav + div {
+    flex-direction: column;
+  }
+  body > div > header + div > aside,
+  body > div > nav + div > aside {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    width: auto;
+  }
+  body > div > header + div > aside > div,
+  body > div > nav + div > aside > div {
+    flex: 1;
+  }
+}
+.skin\:black {
+  background: #000;
+  color: #ccc;
+  font-family: "Trebuchet MS", Trebuchet, sans-serif;
+}
+.skin\:black [role=link],
+.skin\:black a,
+.skin\:black details summary,
+details .skin\:black summary {
+  color: #9ad;
+}
+.skin\:black [role=link]:focus,
+.skin\:black [role=link]:hover,
+.skin\:black a:focus,
+.skin\:black details summary:focus,
+details .skin\:black summary:focus,
+.skin\:black a:hover,
+.skin\:black details summary:hover,
+details .skin\:black summary:hover {
+  color: #ad9;
+}
+.skin\:black [role=link]:focus:visited,
+.skin\:black [role=link]:hover:visited,
+.skin\:black a:focus:visited,
+.skin\:black details summary:focus:visited,
+details .skin\:black summary:focus:visited,
+.skin\:black a:hover:visited,
+.skin\:black details summary:hover:visited,
+details .skin\:black summary:hover:visited {
+  color: #a7a;
+}
+.skin\:black [role=link][aria-current],
+.skin\:black [role=link][aria-disabled],
+.skin\:black a[aria-current],
+.skin\:black details summary[aria-current],
+details .skin\:black summary[aria-current],
+.skin\:black a[aria-disabled],
+.skin\:black details summary[aria-disabled],
+details .skin\:black summary[aria-disabled] {
+  color: inherit;
+}
+.skin\:black [role=link][aria-current]:visited,
+.skin\:black [role=link][aria-disabled]:visited,
+.skin\:black a[aria-current]:visited,
+.skin\:black details summary[aria-current]:visited,
+details .skin\:black summary[aria-current]:visited,
+.skin\:black a[aria-disabled]:visited,
+.skin\:black details summary[aria-disabled]:visited,
+details .skin\:black summary[aria-disabled]:visited {
+  color: inherit;
+}
+.skin\:black blockquote,
+.skin\:black caption,
+.skin\:black figcaption,
+.skin\:black h1,
+.skin\:black h2,
+.skin\:black h3,
+.skin\:black h4,
+.skin\:black h5,
+.skin\:black h6,
+.skin\:black legend {
+  color: #777;
+}
+.skin\:black a img,
+.skin\:black [role=link] img,
+.skin\:black details summary img,
+details .skin\:black summary img,
+.skin\:black fieldset,
+.skin\:black hr,
+.skin\:black table td,
+.skin\:black table th {
+  border-color: #333;
+}
+.skin\:black pre code {
+  background: #ccc;
+  color: #000;
+}
+.skin\:black [role=alert] {
+  background: rgba(51, 51, 51, 0.5);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+.skin\:black [role=doc-toc] li:last-child::after {
+  background: #000;
+}
+.skin\:black [role=status] {
+  color: #777;
+}
+.skin\:black [role=combobox],
+.skin\:black [role=listbox],
+.skin\:black [role=searchbox],
+.skin\:black [role=spinbutton],
+.skin\:black [role=textbox],
+.skin\:black button,
+.skin\:black [role=button],
+.skin\:black input,
+.skin\:black select,
+.skin\:black textarea {
+  accent-color: #9ad;
+  background-color: #000;
+  background-image: linear-gradient(#000, rgba(255, 255, 255, 0.05));
+  border-color: #333 #333 #444;
+}
+.skin\:black [role=button],
+.skin\:black button,
+.skin\:black [type=button][role=combobox],
+.skin\:black [type=button][role=listbox],
+.skin\:black [type=button][role=searchbox],
+.skin\:black [type=button][role=spinbutton],
+.skin\:black [type=button][role=textbox],
+.skin\:black [type=reset][role=combobox],
+.skin\:black [type=reset][role=listbox],
+.skin\:black [type=reset][role=searchbox],
+.skin\:black [type=reset][role=spinbutton],
+.skin\:black [type=reset][role=textbox],
+.skin\:black [type=submit][role=combobox],
+.skin\:black [type=submit][role=listbox],
+.skin\:black [type=submit][role=searchbox],
+.skin\:black [type=submit][role=spinbutton],
+.skin\:black [type=submit][role=textbox],
+.skin\:black input[type=button],
+.skin\:black input[type=reset],
+.skin\:black input[type=submit] {
+  background-color: #333;
+  background-image: linear-gradient(#333, #222);
+  color: #ccc !important;
+  outline-color: transparent;
+}
+.skin\:black [role=checkbox],
+.skin\:black [role=radio],
+.skin\:black [role=slider],
+.skin\:black [role=switch],
+.skin\:black input[type=checkbox],
+.skin\:black button[type=checkbox],
+.skin\:black [type=checkbox][role=button],
+.skin\:black [type=checkbox][role=combobox],
+.skin\:black [type=checkbox][role=listbox],
+.skin\:black [type=checkbox][role=searchbox],
+.skin\:black [type=checkbox][role=spinbutton],
+.skin\:black [type=checkbox][role=textbox],
+.skin\:black input[type=file],
+.skin\:black button[type=file],
+.skin\:black [type=file][role=button],
+.skin\:black [type=file][role=combobox],
+.skin\:black [type=file][role=listbox],
+.skin\:black [type=file][role=searchbox],
+.skin\:black [type=file][role=spinbutton],
+.skin\:black [type=file][role=textbox],
+.skin\:black input[type=image],
+.skin\:black button[type=image],
+.skin\:black [type=image][role=button],
+.skin\:black [type=image][role=combobox],
+.skin\:black [type=image][role=listbox],
+.skin\:black [type=image][role=searchbox],
+.skin\:black [type=image][role=spinbutton],
+.skin\:black [type=image][role=textbox],
+.skin\:black input[type=radio],
+.skin\:black button[type=radio],
+.skin\:black [type=radio][role=button],
+.skin\:black [type=radio][role=combobox],
+.skin\:black [type=radio][role=listbox],
+.skin\:black [type=radio][role=searchbox],
+.skin\:black [type=radio][role=spinbutton],
+.skin\:black [type=radio][role=textbox],
+.skin\:black input[type=range],
+.skin\:black button[type=range],
+.skin\:black [type=range][role=button],
+.skin\:black [type=range][role=combobox],
+.skin\:black [type=range][role=listbox],
+.skin\:black [type=range][role=searchbox],
+.skin\:black [type=range][role=spinbutton],
+.skin\:black [type=range][role=textbox] {
+  background: 0 0;
+}
+.skin\:black > body > div > header {
+  border-color: #333;
+  color: #ccc;
+}
+.skin\:black > body > div > header h1 {
+  color: inherit;
+  font-weight: bold;
+}
+.skin\:black > body > div > header h1 a,
+.skin\:black > body > div > header h1 [role=link],
+.skin\:black > body > div > header h1 details summary,
+details .skin\:black > body > div > header h1 summary {
+  color: inherit;
+}
+.skin\:black > body > div > header h1 a:focus,
+.skin\:black > body > div > header h1 [role=link]:focus,
+.skin\:black > body > div > header h1 details summary:focus,
+details .skin\:black > body > div > header h1 summary:focus,
+.skin\:black > body > div > header h1 a:hover,
+.skin\:black > body > div > header h1 [role=link]:hover,
+.skin\:black > body > div > header h1 details summary:hover,
+details .skin\:black > body > div > header h1 summary:hover {
+  color: inherit;
+}
+.skin\:black > body > div > header h1 a:focus:visited,
+.skin\:black > body > div > header h1 [role=link]:focus:visited,
+.skin\:black > body > div > header h1 details summary:focus:visited,
+details .skin\:black > body > div > header h1 summary:focus:visited,
+.skin\:black > body > div > header h1 a:hover:visited,
+.skin\:black > body > div > header h1 [role=link]:hover:visited,
+.skin\:black > body > div > header h1 details summary:hover:visited,
+details .skin\:black > body > div > header h1 summary:hover:visited {
+  color: inherit;
+}
+.skin\:black > body > div > header p {
+  color: #777;
+}
+.skin\:black > body > div > nav {
+  border-bottom-color: #333;
+  color: #ccc;
+}
+.skin\:black > body > div > header + div > aside > div,
+.skin\:black > body > div > nav + div > aside > div {
+  border-bottom-color: #333;
+}
+.skin\:black > body > div > header + div > aside > div h3,
+.skin\:black > body > div > nav + div > aside > div h3 {
+  color: #777;
+}
+.skin\:black > body > div > header + div > main > article,
+.skin\:black > body > div > nav + div > main > article {
+  border-bottom-color: #333;
+}
+.skin\:black > body > div > header + div > main > article > footer,
+.skin\:black > body > div > nav + div > main > article > footer {
+  color: #777;
+}
+.skin\:black > body > div > header + div > main > article > header h2,
+.skin\:black > body > div > header + div > main > article > header h3,
+.skin\:black > body > div > nav + div > main > article > header h2,
+.skin\:black > body > div > nav + div > main > article > header h3 {
+  color: #ad9;
+}
+.skin\:black > body > div > header + div > main > article > header h2 a,
+.skin\:black > body > div > header + div > main > article > header h2 [role=link],
+.skin\:black > body > div > header + div > main > article > header h2 details summary,
+details .skin\:black > body > div > header + div > main > article > header h2 summary,
+.skin\:black > body > div > header + div > main > article > header h3 a,
+.skin\:black > body > div > header + div > main > article > header h3 [role=link],
+.skin\:black > body > div > header + div > main > article > header h3 details summary,
+details .skin\:black > body > div > header + div > main > article > header h3 summary,
+.skin\:black > body > div > nav + div > main > article > header h2 a,
+.skin\:black > body > div > nav + div > main > article > header h2 [role=link],
+.skin\:black > body > div > nav + div > main > article > header h2 details summary,
+details .skin\:black > body > div > nav + div > main > article > header h2 summary,
+.skin\:black > body > div > nav + div > main > article > header h3 a,
+.skin\:black > body > div > nav + div > main > article > header h3 [role=link],
+.skin\:black > body > div > nav + div > main > article > header h3 details summary,
+details .skin\:black > body > div > nav + div > main > article > header h3 summary {
+  color: inherit;
+}
+.skin\:black > body > div > header + div > main > article > header h2 a:focus,
+.skin\:black > body > div > header + div > main > article > header h2 [role=link]:focus,
+.skin\:black > body > div > header + div > main > article > header h2 details summary:focus,
+details .skin\:black > body > div > header + div > main > article > header h2 summary:focus,
+.skin\:black > body > div > header + div > main > article > header h2 a:hover,
+.skin\:black > body > div > header + div > main > article > header h2 [role=link]:hover,
+.skin\:black > body > div > header + div > main > article > header h2 details summary:hover,
+details .skin\:black > body > div > header + div > main > article > header h2 summary:hover,
+.skin\:black > body > div > header + div > main > article > header h3 a:focus,
+.skin\:black > body > div > header + div > main > article > header h3 [role=link]:focus,
+.skin\:black > body > div > header + div > main > article > header h3 details summary:focus,
+details .skin\:black > body > div > header + div > main > article > header h3 summary:focus,
+.skin\:black > body > div > header + div > main > article > header h3 a:hover,
+.skin\:black > body > div > header + div > main > article > header h3 [role=link]:hover,
+.skin\:black > body > div > header + div > main > article > header h3 details summary:hover,
+details .skin\:black > body > div > header + div > main > article > header h3 summary:hover,
+.skin\:black > body > div > nav + div > main > article > header h2 a:focus,
+.skin\:black > body > div > nav + div > main > article > header h2 [role=link]:focus,
+.skin\:black > body > div > nav + div > main > article > header h2 details summary:focus,
+details .skin\:black > body > div > nav + div > main > article > header h2 summary:focus,
+.skin\:black > body > div > nav + div > main > article > header h2 a:hover,
+.skin\:black > body > div > nav + div > main > article > header h2 [role=link]:hover,
+.skin\:black > body > div > nav + div > main > article > header h2 details summary:hover,
+details .skin\:black > body > div > nav + div > main > article > header h2 summary:hover,
+.skin\:black > body > div > nav + div > main > article > header h3 a:focus,
+.skin\:black > body > div > nav + div > main > article > header h3 [role=link]:focus,
+.skin\:black > body > div > nav + div > main > article > header h3 details summary:focus,
+details .skin\:black > body > div > nav + div > main > article > header h3 summary:focus,
+.skin\:black > body > div > nav + div > main > article > header h3 a:hover,
+.skin\:black > body > div > nav + div > main > article > header h3 [role=link]:hover,
+.skin\:black > body > div > nav + div > main > article > header h3 details summary:hover,
+details .skin\:black > body > div > nav + div > main > article > header h3 summary:hover {
+  color: #cf9;
+}
+.skin\:black > body > div > header + div > main > article > header p time,
+.skin\:black > body > div > nav + div > main > article > header p time {
+  color: #777;
+}
+.skin\:black .comments h3,
+.skin\:black .comments h4 {
+  color: #ad9;
+}
+.skin\:black .comment-header {
+  color: #777;
+}
+.skin\:black .comment-header .comment-author {
+  color: inherit;
+}
