@@ -28,6 +28,10 @@ Other color schemes of this template have been combined into one. You can enable
 
 return [
     'banner' => null,
+    'color' => [
+        'description' => '#cccccc',
+        'title' => '#ffffff'
+    ],
     'skin' => ['name' => 'white']
 ];
 ~~~
