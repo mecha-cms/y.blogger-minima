@@ -1,4 +1,10 @@
 [role='doc-toc'] {
+  [role='heading'] {
+    padding-left: 1.15rem;
+    &::before {
+      color: var(--color-1);
+    }
+  }
   [role='doc-pagelist'] {
     li {
       &::after,

@@ -13,14 +13,14 @@
   --face-2: monospace;
   --face: 'Trebuchet MS', Trebuchet, sans-serif;
   --fill-alert: rgba(51, 51, 51, 0.5);
-  --fill-button: #333 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  --fill-button: #333 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
   --fill-input: #000 linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.05)) repeat-x 0 0;
   --fill-mark: #333;
   --fill: #000;
   --stroke-1: #{rgba(#333, 0.5)};
   --stroke-alert: rgba(255, 255, 255, 0.5);
-  --stroke-button-1: rgba(255, 255, 255, 0.15);
-  --stroke-button: rgba(255, 255, 255, 0.05);
+  --stroke-button-1: rgba(255, 255, 255, 0.25);
+  --stroke-button: rgba(255, 255, 255, 0.15);
   --stroke-input: #222 #222 #333;
   --stroke: #333;
   --title: 700;

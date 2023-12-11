@@ -1,12 +1,14 @@
 ---
 title: Blogger: Minima
-description: Port of a classic Blogger template.
+description: Minima (classic Blogger template), ported to Mecha.
 image: /lot/y/blogger-minima/index.png
 images:
 - /lot/y/blogger-minima/index.png
 - /lot/y/blogger-minima/index/1.png
 - /lot/y/blogger-minima/index/2.png
 - /lot/y/blogger-minima/index/3.png
+- /lot/y/blogger-minima/index/4.png
+- /lot/y/blogger-minima/index/5.png
 author: Taufik Nurrohman
 link: https://www.styleshout.com/legacy-templates
 type: Markdown
@@ -14,9 +16,9 @@ version: 1.0.0
 ...
 
 This is not a clone of the original Minima template. I didn’t make it from the original source code, but by refactoring
-it using more modern HTML and CSS syntax.
+it using more modern CSS and HTML syntax.
 
-### Options
+### Features
 
 Other color schemes of this template have been combined into one. You can enable other color variants via
 `.\lot\y\blogger-minima\state.php` file:
@@ -25,7 +27,7 @@ Other color schemes of this template have been combined into one. You can enable
 <?php
 
 return [
-    'image' => null,
+    'banner' => null,
     'skin' => ['name' => 'white']
 ];
 ~~~

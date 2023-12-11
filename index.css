@@ -117,6 +117,40 @@ code {
   font-family: var(--face-2);
 }
 
+details summary {
+  display: block;
+  padding-left: 1.15rem;
+  position: relative;
+  text-decoration: none !important;
+}
+details summary::before {
+  border-bottom: 4px solid transparent;
+  border-left: 8px solid;
+  border-right: 0 solid transparent;
+  border-top: 4px solid transparent;
+  content: "";
+  height: 0;
+  left: 0;
+  margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  width: 0;
+}
+details[open] summary::before {
+  border-bottom: 0 solid transparent;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 8px solid;
+  margin-top: -3px;
+}
+details[role=tree] ul {
+  margin-top: 0;
+  list-style: none;
+}
+details[role=tree] + [role=tree] {
+  margin-top: 0;
+}
+
 label,
 details summary {
   cursor: pointer;
@@ -152,29 +186,28 @@ h6 {
   color: var(--color-1);
 }
 
-/* <https://www.modularscale.com/?10,60&px&1.5> */
 h1 {
-  font-size: 3.375rem;
+  font-size: 310%;
 }
 
 h2 {
-  font-size: 2.667rem;
+  font-size: 250%;
 }
 
 h3 {
-  font-size: 2.25rem;
+  font-size: 200%;
 }
 
 h4 {
-  font-size: 1.778rem;
+  font-size: 160%;
 }
 
 h5 {
-  font-size: 1.5rem;
+  font-size: 130%;
 }
 
 h6 {
-  font-size: 1.185rem;
+  font-size: 110%;
 }
 
 hr {
@@ -641,6 +674,12 @@ details [role=alert] summary {
   gap: 0.5em;
 }
 
+[role=doc-toc] [role=heading] {
+  padding-left: 1.15rem;
+}
+[role=doc-toc] [role=heading]::before {
+  color: var(--color-1);
+}
 [role=doc-toc] [role=doc-pagelist] li::after,
 [role=doc-toc] [role=doc-pagelist] li::before {
   border-color: var(--stroke, #000);
@@ -730,6 +769,7 @@ body > div > nav {
   text-transform: uppercase;
   border-bottom: 1px dotted;
   border-color: var(--stroke);
+  font-size: 100%;
   line-height: 2.7rem;
   text-align: center;
 }
@@ -772,23 +812,17 @@ body > div > nav + div > aside > div {
   border-color: var(--stroke);
   padding-bottom: 1.15rem;
 }
-body > div > header + div > aside > div li [role=status],
-body > div > nav + div > aside > div li [role=status] {
-  float: right;
-}
 body > div > header + div > aside > div li [role=status]::after,
-body > div > nav + div > aside > div li [role=status]::after {
+body > div > header + div > aside > div summary [role=status]::after,
+body > div > nav + div > aside > div li [role=status]::after,
+body > div > nav + div > aside > div summary [role=status]::after {
   content: ")";
 }
 body > div > header + div > aside > div li [role=status]::before,
-body > div > nav + div > aside > div li [role=status]::before {
+body > div > header + div > aside > div summary [role=status]::before,
+body > div > nav + div > aside > div li [role=status]::before,
+body > div > nav + div > aside > div summary [role=status]::before {
   content: "(";
-}
-body > div > header + div > aside > div li::after,
-body > div > nav + div > aside > div li::after {
-  clear: both;
-  content: "";
-  display: table;
 }
 body > div > header + div > aside > div::after,
 body > div > nav + div > aside > div::after {
@@ -1006,16 +1040,128 @@ body > div > nav + div > main > article + nav {
   --face-2: monospace;
   --face: "Trebuchet MS", Trebuchet, sans-serif;
   --fill-alert: rgba(51, 51, 51, 0.5);
-  --fill-button: #333 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  --fill-button: #333 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
   --fill-input: #000 linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.05)) repeat-x 0 0;
   --fill-mark: #333;
   --fill: #000;
   --stroke-1: rgba(51, 51, 51, 0.5);
   --stroke-alert: rgba(255, 255, 255, 0.5);
-  --stroke-button-1: rgba(255, 255, 255, 0.15);
-  --stroke-button: rgba(255, 255, 255, 0.05);
+  --stroke-button-1: rgba(255, 255, 255, 0.25);
+  --stroke-button: rgba(255, 255, 255, 0.15);
   --stroke-input: #222 #222 #333;
   --stroke: #333;
+  --title: 700;
+}
+
+.skin\:blue {
+  --color-1: #eee;
+  --color-2: #579;
+  --color-button: #ccc;
+  --color-link-1: #fc6;
+  --color-link-2: #a7a;
+  --color-link: #9bd;
+  --color-title-link-1: #ccc;
+  --color-title-link: inherit;
+  --color-title: #fc6;
+  --color: #ccc;
+  --face-1: "Trebuchet MS", Trebuchet, sans-serif;
+  --face-2: monospace;
+  --face: "Trebuchet MS", Trebuchet, sans-serif;
+  --fill-alert: rgba(51, 51, 51, 0.5);
+  --fill-button: #357 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
+  --fill-input: #135 linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)) repeat-x 0 0;
+  --fill-mark: #246;
+  --fill: #135;
+  --stroke-1: rgba(68, 102, 136, 0.5);
+  --stroke-alert: rgba(255, 255, 255, 0.5);
+  --stroke-button-1: rgba(255, 255, 255, 0.25);
+  --stroke-button: rgba(255, 255, 255, 0.15);
+  --stroke-input: #246 #246 #357;
+  --stroke: #468;
+  --title: 700;
+}
+
+.skin\:boy-red {
+  --color-1: #eee;
+  --color-2: #aaa;
+  --color-button: #eee;
+  --color-link-1: #ee9;
+  --color-link-2: #aaa;
+  --color-link: #bb6;
+  --color-title-link-1: #ee9;
+  --color-title-link: inherit;
+  --color-title: #cc9;
+  --color: #ccc;
+  --face-1: "Trebuchet MS", Trebuchet, sans-serif;
+  --face-2: monospace;
+  --face: Georgia, serif;
+  --fill-alert: rgba(204, 204, 204, 0.5);
+  --fill-button: #bb6 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
+  --fill-input: #553 linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)) repeat-x 0 0;
+  --fill-mark: #442;
+  --fill: #664;
+  --stroke-1: rgba(153, 153, 136, 0.5);
+  --stroke-alert: rgba(0, 0, 0, 0.5);
+  --stroke-button-1: rgba(255, 255, 255, 0.5);
+  --stroke-button: rgba(255, 255, 255, 0.25);
+  --stroke-input: #998;
+  --stroke: #998;
+  --title: 400;
+}
+
+.skin\:ochre {
+  --color-1: #874;
+  --color-2: #774;
+  --color-button: #ffc;
+  --color-link-1: #c80;
+  --color-link-2: #996;
+  --color-link: #684;
+  --color-title-link-1: #a60;
+  --color-title-link: inherit;
+  --color-title: #c80;
+  --color: #333;
+  --face-1: "Trebuchet MS", Trebuchet, sans-serif;
+  --face-2: monospace;
+  --face: Georgia, serif;
+  --fill-alert: rgba(204, 204, 204, 0.5);
+  --fill-button: #874 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05)) repeat-x 0 0;
+  --fill-input: #fff linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)) repeat-x 0 0;
+  --fill-mark: #ffd;
+  --fill: #dd9;
+  --stroke-1: rgba(255, 255, 204, 0.5);
+  --stroke-alert: rgba(0, 0, 0, 0.5);
+  --stroke-button-1: rgba(255, 255, 255, 0.8);
+  --stroke-button: rgba(255, 255, 255, 0.5);
+  --stroke-input: #874;
+  --stroke: #ffc;
+  --title: 400;
+}
+
+.skin\:puce-red {
+  --color-1: #aaa;
+  --color-2: #a77;
+  --color-button: #ccc;
+  --color-link-1: #c60;
+  --color-link-2: #999;
+  --color-link: #58a;
+  --color-title-link-1: #e80;
+  --color-title-link: inherit;
+  --color-title: #c60;
+  --color: #ccc;
+  --face-1: "Trebuchet MS", Trebuchet, sans-serif;
+  --face-2: monospace;
+  --face: "Trebuchet MS", Trebuchet, sans-serif;
+  --fill-alert: rgba(204, 204, 204, 0.5);
+  --fill-button: #855 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
+  --fill-input: #533 linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)) repeat-x 0 0;
+  --fill-mark: #844;
+  --fill: #633;
+  --stroke-1: rgba(136, 85, 85, 0.5);
+  --stroke-alert: rgba(0, 0, 0, 0.5);
+  --stroke-button-1: rgba(255, 255, 255, 0.25);
+  --stroke-button: rgba(255, 255, 255, 0.15);
+  --stroke-input: #855;
+  --stroke: #855;
   --title: 700;
 }
 
@@ -1034,7 +1180,7 @@ body > div > nav + div > main > article + nav {
   --face-2: monospace;
   --face: Georgia, serif;
   --fill-alert: rgba(204, 204, 204, 0.5);
-  --fill-button: #58a linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  --fill-button: #58a linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
   --fill-input: #fff linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)) repeat-x 0 0;
   --fill-mark: #fea;
   --fill: #fff;
@@ -1045,32 +1191,4 @@ body > div > nav + div > main > article + nav {
   --stroke-input: #aaa #ccc #ccc;
   --stroke: #ccc;
   --title: 400;
-}
-
-.skin\:blue {
-  --color-1: #eee;
-  --color-2: #579;
-  --color-button: #ccc;
-  --color-link-1: #fc6;
-  --color-link-2: #a7a;
-  --color-link: #9bd;
-  --color-title-link-1: #ccc;
-  --color-title-link: inherit;
-  --color-title: #fc6;
-  --color: #ccc;
-  --face-1: "Trebuchet MS", Trebuchet, sans-serif;
-  --face-2: monospace;
-  --face: "Trebuchet MS", Trebuchet, sans-serif;
-  --fill-alert: rgba(51, 51, 51, 0.5);
-  --fill-button: #357 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
-  --fill-input: #135 linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)) repeat-x 0 0;
-  --fill-mark: #246;
-  --fill: #135;
-  --stroke-1: rgba(68, 102, 136, 0.5);
-  --stroke-alert: rgba(255, 255, 255, 0.5);
-  --stroke-button-1: rgba(255, 255, 255, 0.15);
-  --stroke-button: rgba(255, 255, 255, 0.05);
-  --stroke-input: #246 #246 #357;
-  --stroke: #468;
-  --title: 700;
 }

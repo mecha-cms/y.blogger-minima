@@ -3,6 +3,13 @@
 $z = defined('TEST') && TEST ? '.' : '.min.';
 Asset::set(__DIR__ . D . 'index' . $z . 'css', 20);
 
+if ($banner = $state->y->{'blogger-minima'}->banner ?? "") {
+    $style = 'body>div>header{background-image:url(' . $banner . ')}';
+    $style .= 'body>div>header>h1{color:' . ($state->y->{'blogger-minima'}->color->title ?? '#ffffff') . '}';
+    $style .= 'body>div>header>p{color:' . ($state->y->{'blogger-minima'}->color->description ?? '#cccccc') . '}';
+    Asset::set('data:text/css;base64,' . To::base64($style), 20.1);
+}
+
 $GLOBALS['links'] = new Anemone((static function ($links, $state, $url) {
     $index = LOT . D . 'page' . D . trim(strtr($state->route, '/', D), D) . '.page';
     $path = $url->path . '/';

@@ -120,6 +120,43 @@ del {
 details {
   summary {
     @extend a, label;
+    display: block;
+    padding-left: 1.15rem;
+    position: relative;
+    text-decoration: none !important;
+    &::before {
+      border-bottom: 4px solid transparent;
+      border-left: 8px solid;
+      border-right: 0 solid transparent;
+      border-top: 4px solid transparent;
+      content: "";
+      height: 0;
+      left: 0;
+      margin-top: -4px;
+      position: absolute;
+      top: 50%;
+      width: 0;
+    }
+  }
+  &[open] {
+    summary {
+      &::before {
+        border-bottom: 0 solid transparent;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 8px solid;
+        margin-top: -3px;
+      }
+    }
+  }
+  &[role='tree'] {
+    ul {
+      margin-top: 0;
+      list-style: none;
+    }
+    + [role='tree'] {
+      margin-top: 0;
+    }
   }
 }
 
@@ -166,29 +203,28 @@ h6 {
   // line-height: 1.25;
 }
 
-/* <https://www.modularscale.com/?10,60&px&1.5> */
 h1 {
-  font-size: 3.375rem;
+  font-size: 310%;
 }
 
 h2 {
-  font-size: 2.667rem;
+  font-size: 250%;
 }
 
 h3 {
-  font-size: 2.25rem;
+  font-size: 200%;
 }
 
 h4 {
-  font-size: 1.778rem;
+  font-size: 160%;
 }
 
 h5 {
-  font-size: 1.5rem;
+  font-size: 130%;
 }
 
 h6 {
-  font-size: 1.185rem;
+  font-size: 110%;
 }
 
 hr {
@@ -504,6 +540,7 @@ body {
       @include all-caps(0.2em, var(--color-1));
       border-bottom: 1px dotted;
       border-color: var(--stroke);
+      font-size: 100%;
       line-height: 2.7rem;
       text-align: center;
       > ul {
@@ -538,18 +575,15 @@ body {
             border-bottom: 1px dotted;
             border-color: var(--stroke);
             padding-bottom: 1.15rem;
-            li {
+            li,
+            summary {
               [role='status'] {
-                float: right;
                 &::after {
                   content: ')';
                 }
                 &::before {
                   content: '(';
                 }
-              }
-              &::after {
-                @include clear();
               }
             }
             &::after {
@@ -657,6 +691,8 @@ body {
 }
 
 @import './_/black';
-@import './_/white';
 @import './_/blue';
-// @import './_/ochre';
+@import './_/boy-red';
+@import './_/ochre';
+@import './_/puce-red';
+@import './_/white';
