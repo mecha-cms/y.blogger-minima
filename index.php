@@ -27,14 +27,14 @@ $GLOBALS['links'] = new Anemone((static function ($links, $state, $url) {
     return $links;
 })([], $state, $url));
 
-$defaults = [
+$states = [
     'route-blog' => '/article',
-    'x.comment.page.type' => 'Markdown',
-    'x.page.page.type' => 'Markdown'
+    'x.comment.page.type' => isset($state->x->comment) ? 'Markdown' : null,
+    'x.page.page.type' => isset($state->x->page) ? 'Markdown' : null
 ];
 
-foreach ($defaults as $k => $v) {
-    !State::get($k) && State::set($k, $v);
+foreach ($states as $k => $v) {
+    !State::get($k) && null !== $v && State::set($k, $v);
 }
 
 if (isset($state->x->alert)) {

@@ -50,9 +50,8 @@ Hook::set('_', function ($_) use ($state, $url) {
             'lot' => [
                 'black' => 'Black',
                 'blue' => 'Blue',
-                'boy-red' => 'Boy Red',
+                'brick' => 'Brick',
                 'ochre' => 'Ochre',
-                'puce-red' => 'Puce Red',
                 'white' => 'White'
             ],
             'name' => 'state[y][blogger-minima][skin][name]',

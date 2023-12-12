@@ -96,7 +96,7 @@ u {
 
 blockquote {
   color: var(--color-1);
-  font-size: 1.185em;
+  font-size: 1.185rem;
   margin-left: 1.15rem;
   margin-right: 1.15rem;
 }
@@ -107,7 +107,7 @@ figcaption {
   font-family: var(--face-1);
   font-size: 80%;
   font-weight: 400;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
   margin: 0.5rem 0 0;
   text-align: center;
@@ -128,6 +128,7 @@ details summary::before {
   border-left: 8px solid;
   border-right: 0 solid transparent;
   border-top: 4px solid transparent;
+  color: var(--color-2);
   content: "";
   height: 0;
   left: 0;
@@ -221,9 +222,9 @@ legend {
   font-family: var(--face-1);
   font-size: 80%;
   font-weight: var(--title);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
-  padding: 0 0.5em;
+  padding: 0 0.5rem;
 }
 legend + * {
   margin-top: 0;
@@ -248,7 +249,7 @@ pre code {
   color: var(--color-code, var(--fill));
   display: block;
   overflow: auto;
-  padding: 0.5em 0.75em;
+  padding: 0.5rem 0.75rem;
   white-space: pre-wrap;
 }
 
@@ -283,7 +284,7 @@ table td,
 table th {
   border: 1px solid;
   border-color: var(--stroke);
-  padding: 0.25em 0.5em;
+  padding: 0.25rem 0.5rem;
   vertical-align: top;
 }
 
@@ -358,14 +359,14 @@ textarea {
   background: var(--fill-input, var(--fill));
   border: 1px solid;
   border-color: var(--stroke-input, var(--stroke));
-  color: inherit;
+  color: var(--color-input, inherit);
   display: inline-block;
-  height: 2em;
-  line-height: calc(2em - 2px);
+  height: 2rem;
+  line-height: calc(2rem - 2px);
   outline: 0;
-  padding: 0 0.5em;
+  padding: 0 0.5rem;
   vertical-align: middle;
-  width: 12em;
+  width: 12rem;
 }
 
 button,
@@ -398,12 +399,12 @@ button[type=submit],
   border-width: 0;
   color: var(--color-button) !important;
   cursor: pointer;
-  line-height: 2em;
+  line-height: 2rem;
   outline: 1px solid;
   outline-color: var(--stroke-button);
   outline-offset: -3px;
-  padding-left: 0.65em;
-  padding-right: 0.65em;
+  padding-left: 0.65rem;
+  padding-right: 0.65rem;
   text-align: center;
   text-decoration: none !important;
   width: auto;
@@ -467,9 +468,9 @@ button[type=image],
 [type=image][role=searchbox],
 [type=image][role=spinbutton],
 [type=image][role=textbox] {
-  height: 2.25em;
+  height: 2.25rem;
   padding: 0;
-  width: 2.25em;
+  width: 2.25rem;
 }
 
 input[type=image],
@@ -503,8 +504,8 @@ button[type=radio],
 [type=radio][role=searchbox],
 [type=radio][role=spinbutton],
 [type=radio][role=textbox] {
-  height: 1em;
-  width: 1em;
+  height: 1rem;
+  width: 1rem;
 }
 
 [role=checkbox],
@@ -577,8 +578,8 @@ select {
 textarea {
   height: auto;
   line-height: inherit;
-  padding-bottom: 0.25em;
-  padding-top: 0.25em;
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
   resize: vertical;
 }
 
@@ -595,11 +596,11 @@ textarea {
   background: var(--fill-alert);
   border: 1px solid;
   border-color: var(--stroke-alert);
-  padding: 0.25em 0.75em;
+  padding: 0.25rem 0.75rem;
   text-align: center;
 }
 [role=alert] + article {
-  margin-top: 1.15em;
+  margin-top: 1.15rem;
 }
 [role=alert] a,
 [role=alert] [role=link],
@@ -627,7 +628,7 @@ details [role=alert] summary {
   font-family: var(--face-1);
   font-size: 80%;
   font-weight: 400;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
 }
 
@@ -651,11 +652,11 @@ details [role=alert] summary {
 }
 
 [role=doc-endnotes] {
-  margin-top: 1.15em;
+  margin-top: 1.15rem;
 }
 
 [role=doc-pagelist] {
-  margin-top: 1.15em;
+  margin-top: 1.15rem;
 }
 
 [role=search] input,
@@ -1428,14 +1429,11 @@ details [role=alert] summary {
 [role=search] p {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5em;
+  gap: 0.5rem;
 }
 
 [role=doc-toc] [role=heading] {
   padding-left: 1.15rem;
-}
-[role=doc-toc] [role=heading]::before {
-  color: var(--color-1);
 }
 [role=doc-toc] [role=doc-pagelist] li::after,
 [role=doc-toc] [role=doc-pagelist] li::before {
@@ -1446,7 +1444,7 @@ details [role=alert] summary {
 }
 
 body > div {
-  margin: 0 auto;
+  margin: 30px auto;
   padding: 10px;
   width: 680px;
 }
@@ -1455,7 +1453,6 @@ body > div > footer {
   flex-wrap: wrap;
   gap: 1.15rem;
   justify-content: space-between;
-  padding-bottom: 1.15rem;
 }
 body > div > footer p {
   margin: 0;
@@ -1466,7 +1463,7 @@ body > div > header {
   border: 1px solid;
   border-color: var(--stroke);
   color: var(--color-1);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2rem;
   outline: 1px solid;
   outline-color: var(--stroke-1);
   outline-offset: -7px;
@@ -1478,8 +1475,8 @@ body > div > header h1 {
   color: inherit;
   font-size: 200%;
   font-weight: var(--title);
-  letter-spacing: 0.2em;
-  margin: 0 0 0.25em;
+  letter-spacing: 0.2rem;
+  margin: 0 0 0.25rem;
 }
 body > div > header h1 a,
 body > div > header h1 [role=link],
@@ -1513,7 +1510,7 @@ body > div > header p {
   font-family: var(--face-1);
   font-size: 80%;
   font-weight: 400;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
   margin: 0;
 }
@@ -1522,7 +1519,7 @@ body > div > nav {
   font-family: var(--face-1);
   font-size: 80%;
   font-weight: 400;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
   border-bottom: 1px dotted;
   border-color: var(--stroke);
@@ -1593,7 +1590,7 @@ body > div > nav + div > aside > div > h3 {
   font-family: var(--face-1);
   font-size: 80%;
   font-weight: var(--title);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
 }
 body > div > header + div > aside > div > ol,
@@ -1634,7 +1631,7 @@ body > div > nav + div > main > article > footer {
   font-family: var(--face-1);
   font-size: 80%;
   font-weight: 400;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
 body > div > header + div > main > article > header h2,
@@ -1739,7 +1736,7 @@ body > div > nav + div > main > article > header p time {
   font-family: var(--face-1);
   font-size: 80%;
   font-weight: var(--title);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
   display: block;
 }
@@ -1811,7 +1808,7 @@ body > div > nav + div > main > article + nav {
   --stroke-alert: rgba(255, 255, 255, 0.5);
   --stroke-button-1: rgba(255, 255, 255, 0.25);
   --stroke-button: rgba(255, 255, 255, 0.15);
-  --stroke-input: #222 #222 #333;
+  --stroke-input: #333 #333 #444;
   --stroke: #333;
   --title: 700;
 }
@@ -1839,37 +1836,37 @@ body > div > nav + div > main > article + nav {
   --stroke-alert: rgba(255, 255, 255, 0.5);
   --stroke-button-1: rgba(255, 255, 255, 0.25);
   --stroke-button: rgba(255, 255, 255, 0.15);
-  --stroke-input: #246 #246 #357;
+  --stroke-input: #468;
   --stroke: #468;
   --title: 700;
 }
 
-.skin\:boy-red {
-  --color-1: #eee;
-  --color-2: #aaa;
-  --color-button: #eee;
-  --color-link-1: #ee9;
-  --color-link-2: #aaa;
-  --color-link: #bb6;
-  --color-title-link-1: #ee9;
+.skin\:brick {
+  --color-1: #aaa;
+  --color-2: #a77;
+  --color-button: #ccc;
+  --color-link-1: #bbb;
+  --color-link-2: #777;
+  --color-link: #999;
+  --color-title-link-1: #997;
   --color-title-link: inherit;
-  --color-title: #cc9;
+  --color-title: #886;
   --color: #ccc;
   --face-1: "Trebuchet MS", Trebuchet, sans-serif;
   --face-2: monospace;
-  --face: Georgia, serif;
-  --fill-alert: rgba(204, 204, 204, 0.5);
-  --fill-button: #bb6 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
-  --fill-input: #553 linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)) repeat-x 0 0;
-  --fill-mark: #442;
-  --fill: #664;
-  --stroke-1: rgba(153, 153, 136, 0.5);
-  --stroke-alert: rgba(0, 0, 0, 0.5);
-  --stroke-button-1: rgba(255, 255, 255, 0.5);
-  --stroke-button: rgba(255, 255, 255, 0.25);
-  --stroke-input: #998;
-  --stroke: #998;
-  --title: 400;
+  --face: "Trebuchet MS", Trebuchet, sans-serif;
+  --fill-alert: rgba(204, 204, 204, 0.125);
+  --fill-button: #855 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
+  --fill-input: #533 linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)) repeat-x 0 0;
+  --fill-mark: #844;
+  --fill: #633;
+  --stroke-1: rgba(136, 85, 85, 0.5);
+  --stroke-alert: rgba(0, 0, 0, 0.45);
+  --stroke-button-1: rgba(255, 255, 255, 0.25);
+  --stroke-button: rgba(255, 255, 255, 0.15);
+  --stroke-input: #855;
+  --stroke: #855;
+  --title: 700;
 }
 
 .skin\:ochre {
@@ -1898,34 +1895,6 @@ body > div > nav + div > main > article + nav {
   --stroke-input: #874;
   --stroke: #ffc;
   --title: 400;
-}
-
-.skin\:puce-red {
-  --color-1: #aaa;
-  --color-2: #a77;
-  --color-button: #ccc;
-  --color-link-1: #c60;
-  --color-link-2: #999;
-  --color-link: #58a;
-  --color-title-link-1: #e80;
-  --color-title-link: inherit;
-  --color-title: #c60;
-  --color: #ccc;
-  --face-1: "Trebuchet MS", Trebuchet, sans-serif;
-  --face-2: monospace;
-  --face: "Trebuchet MS", Trebuchet, sans-serif;
-  --fill-alert: rgba(204, 204, 204, 0.5);
-  --fill-button: #855 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
-  --fill-input: #533 linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)) repeat-x 0 0;
-  --fill-mark: #844;
-  --fill: #633;
-  --stroke-1: rgba(136, 85, 85, 0.5);
-  --stroke-alert: rgba(0, 0, 0, 0.5);
-  --stroke-button-1: rgba(255, 255, 255, 0.25);
-  --stroke-button: rgba(255, 255, 255, 0.15);
-  --stroke-input: #855;
-  --stroke: #855;
-  --title: 700;
 }
 
 .skin\:white {

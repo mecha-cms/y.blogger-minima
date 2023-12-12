@@ -14,7 +14,7 @@
 }
 
 .comment-footer {
-  @include all-caps(0.2em, var(--color-2));
+  @include all-caps(0.2rem, var(--color-2));
 }
 
 .comment-header {

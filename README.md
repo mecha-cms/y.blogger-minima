@@ -20,10 +20,6 @@ Skins
 
 ![Blogger: Minima Ochre](index/3.png?v=2023-12-10)
 
-### Minima Boy Red 🆕
+### Minima Brick 🆕
 
-![Blogger: Minima Boy Red](index/4.png?v=2023-12-10)
-
-### Minima Puce Red 🆕
-
-![Blogger: Minima Puce Red](index/5.png?v=2023-12-10)
+![Blogger: Minima Brick](index/5.png?v=2023-12-10)
