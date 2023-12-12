@@ -886,7 +886,7 @@ body > div > nav + div > main > article > header h2,
 body > div > nav + div > main > article > header h3 {
   color: var(--color-title);
   font-size: 150%;
-  margin-top: 0.4rem;
+  margin: 0;
 }
 body > div > header + div > main > article > header h2 a,
 body > div > header + div > main > article > header h2 [role=link],
@@ -985,6 +985,12 @@ body > div > nav + div > main > article > header p time {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   display: block;
+}
+body > div > header + div > main > article > header p + h2,
+body > div > header + div > main > article > header p + h3,
+body > div > nav + div > main > article > header p + h2,
+body > div > nav + div > main > article > header p + h3 {
+  margin-top: 0.4rem;
 }
 body > div > header + div > main > article > header + div,
 body > div > nav + div > main > article > header + div {

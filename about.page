@@ -12,7 +12,7 @@ images:
 author: Taufik Nurrohman
 link: https://www.styleshout.com/legacy-templates
 type: Markdown
-version: 1.0.0
+version: 1.0.1
 ...
 
 This is not a clone of the original Minima template. I didn’t make it from the original source code, but by refactoring
