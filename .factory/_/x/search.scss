@@ -1,6 +1,7 @@
 [role='search'] {
   input {
     flex: 1;
+    min-width: 0;
   }
   p {
     display: flex;

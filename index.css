@@ -667,6 +667,7 @@ details [role=alert] summary {
 [role=search] [role=spinbutton],
 [role=search] [role=textbox] {
   flex: 1;
+  min-width: 0;
 }
 [role=search] p {
   display: flex;
