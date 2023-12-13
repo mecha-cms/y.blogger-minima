@@ -119,7 +119,7 @@ del {
 
 details {
   summary {
-    @extend a, label;
+    @extend label;
     display: block;
     padding-left: 1.15rem;
     position: relative;
@@ -161,6 +161,11 @@ details {
   }
 }
 
+[role='insertion'],
+ins {
+  @extend u;
+}
+
 label {
   cursor: pointer;
   user-select: none;
@@ -175,10 +180,11 @@ var {
 dl,
 ol,
 ul {
-  margin: {
-    left: 1.15rem;
-    right: 1.15rem;
-  }
+  margin-left: 1.15rem;
+}
+
+dl {
+  margin-right: 1.15rem;
 }
 
 fieldset {
@@ -201,7 +207,7 @@ h4,
 h5,
 h6 {
   color: var(--color-1);
-  // line-height: 1.25;
+  line-height: 1.15;
 }
 
 h1 {
@@ -347,7 +353,7 @@ textarea {
   background: var(--fill-input, var(--fill));
   border: 1px solid;
   border-color: var(--stroke-input, var(--stroke));
-  color: var(--color-input, inherit);
+  color: var(--color-input);
   display: inline-block;
   height: 2rem;
   line-height: calc(2rem - 2px); // Minus the border width
@@ -386,14 +392,6 @@ input[type='submit'] {
   @extend button;
 }
 
-[role='combobox'],
-[role='listbox'],
-[role='searchbox'],
-[role='spinbutton'],
-[role='textbox'] {
-  @extend input;
-}
-
 button,
 input {
   &::-moz-focus-inner {
@@ -411,39 +409,29 @@ input {
     padding: 0;
     width: 2.25rem;
   }
-}
-
-input[type='image'] {
-  height: auto;
-  width: auto;
-}
-
-[role='checkbox'],
-[role='radio'],
-[role='switch'],
-input[type='checkbox'],
-input[type='radio'] {
-  height: 1rem;
-  width: 1rem;
-}
-
-[role='checkbox'],
-[role='radio'],
-[role='slider'],
-[role='switch'],
-input[type='checkbox'],
-input[type='file'],
-input[type='image'],
-input[type='radio'],
-input[type='range'] {
-  background: 0 0;
-  border: 0;
-  cursor: pointer;
-  padding: 0;
+  &[type='image'] {
+    height: auto;
+    width: auto;
+  }
+  &[type='checkbox'],
+  &[type='radio'] {
+    height: 1rem;
+    width: 1rem;
+  }
+  &[type='checkbox'],
+  &[type='file'],
+  &[type='image'],
+  &[type='radio'],
+  &[type='range'] {
+    background: 0 0;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+  }
 }
 
 select {
-  cursor: pointer;
+  @extend label;
 }
 
 @each $v in (-moz-color-swatch, -webkit-color-swatch) {
@@ -456,7 +444,6 @@ select {
   padding: 0;
 }
 
-[role='textbox'][aria-multiline='true'],
 textarea {
   height: auto;
   line-height: inherit;
@@ -485,7 +472,7 @@ textarea {
 
 body {
   > div {
-    margin: 30px auto;
+    margin: 0 auto;
     padding: 10px;
     width: 680px;
     > footer {
@@ -493,6 +480,7 @@ body {
       flex-wrap: wrap;
       gap: 1.15rem;
       justify-content: space-between;
+      padding: 0 1.5rem;
       p {
         margin: 0;
       }
@@ -518,7 +506,7 @@ body {
           weight: var(--title);
         }
         letter-spacing: 0.2rem;
-        margin: 0 0 0.25rem;
+        margin: 0 0 0.5rem;
         a {
           color: inherit;
           &:focus,
@@ -625,7 +613,6 @@ body {
               h3 {
                 color: var(--color-title);
                 font-size: 150%;
-                margin: 0;
                 a {
                   color: var(--color-title-link);
                   text-decoration: none;
@@ -643,10 +630,6 @@ body {
                 time {
                   @include all-caps(0.2rem, var(--color-2), var(--title));
                   display: block;
-                }
-                + h2,
-                + h3 {
-                  margin-top: 0.4rem;
                 }
               }
               + div {

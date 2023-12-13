@@ -19,49 +19,39 @@
 }
 
 a,
-details summary,
 [role=link] {
   color: var(--color-link);
 }
 a img,
-details summary img,
 [role=link] img {
   border: 1px solid;
   border-color: var(--stroke);
   padding: 4px;
 }
 a:focus,
-details summary:focus,
 [role=link]:focus,
 a:hover,
-details summary:hover,
 [role=link]:hover {
   color: var(--color-link-1);
   text-decoration: underline;
 }
 a:focus:visited,
-details summary:focus:visited,
 [role=link]:focus:visited,
 a:hover:visited,
-details summary:hover:visited,
 [role=link]:hover:visited {
   color: var(--color-link-2);
 }
 a[aria-current],
-details summary[aria-current],
 [aria-current][role=link],
 a[aria-disabled],
-details summary[aria-disabled],
 [aria-disabled][role=link] {
   color: inherit;
   cursor: inherit;
   text-decoration: none;
 }
 a[aria-current]:visited,
-details summary[aria-current]:visited,
 [aria-current][role=link]:visited,
 a[aria-disabled]:visited,
-details summary[aria-disabled]:visited,
 [aria-disabled][role=link]:visited {
   color: inherit;
 }
@@ -90,7 +80,9 @@ del {
   text-decoration: line-through;
 }
 
-u {
+u,
+[role=insertion],
+ins {
   text-decoration: underline;
 }
 
@@ -153,6 +145,7 @@ details[role=tree] + [role=tree] {
 }
 
 label,
+select,
 details summary {
   cursor: pointer;
   user-select: none;
@@ -162,6 +155,9 @@ dl,
 ol,
 ul {
   margin-left: 1.15rem;
+}
+
+dl {
   margin-right: 1.15rem;
 }
 
@@ -185,6 +181,7 @@ h4,
 h5,
 h6 {
   color: var(--color-1);
+  line-height: 1.15;
 }
 
 h1 {
@@ -322,26 +319,6 @@ video {
 }
 
 input,
-[role=combobox],
-[role=listbox],
-[role=searchbox],
-[role=spinbutton],
-[role=textbox],
-[type=button][role=combobox],
-[type=button][role=listbox],
-[type=button][role=searchbox],
-[type=button][role=spinbutton],
-[type=button][role=textbox],
-[type=reset][role=combobox],
-[type=reset][role=listbox],
-[type=reset][role=searchbox],
-[type=reset][role=spinbutton],
-[type=reset][role=textbox],
-[type=submit][role=combobox],
-[type=submit][role=listbox],
-[type=submit][role=searchbox],
-[type=submit][role=spinbutton],
-[type=submit][role=textbox],
 button,
 [role=button],
 input[type=button],
@@ -359,7 +336,7 @@ textarea {
   background: var(--fill-input, var(--fill));
   border: 1px solid;
   border-color: var(--stroke-input, var(--stroke));
-  color: var(--color-input, inherit);
+  color: var(--color-input);
   display: inline-block;
   height: 2rem;
   line-height: calc(2rem - 2px);
@@ -372,25 +349,10 @@ textarea {
 button,
 [role=button],
 input[type=button],
-[type=button][role=combobox],
-[type=button][role=listbox],
-[type=button][role=searchbox],
-[type=button][role=spinbutton],
-[type=button][role=textbox],
 button[type=button],
 input[type=reset],
-[type=reset][role=combobox],
-[type=reset][role=listbox],
-[type=reset][role=searchbox],
-[type=reset][role=spinbutton],
-[type=reset][role=textbox],
 button[type=reset],
 input[type=submit],
-[type=submit][role=combobox],
-[type=submit][role=listbox],
-[type=submit][role=searchbox],
-[type=submit][role=spinbutton],
-[type=submit][role=textbox],
 button[type=submit],
 [type=button][role=button],
 [type=reset][role=button],
@@ -412,23 +374,8 @@ button[type=submit],
 button:focus,
 [role=button]:focus,
 input[type=button]:focus,
-[type=button][role=combobox]:focus,
-[type=button][role=listbox]:focus,
-[type=button][role=searchbox]:focus,
-[type=button][role=spinbutton]:focus,
-[type=button][role=textbox]:focus,
 input[type=reset]:focus,
-[type=reset][role=combobox]:focus,
-[type=reset][role=listbox]:focus,
-[type=reset][role=searchbox]:focus,
-[type=reset][role=spinbutton]:focus,
-[type=reset][role=textbox]:focus,
-input[type=submit]:focus,
-[type=submit][role=combobox]:focus,
-[type=submit][role=listbox]:focus,
-[type=submit][role=searchbox]:focus,
-[type=submit][role=spinbutton]:focus,
-[type=submit][role=textbox]:focus {
+input[type=submit]:focus {
   outline-color: var(--stroke-button-1);
 }
 
@@ -440,12 +387,7 @@ input[type=reset]::-moz-focus-inner,
 button[type=reset]::-moz-focus-inner,
 input[type=submit]::-moz-focus-inner,
 button[type=submit]::-moz-focus-inner,
-input::-moz-focus-inner,
-[role=combobox]::-moz-focus-inner,
-[role=listbox]::-moz-focus-inner,
-[role=searchbox]::-moz-focus-inner,
-[role=spinbutton]::-moz-focus-inner,
-[role=textbox]::-moz-focus-inner {
+input::-moz-focus-inner {
   border: 0;
   margin: 0;
   outline: 0;
@@ -455,111 +397,47 @@ input::-moz-focus-inner,
 input[type=color],
 button[type=color],
 [type=color][role=button],
-[type=color][role=combobox],
-[type=color][role=listbox],
-[type=color][role=searchbox],
-[type=color][role=spinbutton],
-[type=color][role=textbox],
 input[type=image],
 button[type=image],
-[type=image][role=button],
-[type=image][role=combobox],
-[type=image][role=listbox],
-[type=image][role=searchbox],
-[type=image][role=spinbutton],
-[type=image][role=textbox] {
+[type=image][role=button] {
   height: 2.25rem;
   padding: 0;
   width: 2.25rem;
 }
-
 input[type=image],
 button[type=image],
-[type=image][role=button],
-[type=image][role=combobox],
-[type=image][role=listbox],
-[type=image][role=searchbox],
-[type=image][role=spinbutton],
-[type=image][role=textbox] {
+[type=image][role=button] {
   height: auto;
   width: auto;
 }
-
-[role=checkbox],
-[role=radio],
-[role=switch],
 input[type=checkbox],
 button[type=checkbox],
 [type=checkbox][role=button],
-[type=checkbox][role=combobox],
-[type=checkbox][role=listbox],
-[type=checkbox][role=searchbox],
-[type=checkbox][role=spinbutton],
-[type=checkbox][role=textbox],
 input[type=radio],
 button[type=radio],
-[type=radio][role=button],
-[type=radio][role=combobox],
-[type=radio][role=listbox],
-[type=radio][role=searchbox],
-[type=radio][role=spinbutton],
-[type=radio][role=textbox] {
+[type=radio][role=button] {
   height: 1rem;
   width: 1rem;
 }
-
-[role=checkbox],
-[role=radio],
-[role=slider],
-[role=switch],
 input[type=checkbox],
 button[type=checkbox],
 [type=checkbox][role=button],
-[type=checkbox][role=combobox],
-[type=checkbox][role=listbox],
-[type=checkbox][role=searchbox],
-[type=checkbox][role=spinbutton],
-[type=checkbox][role=textbox],
 input[type=file],
 button[type=file],
 [type=file][role=button],
-[type=file][role=combobox],
-[type=file][role=listbox],
-[type=file][role=searchbox],
-[type=file][role=spinbutton],
-[type=file][role=textbox],
 input[type=image],
 button[type=image],
 [type=image][role=button],
-[type=image][role=combobox],
-[type=image][role=listbox],
-[type=image][role=searchbox],
-[type=image][role=spinbutton],
-[type=image][role=textbox],
 input[type=radio],
 button[type=radio],
 [type=radio][role=button],
-[type=radio][role=combobox],
-[type=radio][role=listbox],
-[type=radio][role=searchbox],
-[type=radio][role=spinbutton],
-[type=radio][role=textbox],
 input[type=range],
 button[type=range],
-[type=range][role=button],
-[type=range][role=combobox],
-[type=range][role=listbox],
-[type=range][role=searchbox],
-[type=range][role=spinbutton],
-[type=range][role=textbox] {
+[type=range][role=button] {
   background: 0 0;
   border: 0;
   cursor: pointer;
   padding: 0;
-}
-
-select {
-  cursor: pointer;
 }
 
 ::-moz-color-swatch {
@@ -574,7 +452,6 @@ select {
   padding: 0;
 }
 
-[role=textbox][aria-multiline=true],
 textarea {
   height: auto;
   line-height: inherit;
@@ -603,9 +480,7 @@ textarea {
   margin-top: 1.15rem;
 }
 [role=alert] a,
-[role=alert] [role=link],
-[role=alert] details summary,
-details [role=alert] summary {
+[role=alert] [role=link] {
   text-decoration: underline;
 }
 
@@ -641,11 +516,6 @@ details [role=alert] summary {
 .form-comment p input + br + small,
 .form-comment p button + br + small,
 .form-comment p [role=button] + br + small,
-.form-comment p [role=combobox] + br + small,
-.form-comment p [role=listbox] + br + small,
-.form-comment p [role=searchbox] + br + small,
-.form-comment p [role=spinbutton] + br + small,
-.form-comment p [role=textbox] + br + small,
 .form-comment p select + br + small,
 .form-comment p textarea + br + small {
   color: var(--color-2);
@@ -661,769 +531,25 @@ details [role=alert] summary {
 
 [role=search] input,
 [role=search] button,
-[role=search] [role=button],
-[role=search] [role=combobox],
-[role=search] [role=listbox],
-[role=search] [role=searchbox],
-[role=search] [role=spinbutton],
-[role=search] [role=textbox] {
+[role=search] [role=button] {
   flex: 1;
   min-width: 0;
 }
 [role=search] input + button,
 [role=search] button + button,
 [role=search] [role=button] + button,
-[role=search] input[type=button] + button,
-[role=search] button[type=button] + button,
-[role=search] input[type=reset] + button,
-[role=search] button[type=reset] + button,
-[role=search] input[type=submit] + button,
-[role=search] button[type=submit] + button,
-[role=search] [role=combobox] + button,
-[role=search] [role=listbox] + button,
-[role=search] [role=searchbox] + button,
-[role=search] [role=spinbutton] + button,
-[role=search] [role=textbox] + button,
-[role=search] [type=button][role=combobox] + button,
-[role=search] [type=button][role=listbox] + button,
-[role=search] [type=button][role=searchbox] + button,
-[role=search] [type=button][role=spinbutton] + button,
-[role=search] [type=button][role=textbox] + button,
-[role=search] [type=reset][role=combobox] + button,
-[role=search] [type=reset][role=listbox] + button,
-[role=search] [type=reset][role=searchbox] + button,
-[role=search] [type=reset][role=spinbutton] + button,
-[role=search] [type=reset][role=textbox] + button,
-[role=search] [type=submit][role=combobox] + button,
-[role=search] [type=submit][role=listbox] + button,
-[role=search] [type=submit][role=searchbox] + button,
-[role=search] [type=submit][role=spinbutton] + button,
-[role=search] [type=submit][role=textbox] + button,
 [role=search] input + [role=button],
 [role=search] button + [role=button],
 [role=search] [role=button] + [role=button],
-[role=search] input[type=button] + [role=button],
-[role=search] button[type=button] + [role=button],
-[role=search] input[type=reset] + [role=button],
-[role=search] button[type=reset] + [role=button],
-[role=search] input[type=submit] + [role=button],
-[role=search] button[type=submit] + [role=button],
-[role=search] [role=combobox] + [role=button],
-[role=search] [role=listbox] + [role=button],
-[role=search] [role=searchbox] + [role=button],
-[role=search] [role=spinbutton] + [role=button],
-[role=search] [role=textbox] + [role=button],
-[role=search] [type=button][role=combobox] + [role=button],
-[role=search] [type=button][role=listbox] + [role=button],
-[role=search] [type=button][role=searchbox] + [role=button],
-[role=search] [type=button][role=spinbutton] + [role=button],
-[role=search] [type=button][role=textbox] + [role=button],
-[role=search] [type=reset][role=combobox] + [role=button],
-[role=search] [type=reset][role=listbox] + [role=button],
-[role=search] [type=reset][role=searchbox] + [role=button],
-[role=search] [type=reset][role=spinbutton] + [role=button],
-[role=search] [type=reset][role=textbox] + [role=button],
-[role=search] [type=submit][role=combobox] + [role=button],
-[role=search] [type=submit][role=listbox] + [role=button],
-[role=search] [type=submit][role=searchbox] + [role=button],
-[role=search] [type=submit][role=spinbutton] + [role=button],
-[role=search] [type=submit][role=textbox] + [role=button],
 [role=search] input + input[type=button],
 [role=search] button + input[type=button],
 [role=search] [role=button] + input[type=button],
-[role=search] input[type=button] + input[type=button],
-[role=search] button[type=button] + input[type=button],
-[role=search] input[type=reset] + input[type=button],
-[role=search] button[type=reset] + input[type=button],
-[role=search] input[type=submit] + input[type=button],
-[role=search] button[type=submit] + input[type=button],
-[role=search] [role=combobox] + input[type=button],
-[role=search] [role=listbox] + input[type=button],
-[role=search] [role=searchbox] + input[type=button],
-[role=search] [role=spinbutton] + input[type=button],
-[role=search] [role=textbox] + input[type=button],
-[role=search] [type=button][role=combobox] + input[type=button],
-[role=search] [type=button][role=listbox] + input[type=button],
-[role=search] [type=button][role=searchbox] + input[type=button],
-[role=search] [type=button][role=spinbutton] + input[type=button],
-[role=search] [type=button][role=textbox] + input[type=button],
-[role=search] [type=reset][role=combobox] + input[type=button],
-[role=search] [type=reset][role=listbox] + input[type=button],
-[role=search] [type=reset][role=searchbox] + input[type=button],
-[role=search] [type=reset][role=spinbutton] + input[type=button],
-[role=search] [type=reset][role=textbox] + input[type=button],
-[role=search] [type=submit][role=combobox] + input[type=button],
-[role=search] [type=submit][role=listbox] + input[type=button],
-[role=search] [type=submit][role=searchbox] + input[type=button],
-[role=search] [type=submit][role=spinbutton] + input[type=button],
-[role=search] [type=submit][role=textbox] + input[type=button],
-[role=search] input + button[type=button],
-[role=search] button + button[type=button],
-[role=search] [role=button] + button[type=button],
-[role=search] input[type=button] + button[type=button],
-[role=search] button[type=button] + button[type=button],
-[role=search] input[type=reset] + button[type=button],
-[role=search] button[type=reset] + button[type=button],
-[role=search] input[type=submit] + button[type=button],
-[role=search] button[type=submit] + button[type=button],
-[role=search] [role=combobox] + button[type=button],
-[role=search] [role=listbox] + button[type=button],
-[role=search] [role=searchbox] + button[type=button],
-[role=search] [role=spinbutton] + button[type=button],
-[role=search] [role=textbox] + button[type=button],
-[role=search] [type=button][role=combobox] + button[type=button],
-[role=search] [type=button][role=listbox] + button[type=button],
-[role=search] [type=button][role=searchbox] + button[type=button],
-[role=search] [type=button][role=spinbutton] + button[type=button],
-[role=search] [type=button][role=textbox] + button[type=button],
-[role=search] [type=reset][role=combobox] + button[type=button],
-[role=search] [type=reset][role=listbox] + button[type=button],
-[role=search] [type=reset][role=searchbox] + button[type=button],
-[role=search] [type=reset][role=spinbutton] + button[type=button],
-[role=search] [type=reset][role=textbox] + button[type=button],
-[role=search] [type=submit][role=combobox] + button[type=button],
-[role=search] [type=submit][role=listbox] + button[type=button],
-[role=search] [type=submit][role=searchbox] + button[type=button],
-[role=search] [type=submit][role=spinbutton] + button[type=button],
-[role=search] [type=submit][role=textbox] + button[type=button],
 [role=search] input + input[type=reset],
 [role=search] button + input[type=reset],
 [role=search] [role=button] + input[type=reset],
-[role=search] input[type=button] + input[type=reset],
-[role=search] button[type=button] + input[type=reset],
-[role=search] input[type=reset] + input[type=reset],
-[role=search] button[type=reset] + input[type=reset],
-[role=search] input[type=submit] + input[type=reset],
-[role=search] button[type=submit] + input[type=reset],
-[role=search] [role=combobox] + input[type=reset],
-[role=search] [role=listbox] + input[type=reset],
-[role=search] [role=searchbox] + input[type=reset],
-[role=search] [role=spinbutton] + input[type=reset],
-[role=search] [role=textbox] + input[type=reset],
-[role=search] [type=button][role=combobox] + input[type=reset],
-[role=search] [type=button][role=listbox] + input[type=reset],
-[role=search] [type=button][role=searchbox] + input[type=reset],
-[role=search] [type=button][role=spinbutton] + input[type=reset],
-[role=search] [type=button][role=textbox] + input[type=reset],
-[role=search] [type=reset][role=combobox] + input[type=reset],
-[role=search] [type=reset][role=listbox] + input[type=reset],
-[role=search] [type=reset][role=searchbox] + input[type=reset],
-[role=search] [type=reset][role=spinbutton] + input[type=reset],
-[role=search] [type=reset][role=textbox] + input[type=reset],
-[role=search] [type=submit][role=combobox] + input[type=reset],
-[role=search] [type=submit][role=listbox] + input[type=reset],
-[role=search] [type=submit][role=searchbox] + input[type=reset],
-[role=search] [type=submit][role=spinbutton] + input[type=reset],
-[role=search] [type=submit][role=textbox] + input[type=reset],
-[role=search] input + button[type=reset],
-[role=search] button + button[type=reset],
-[role=search] [role=button] + button[type=reset],
-[role=search] input[type=button] + button[type=reset],
-[role=search] button[type=button] + button[type=reset],
-[role=search] input[type=reset] + button[type=reset],
-[role=search] button[type=reset] + button[type=reset],
-[role=search] input[type=submit] + button[type=reset],
-[role=search] button[type=submit] + button[type=reset],
-[role=search] [role=combobox] + button[type=reset],
-[role=search] [role=listbox] + button[type=reset],
-[role=search] [role=searchbox] + button[type=reset],
-[role=search] [role=spinbutton] + button[type=reset],
-[role=search] [role=textbox] + button[type=reset],
-[role=search] [type=button][role=combobox] + button[type=reset],
-[role=search] [type=button][role=listbox] + button[type=reset],
-[role=search] [type=button][role=searchbox] + button[type=reset],
-[role=search] [type=button][role=spinbutton] + button[type=reset],
-[role=search] [type=button][role=textbox] + button[type=reset],
-[role=search] [type=reset][role=combobox] + button[type=reset],
-[role=search] [type=reset][role=listbox] + button[type=reset],
-[role=search] [type=reset][role=searchbox] + button[type=reset],
-[role=search] [type=reset][role=spinbutton] + button[type=reset],
-[role=search] [type=reset][role=textbox] + button[type=reset],
-[role=search] [type=submit][role=combobox] + button[type=reset],
-[role=search] [type=submit][role=listbox] + button[type=reset],
-[role=search] [type=submit][role=searchbox] + button[type=reset],
-[role=search] [type=submit][role=spinbutton] + button[type=reset],
-[role=search] [type=submit][role=textbox] + button[type=reset],
 [role=search] input + input[type=submit],
 [role=search] button + input[type=submit],
-[role=search] [role=button] + input[type=submit],
-[role=search] input[type=button] + input[type=submit],
-[role=search] button[type=button] + input[type=submit],
-[role=search] input[type=reset] + input[type=submit],
-[role=search] button[type=reset] + input[type=submit],
-[role=search] input[type=submit] + input[type=submit],
-[role=search] button[type=submit] + input[type=submit],
-[role=search] [role=combobox] + input[type=submit],
-[role=search] [role=listbox] + input[type=submit],
-[role=search] [role=searchbox] + input[type=submit],
-[role=search] [role=spinbutton] + input[type=submit],
-[role=search] [role=textbox] + input[type=submit],
-[role=search] [type=button][role=combobox] + input[type=submit],
-[role=search] [type=button][role=listbox] + input[type=submit],
-[role=search] [type=button][role=searchbox] + input[type=submit],
-[role=search] [type=button][role=spinbutton] + input[type=submit],
-[role=search] [type=button][role=textbox] + input[type=submit],
-[role=search] [type=reset][role=combobox] + input[type=submit],
-[role=search] [type=reset][role=listbox] + input[type=submit],
-[role=search] [type=reset][role=searchbox] + input[type=submit],
-[role=search] [type=reset][role=spinbutton] + input[type=submit],
-[role=search] [type=reset][role=textbox] + input[type=submit],
-[role=search] [type=submit][role=combobox] + input[type=submit],
-[role=search] [type=submit][role=listbox] + input[type=submit],
-[role=search] [type=submit][role=searchbox] + input[type=submit],
-[role=search] [type=submit][role=spinbutton] + input[type=submit],
-[role=search] [type=submit][role=textbox] + input[type=submit],
-[role=search] input + button[type=submit],
-[role=search] button + button[type=submit],
-[role=search] [role=button] + button[type=submit],
-[role=search] input[type=button] + button[type=submit],
-[role=search] button[type=button] + button[type=submit],
-[role=search] input[type=reset] + button[type=submit],
-[role=search] button[type=reset] + button[type=submit],
-[role=search] input[type=submit] + button[type=submit],
-[role=search] button[type=submit] + button[type=submit],
-[role=search] [role=combobox] + button[type=submit],
-[role=search] [role=listbox] + button[type=submit],
-[role=search] [role=searchbox] + button[type=submit],
-[role=search] [role=spinbutton] + button[type=submit],
-[role=search] [role=textbox] + button[type=submit],
-[role=search] [type=button][role=combobox] + button[type=submit],
-[role=search] [type=button][role=listbox] + button[type=submit],
-[role=search] [type=button][role=searchbox] + button[type=submit],
-[role=search] [type=button][role=spinbutton] + button[type=submit],
-[role=search] [type=button][role=textbox] + button[type=submit],
-[role=search] [type=reset][role=combobox] + button[type=submit],
-[role=search] [type=reset][role=listbox] + button[type=submit],
-[role=search] [type=reset][role=searchbox] + button[type=submit],
-[role=search] [type=reset][role=spinbutton] + button[type=submit],
-[role=search] [type=reset][role=textbox] + button[type=submit],
-[role=search] [type=submit][role=combobox] + button[type=submit],
-[role=search] [type=submit][role=listbox] + button[type=submit],
-[role=search] [type=submit][role=searchbox] + button[type=submit],
-[role=search] [type=submit][role=spinbutton] + button[type=submit],
-[role=search] [type=submit][role=textbox] + button[type=submit],
-[role=search] input + [type=button][role=button],
-[role=search] button + [type=button][role=button],
-[role=search] [role=button] + [type=button][role=button],
-[role=search] input[type=button] + [type=button][role=button],
-[role=search] button[type=button] + [type=button][role=button],
-[role=search] input[type=reset] + [type=button][role=button],
-[role=search] button[type=reset] + [type=button][role=button],
-[role=search] input[type=submit] + [type=button][role=button],
-[role=search] button[type=submit] + [type=button][role=button],
-[role=search] [role=combobox] + [type=button][role=button],
-[role=search] [role=listbox] + [type=button][role=button],
-[role=search] [role=searchbox] + [type=button][role=button],
-[role=search] [role=spinbutton] + [type=button][role=button],
-[role=search] [role=textbox] + [type=button][role=button],
-[role=search] [type=button][role=combobox] + [type=button][role=button],
-[role=search] [type=button][role=listbox] + [type=button][role=button],
-[role=search] [type=button][role=searchbox] + [type=button][role=button],
-[role=search] [type=button][role=spinbutton] + [type=button][role=button],
-[role=search] [type=button][role=textbox] + [type=button][role=button],
-[role=search] [type=reset][role=combobox] + [type=button][role=button],
-[role=search] [type=reset][role=listbox] + [type=button][role=button],
-[role=search] [type=reset][role=searchbox] + [type=button][role=button],
-[role=search] [type=reset][role=spinbutton] + [type=button][role=button],
-[role=search] [type=reset][role=textbox] + [type=button][role=button],
-[role=search] [type=submit][role=combobox] + [type=button][role=button],
-[role=search] [type=submit][role=listbox] + [type=button][role=button],
-[role=search] [type=submit][role=searchbox] + [type=button][role=button],
-[role=search] [type=submit][role=spinbutton] + [type=button][role=button],
-[role=search] [type=submit][role=textbox] + [type=button][role=button],
-[role=search] input + [type=reset][role=button],
-[role=search] button + [type=reset][role=button],
-[role=search] [role=button] + [type=reset][role=button],
-[role=search] input[type=button] + [type=reset][role=button],
-[role=search] button[type=button] + [type=reset][role=button],
-[role=search] input[type=reset] + [type=reset][role=button],
-[role=search] button[type=reset] + [type=reset][role=button],
-[role=search] input[type=submit] + [type=reset][role=button],
-[role=search] button[type=submit] + [type=reset][role=button],
-[role=search] [role=combobox] + [type=reset][role=button],
-[role=search] [role=listbox] + [type=reset][role=button],
-[role=search] [role=searchbox] + [type=reset][role=button],
-[role=search] [role=spinbutton] + [type=reset][role=button],
-[role=search] [role=textbox] + [type=reset][role=button],
-[role=search] [type=button][role=combobox] + [type=reset][role=button],
-[role=search] [type=button][role=listbox] + [type=reset][role=button],
-[role=search] [type=button][role=searchbox] + [type=reset][role=button],
-[role=search] [type=button][role=spinbutton] + [type=reset][role=button],
-[role=search] [type=button][role=textbox] + [type=reset][role=button],
-[role=search] [type=reset][role=combobox] + [type=reset][role=button],
-[role=search] [type=reset][role=listbox] + [type=reset][role=button],
-[role=search] [type=reset][role=searchbox] + [type=reset][role=button],
-[role=search] [type=reset][role=spinbutton] + [type=reset][role=button],
-[role=search] [type=reset][role=textbox] + [type=reset][role=button],
-[role=search] [type=submit][role=combobox] + [type=reset][role=button],
-[role=search] [type=submit][role=listbox] + [type=reset][role=button],
-[role=search] [type=submit][role=searchbox] + [type=reset][role=button],
-[role=search] [type=submit][role=spinbutton] + [type=reset][role=button],
-[role=search] [type=submit][role=textbox] + [type=reset][role=button],
-[role=search] input + [type=submit][role=button],
-[role=search] button + [type=submit][role=button],
-[role=search] [role=button] + [type=submit][role=button],
-[role=search] input[type=button] + [type=submit][role=button],
-[role=search] button[type=button] + [type=submit][role=button],
-[role=search] input[type=reset] + [type=submit][role=button],
-[role=search] button[type=reset] + [type=submit][role=button],
-[role=search] input[type=submit] + [type=submit][role=button],
-[role=search] button[type=submit] + [type=submit][role=button],
-[role=search] [role=combobox] + [type=submit][role=button],
-[role=search] [role=listbox] + [type=submit][role=button],
-[role=search] [role=searchbox] + [type=submit][role=button],
-[role=search] [role=spinbutton] + [type=submit][role=button],
-[role=search] [role=textbox] + [type=submit][role=button],
-[role=search] [type=button][role=combobox] + [type=submit][role=button],
-[role=search] [type=button][role=listbox] + [type=submit][role=button],
-[role=search] [type=button][role=searchbox] + [type=submit][role=button],
-[role=search] [type=button][role=spinbutton] + [type=submit][role=button],
-[role=search] [type=button][role=textbox] + [type=submit][role=button],
-[role=search] [type=reset][role=combobox] + [type=submit][role=button],
-[role=search] [type=reset][role=listbox] + [type=submit][role=button],
-[role=search] [type=reset][role=searchbox] + [type=submit][role=button],
-[role=search] [type=reset][role=spinbutton] + [type=submit][role=button],
-[role=search] [type=reset][role=textbox] + [type=submit][role=button],
-[role=search] [type=submit][role=combobox] + [type=submit][role=button],
-[role=search] [type=submit][role=listbox] + [type=submit][role=button],
-[role=search] [type=submit][role=searchbox] + [type=submit][role=button],
-[role=search] [type=submit][role=spinbutton] + [type=submit][role=button],
-[role=search] [type=submit][role=textbox] + [type=submit][role=button],
-[role=search] input + [type=button][role=combobox],
-[role=search] button + [type=button][role=combobox],
-[role=search] [role=button] + [type=button][role=combobox],
-[role=search] input[type=button] + [type=button][role=combobox],
-[role=search] button[type=button] + [type=button][role=combobox],
-[role=search] input[type=reset] + [type=button][role=combobox],
-[role=search] button[type=reset] + [type=button][role=combobox],
-[role=search] input[type=submit] + [type=button][role=combobox],
-[role=search] button[type=submit] + [type=button][role=combobox],
-[role=search] [role=combobox] + [type=button][role=combobox],
-[role=search] [role=listbox] + [type=button][role=combobox],
-[role=search] [role=searchbox] + [type=button][role=combobox],
-[role=search] [role=spinbutton] + [type=button][role=combobox],
-[role=search] [role=textbox] + [type=button][role=combobox],
-[role=search] [type=button][role=combobox] + [type=button][role=combobox],
-[role=search] [type=button][role=listbox] + [type=button][role=combobox],
-[role=search] [type=button][role=searchbox] + [type=button][role=combobox],
-[role=search] [type=button][role=spinbutton] + [type=button][role=combobox],
-[role=search] [type=button][role=textbox] + [type=button][role=combobox],
-[role=search] [type=reset][role=combobox] + [type=button][role=combobox],
-[role=search] [type=reset][role=listbox] + [type=button][role=combobox],
-[role=search] [type=reset][role=searchbox] + [type=button][role=combobox],
-[role=search] [type=reset][role=spinbutton] + [type=button][role=combobox],
-[role=search] [type=reset][role=textbox] + [type=button][role=combobox],
-[role=search] [type=submit][role=combobox] + [type=button][role=combobox],
-[role=search] [type=submit][role=listbox] + [type=button][role=combobox],
-[role=search] [type=submit][role=searchbox] + [type=button][role=combobox],
-[role=search] [type=submit][role=spinbutton] + [type=button][role=combobox],
-[role=search] [type=submit][role=textbox] + [type=button][role=combobox],
-[role=search] input + [type=button][role=listbox],
-[role=search] button + [type=button][role=listbox],
-[role=search] [role=button] + [type=button][role=listbox],
-[role=search] input[type=button] + [type=button][role=listbox],
-[role=search] button[type=button] + [type=button][role=listbox],
-[role=search] input[type=reset] + [type=button][role=listbox],
-[role=search] button[type=reset] + [type=button][role=listbox],
-[role=search] input[type=submit] + [type=button][role=listbox],
-[role=search] button[type=submit] + [type=button][role=listbox],
-[role=search] [role=combobox] + [type=button][role=listbox],
-[role=search] [role=listbox] + [type=button][role=listbox],
-[role=search] [role=searchbox] + [type=button][role=listbox],
-[role=search] [role=spinbutton] + [type=button][role=listbox],
-[role=search] [role=textbox] + [type=button][role=listbox],
-[role=search] [type=button][role=combobox] + [type=button][role=listbox],
-[role=search] [type=button][role=listbox] + [type=button][role=listbox],
-[role=search] [type=button][role=searchbox] + [type=button][role=listbox],
-[role=search] [type=button][role=spinbutton] + [type=button][role=listbox],
-[role=search] [type=button][role=textbox] + [type=button][role=listbox],
-[role=search] [type=reset][role=combobox] + [type=button][role=listbox],
-[role=search] [type=reset][role=listbox] + [type=button][role=listbox],
-[role=search] [type=reset][role=searchbox] + [type=button][role=listbox],
-[role=search] [type=reset][role=spinbutton] + [type=button][role=listbox],
-[role=search] [type=reset][role=textbox] + [type=button][role=listbox],
-[role=search] [type=submit][role=combobox] + [type=button][role=listbox],
-[role=search] [type=submit][role=listbox] + [type=button][role=listbox],
-[role=search] [type=submit][role=searchbox] + [type=button][role=listbox],
-[role=search] [type=submit][role=spinbutton] + [type=button][role=listbox],
-[role=search] [type=submit][role=textbox] + [type=button][role=listbox],
-[role=search] input + [type=button][role=searchbox],
-[role=search] button + [type=button][role=searchbox],
-[role=search] [role=button] + [type=button][role=searchbox],
-[role=search] input[type=button] + [type=button][role=searchbox],
-[role=search] button[type=button] + [type=button][role=searchbox],
-[role=search] input[type=reset] + [type=button][role=searchbox],
-[role=search] button[type=reset] + [type=button][role=searchbox],
-[role=search] input[type=submit] + [type=button][role=searchbox],
-[role=search] button[type=submit] + [type=button][role=searchbox],
-[role=search] [role=combobox] + [type=button][role=searchbox],
-[role=search] [role=listbox] + [type=button][role=searchbox],
-[role=search] [role=searchbox] + [type=button][role=searchbox],
-[role=search] [role=spinbutton] + [type=button][role=searchbox],
-[role=search] [role=textbox] + [type=button][role=searchbox],
-[role=search] [type=button][role=combobox] + [type=button][role=searchbox],
-[role=search] [type=button][role=listbox] + [type=button][role=searchbox],
-[role=search] [type=button][role=searchbox] + [type=button][role=searchbox],
-[role=search] [type=button][role=spinbutton] + [type=button][role=searchbox],
-[role=search] [type=button][role=textbox] + [type=button][role=searchbox],
-[role=search] [type=reset][role=combobox] + [type=button][role=searchbox],
-[role=search] [type=reset][role=listbox] + [type=button][role=searchbox],
-[role=search] [type=reset][role=searchbox] + [type=button][role=searchbox],
-[role=search] [type=reset][role=spinbutton] + [type=button][role=searchbox],
-[role=search] [type=reset][role=textbox] + [type=button][role=searchbox],
-[role=search] [type=submit][role=combobox] + [type=button][role=searchbox],
-[role=search] [type=submit][role=listbox] + [type=button][role=searchbox],
-[role=search] [type=submit][role=searchbox] + [type=button][role=searchbox],
-[role=search] [type=submit][role=spinbutton] + [type=button][role=searchbox],
-[role=search] [type=submit][role=textbox] + [type=button][role=searchbox],
-[role=search] input + [type=button][role=spinbutton],
-[role=search] button + [type=button][role=spinbutton],
-[role=search] [role=button] + [type=button][role=spinbutton],
-[role=search] input[type=button] + [type=button][role=spinbutton],
-[role=search] button[type=button] + [type=button][role=spinbutton],
-[role=search] input[type=reset] + [type=button][role=spinbutton],
-[role=search] button[type=reset] + [type=button][role=spinbutton],
-[role=search] input[type=submit] + [type=button][role=spinbutton],
-[role=search] button[type=submit] + [type=button][role=spinbutton],
-[role=search] [role=combobox] + [type=button][role=spinbutton],
-[role=search] [role=listbox] + [type=button][role=spinbutton],
-[role=search] [role=searchbox] + [type=button][role=spinbutton],
-[role=search] [role=spinbutton] + [type=button][role=spinbutton],
-[role=search] [role=textbox] + [type=button][role=spinbutton],
-[role=search] [type=button][role=combobox] + [type=button][role=spinbutton],
-[role=search] [type=button][role=listbox] + [type=button][role=spinbutton],
-[role=search] [type=button][role=searchbox] + [type=button][role=spinbutton],
-[role=search] [type=button][role=spinbutton] + [type=button][role=spinbutton],
-[role=search] [type=button][role=textbox] + [type=button][role=spinbutton],
-[role=search] [type=reset][role=combobox] + [type=button][role=spinbutton],
-[role=search] [type=reset][role=listbox] + [type=button][role=spinbutton],
-[role=search] [type=reset][role=searchbox] + [type=button][role=spinbutton],
-[role=search] [type=reset][role=spinbutton] + [type=button][role=spinbutton],
-[role=search] [type=reset][role=textbox] + [type=button][role=spinbutton],
-[role=search] [type=submit][role=combobox] + [type=button][role=spinbutton],
-[role=search] [type=submit][role=listbox] + [type=button][role=spinbutton],
-[role=search] [type=submit][role=searchbox] + [type=button][role=spinbutton],
-[role=search] [type=submit][role=spinbutton] + [type=button][role=spinbutton],
-[role=search] [type=submit][role=textbox] + [type=button][role=spinbutton],
-[role=search] input + [type=button][role=textbox],
-[role=search] button + [type=button][role=textbox],
-[role=search] [role=button] + [type=button][role=textbox],
-[role=search] input[type=button] + [type=button][role=textbox],
-[role=search] button[type=button] + [type=button][role=textbox],
-[role=search] input[type=reset] + [type=button][role=textbox],
-[role=search] button[type=reset] + [type=button][role=textbox],
-[role=search] input[type=submit] + [type=button][role=textbox],
-[role=search] button[type=submit] + [type=button][role=textbox],
-[role=search] [role=combobox] + [type=button][role=textbox],
-[role=search] [role=listbox] + [type=button][role=textbox],
-[role=search] [role=searchbox] + [type=button][role=textbox],
-[role=search] [role=spinbutton] + [type=button][role=textbox],
-[role=search] [role=textbox] + [type=button][role=textbox],
-[role=search] [type=button][role=combobox] + [type=button][role=textbox],
-[role=search] [type=button][role=listbox] + [type=button][role=textbox],
-[role=search] [type=button][role=searchbox] + [type=button][role=textbox],
-[role=search] [type=button][role=spinbutton] + [type=button][role=textbox],
-[role=search] [type=button][role=textbox] + [type=button][role=textbox],
-[role=search] [type=reset][role=combobox] + [type=button][role=textbox],
-[role=search] [type=reset][role=listbox] + [type=button][role=textbox],
-[role=search] [type=reset][role=searchbox] + [type=button][role=textbox],
-[role=search] [type=reset][role=spinbutton] + [type=button][role=textbox],
-[role=search] [type=reset][role=textbox] + [type=button][role=textbox],
-[role=search] [type=submit][role=combobox] + [type=button][role=textbox],
-[role=search] [type=submit][role=listbox] + [type=button][role=textbox],
-[role=search] [type=submit][role=searchbox] + [type=button][role=textbox],
-[role=search] [type=submit][role=spinbutton] + [type=button][role=textbox],
-[role=search] [type=submit][role=textbox] + [type=button][role=textbox],
-[role=search] input + [type=reset][role=combobox],
-[role=search] button + [type=reset][role=combobox],
-[role=search] [role=button] + [type=reset][role=combobox],
-[role=search] input[type=button] + [type=reset][role=combobox],
-[role=search] button[type=button] + [type=reset][role=combobox],
-[role=search] input[type=reset] + [type=reset][role=combobox],
-[role=search] button[type=reset] + [type=reset][role=combobox],
-[role=search] input[type=submit] + [type=reset][role=combobox],
-[role=search] button[type=submit] + [type=reset][role=combobox],
-[role=search] [role=combobox] + [type=reset][role=combobox],
-[role=search] [role=listbox] + [type=reset][role=combobox],
-[role=search] [role=searchbox] + [type=reset][role=combobox],
-[role=search] [role=spinbutton] + [type=reset][role=combobox],
-[role=search] [role=textbox] + [type=reset][role=combobox],
-[role=search] [type=button][role=combobox] + [type=reset][role=combobox],
-[role=search] [type=button][role=listbox] + [type=reset][role=combobox],
-[role=search] [type=button][role=searchbox] + [type=reset][role=combobox],
-[role=search] [type=button][role=spinbutton] + [type=reset][role=combobox],
-[role=search] [type=button][role=textbox] + [type=reset][role=combobox],
-[role=search] [type=reset][role=combobox] + [type=reset][role=combobox],
-[role=search] [type=reset][role=listbox] + [type=reset][role=combobox],
-[role=search] [type=reset][role=searchbox] + [type=reset][role=combobox],
-[role=search] [type=reset][role=spinbutton] + [type=reset][role=combobox],
-[role=search] [type=reset][role=textbox] + [type=reset][role=combobox],
-[role=search] [type=submit][role=combobox] + [type=reset][role=combobox],
-[role=search] [type=submit][role=listbox] + [type=reset][role=combobox],
-[role=search] [type=submit][role=searchbox] + [type=reset][role=combobox],
-[role=search] [type=submit][role=spinbutton] + [type=reset][role=combobox],
-[role=search] [type=submit][role=textbox] + [type=reset][role=combobox],
-[role=search] input + [type=reset][role=listbox],
-[role=search] button + [type=reset][role=listbox],
-[role=search] [role=button] + [type=reset][role=listbox],
-[role=search] input[type=button] + [type=reset][role=listbox],
-[role=search] button[type=button] + [type=reset][role=listbox],
-[role=search] input[type=reset] + [type=reset][role=listbox],
-[role=search] button[type=reset] + [type=reset][role=listbox],
-[role=search] input[type=submit] + [type=reset][role=listbox],
-[role=search] button[type=submit] + [type=reset][role=listbox],
-[role=search] [role=combobox] + [type=reset][role=listbox],
-[role=search] [role=listbox] + [type=reset][role=listbox],
-[role=search] [role=searchbox] + [type=reset][role=listbox],
-[role=search] [role=spinbutton] + [type=reset][role=listbox],
-[role=search] [role=textbox] + [type=reset][role=listbox],
-[role=search] [type=button][role=combobox] + [type=reset][role=listbox],
-[role=search] [type=button][role=listbox] + [type=reset][role=listbox],
-[role=search] [type=button][role=searchbox] + [type=reset][role=listbox],
-[role=search] [type=button][role=spinbutton] + [type=reset][role=listbox],
-[role=search] [type=button][role=textbox] + [type=reset][role=listbox],
-[role=search] [type=reset][role=combobox] + [type=reset][role=listbox],
-[role=search] [type=reset][role=listbox] + [type=reset][role=listbox],
-[role=search] [type=reset][role=searchbox] + [type=reset][role=listbox],
-[role=search] [type=reset][role=spinbutton] + [type=reset][role=listbox],
-[role=search] [type=reset][role=textbox] + [type=reset][role=listbox],
-[role=search] [type=submit][role=combobox] + [type=reset][role=listbox],
-[role=search] [type=submit][role=listbox] + [type=reset][role=listbox],
-[role=search] [type=submit][role=searchbox] + [type=reset][role=listbox],
-[role=search] [type=submit][role=spinbutton] + [type=reset][role=listbox],
-[role=search] [type=submit][role=textbox] + [type=reset][role=listbox],
-[role=search] input + [type=reset][role=searchbox],
-[role=search] button + [type=reset][role=searchbox],
-[role=search] [role=button] + [type=reset][role=searchbox],
-[role=search] input[type=button] + [type=reset][role=searchbox],
-[role=search] button[type=button] + [type=reset][role=searchbox],
-[role=search] input[type=reset] + [type=reset][role=searchbox],
-[role=search] button[type=reset] + [type=reset][role=searchbox],
-[role=search] input[type=submit] + [type=reset][role=searchbox],
-[role=search] button[type=submit] + [type=reset][role=searchbox],
-[role=search] [role=combobox] + [type=reset][role=searchbox],
-[role=search] [role=listbox] + [type=reset][role=searchbox],
-[role=search] [role=searchbox] + [type=reset][role=searchbox],
-[role=search] [role=spinbutton] + [type=reset][role=searchbox],
-[role=search] [role=textbox] + [type=reset][role=searchbox],
-[role=search] [type=button][role=combobox] + [type=reset][role=searchbox],
-[role=search] [type=button][role=listbox] + [type=reset][role=searchbox],
-[role=search] [type=button][role=searchbox] + [type=reset][role=searchbox],
-[role=search] [type=button][role=spinbutton] + [type=reset][role=searchbox],
-[role=search] [type=button][role=textbox] + [type=reset][role=searchbox],
-[role=search] [type=reset][role=combobox] + [type=reset][role=searchbox],
-[role=search] [type=reset][role=listbox] + [type=reset][role=searchbox],
-[role=search] [type=reset][role=searchbox] + [type=reset][role=searchbox],
-[role=search] [type=reset][role=spinbutton] + [type=reset][role=searchbox],
-[role=search] [type=reset][role=textbox] + [type=reset][role=searchbox],
-[role=search] [type=submit][role=combobox] + [type=reset][role=searchbox],
-[role=search] [type=submit][role=listbox] + [type=reset][role=searchbox],
-[role=search] [type=submit][role=searchbox] + [type=reset][role=searchbox],
-[role=search] [type=submit][role=spinbutton] + [type=reset][role=searchbox],
-[role=search] [type=submit][role=textbox] + [type=reset][role=searchbox],
-[role=search] input + [type=reset][role=spinbutton],
-[role=search] button + [type=reset][role=spinbutton],
-[role=search] [role=button] + [type=reset][role=spinbutton],
-[role=search] input[type=button] + [type=reset][role=spinbutton],
-[role=search] button[type=button] + [type=reset][role=spinbutton],
-[role=search] input[type=reset] + [type=reset][role=spinbutton],
-[role=search] button[type=reset] + [type=reset][role=spinbutton],
-[role=search] input[type=submit] + [type=reset][role=spinbutton],
-[role=search] button[type=submit] + [type=reset][role=spinbutton],
-[role=search] [role=combobox] + [type=reset][role=spinbutton],
-[role=search] [role=listbox] + [type=reset][role=spinbutton],
-[role=search] [role=searchbox] + [type=reset][role=spinbutton],
-[role=search] [role=spinbutton] + [type=reset][role=spinbutton],
-[role=search] [role=textbox] + [type=reset][role=spinbutton],
-[role=search] [type=button][role=combobox] + [type=reset][role=spinbutton],
-[role=search] [type=button][role=listbox] + [type=reset][role=spinbutton],
-[role=search] [type=button][role=searchbox] + [type=reset][role=spinbutton],
-[role=search] [type=button][role=spinbutton] + [type=reset][role=spinbutton],
-[role=search] [type=button][role=textbox] + [type=reset][role=spinbutton],
-[role=search] [type=reset][role=combobox] + [type=reset][role=spinbutton],
-[role=search] [type=reset][role=listbox] + [type=reset][role=spinbutton],
-[role=search] [type=reset][role=searchbox] + [type=reset][role=spinbutton],
-[role=search] [type=reset][role=spinbutton] + [type=reset][role=spinbutton],
-[role=search] [type=reset][role=textbox] + [type=reset][role=spinbutton],
-[role=search] [type=submit][role=combobox] + [type=reset][role=spinbutton],
-[role=search] [type=submit][role=listbox] + [type=reset][role=spinbutton],
-[role=search] [type=submit][role=searchbox] + [type=reset][role=spinbutton],
-[role=search] [type=submit][role=spinbutton] + [type=reset][role=spinbutton],
-[role=search] [type=submit][role=textbox] + [type=reset][role=spinbutton],
-[role=search] input + [type=reset][role=textbox],
-[role=search] button + [type=reset][role=textbox],
-[role=search] [role=button] + [type=reset][role=textbox],
-[role=search] input[type=button] + [type=reset][role=textbox],
-[role=search] button[type=button] + [type=reset][role=textbox],
-[role=search] input[type=reset] + [type=reset][role=textbox],
-[role=search] button[type=reset] + [type=reset][role=textbox],
-[role=search] input[type=submit] + [type=reset][role=textbox],
-[role=search] button[type=submit] + [type=reset][role=textbox],
-[role=search] [role=combobox] + [type=reset][role=textbox],
-[role=search] [role=listbox] + [type=reset][role=textbox],
-[role=search] [role=searchbox] + [type=reset][role=textbox],
-[role=search] [role=spinbutton] + [type=reset][role=textbox],
-[role=search] [role=textbox] + [type=reset][role=textbox],
-[role=search] [type=button][role=combobox] + [type=reset][role=textbox],
-[role=search] [type=button][role=listbox] + [type=reset][role=textbox],
-[role=search] [type=button][role=searchbox] + [type=reset][role=textbox],
-[role=search] [type=button][role=spinbutton] + [type=reset][role=textbox],
-[role=search] [type=button][role=textbox] + [type=reset][role=textbox],
-[role=search] [type=reset][role=combobox] + [type=reset][role=textbox],
-[role=search] [type=reset][role=listbox] + [type=reset][role=textbox],
-[role=search] [type=reset][role=searchbox] + [type=reset][role=textbox],
-[role=search] [type=reset][role=spinbutton] + [type=reset][role=textbox],
-[role=search] [type=reset][role=textbox] + [type=reset][role=textbox],
-[role=search] [type=submit][role=combobox] + [type=reset][role=textbox],
-[role=search] [type=submit][role=listbox] + [type=reset][role=textbox],
-[role=search] [type=submit][role=searchbox] + [type=reset][role=textbox],
-[role=search] [type=submit][role=spinbutton] + [type=reset][role=textbox],
-[role=search] [type=submit][role=textbox] + [type=reset][role=textbox],
-[role=search] input + [type=submit][role=combobox],
-[role=search] button + [type=submit][role=combobox],
-[role=search] [role=button] + [type=submit][role=combobox],
-[role=search] input[type=button] + [type=submit][role=combobox],
-[role=search] button[type=button] + [type=submit][role=combobox],
-[role=search] input[type=reset] + [type=submit][role=combobox],
-[role=search] button[type=reset] + [type=submit][role=combobox],
-[role=search] input[type=submit] + [type=submit][role=combobox],
-[role=search] button[type=submit] + [type=submit][role=combobox],
-[role=search] [role=combobox] + [type=submit][role=combobox],
-[role=search] [role=listbox] + [type=submit][role=combobox],
-[role=search] [role=searchbox] + [type=submit][role=combobox],
-[role=search] [role=spinbutton] + [type=submit][role=combobox],
-[role=search] [role=textbox] + [type=submit][role=combobox],
-[role=search] [type=button][role=combobox] + [type=submit][role=combobox],
-[role=search] [type=button][role=listbox] + [type=submit][role=combobox],
-[role=search] [type=button][role=searchbox] + [type=submit][role=combobox],
-[role=search] [type=button][role=spinbutton] + [type=submit][role=combobox],
-[role=search] [type=button][role=textbox] + [type=submit][role=combobox],
-[role=search] [type=reset][role=combobox] + [type=submit][role=combobox],
-[role=search] [type=reset][role=listbox] + [type=submit][role=combobox],
-[role=search] [type=reset][role=searchbox] + [type=submit][role=combobox],
-[role=search] [type=reset][role=spinbutton] + [type=submit][role=combobox],
-[role=search] [type=reset][role=textbox] + [type=submit][role=combobox],
-[role=search] [type=submit][role=combobox] + [type=submit][role=combobox],
-[role=search] [type=submit][role=listbox] + [type=submit][role=combobox],
-[role=search] [type=submit][role=searchbox] + [type=submit][role=combobox],
-[role=search] [type=submit][role=spinbutton] + [type=submit][role=combobox],
-[role=search] [type=submit][role=textbox] + [type=submit][role=combobox],
-[role=search] input + [type=submit][role=listbox],
-[role=search] button + [type=submit][role=listbox],
-[role=search] [role=button] + [type=submit][role=listbox],
-[role=search] input[type=button] + [type=submit][role=listbox],
-[role=search] button[type=button] + [type=submit][role=listbox],
-[role=search] input[type=reset] + [type=submit][role=listbox],
-[role=search] button[type=reset] + [type=submit][role=listbox],
-[role=search] input[type=submit] + [type=submit][role=listbox],
-[role=search] button[type=submit] + [type=submit][role=listbox],
-[role=search] [role=combobox] + [type=submit][role=listbox],
-[role=search] [role=listbox] + [type=submit][role=listbox],
-[role=search] [role=searchbox] + [type=submit][role=listbox],
-[role=search] [role=spinbutton] + [type=submit][role=listbox],
-[role=search] [role=textbox] + [type=submit][role=listbox],
-[role=search] [type=button][role=combobox] + [type=submit][role=listbox],
-[role=search] [type=button][role=listbox] + [type=submit][role=listbox],
-[role=search] [type=button][role=searchbox] + [type=submit][role=listbox],
-[role=search] [type=button][role=spinbutton] + [type=submit][role=listbox],
-[role=search] [type=button][role=textbox] + [type=submit][role=listbox],
-[role=search] [type=reset][role=combobox] + [type=submit][role=listbox],
-[role=search] [type=reset][role=listbox] + [type=submit][role=listbox],
-[role=search] [type=reset][role=searchbox] + [type=submit][role=listbox],
-[role=search] [type=reset][role=spinbutton] + [type=submit][role=listbox],
-[role=search] [type=reset][role=textbox] + [type=submit][role=listbox],
-[role=search] [type=submit][role=combobox] + [type=submit][role=listbox],
-[role=search] [type=submit][role=listbox] + [type=submit][role=listbox],
-[role=search] [type=submit][role=searchbox] + [type=submit][role=listbox],
-[role=search] [type=submit][role=spinbutton] + [type=submit][role=listbox],
-[role=search] [type=submit][role=textbox] + [type=submit][role=listbox],
-[role=search] input + [type=submit][role=searchbox],
-[role=search] button + [type=submit][role=searchbox],
-[role=search] [role=button] + [type=submit][role=searchbox],
-[role=search] input[type=button] + [type=submit][role=searchbox],
-[role=search] button[type=button] + [type=submit][role=searchbox],
-[role=search] input[type=reset] + [type=submit][role=searchbox],
-[role=search] button[type=reset] + [type=submit][role=searchbox],
-[role=search] input[type=submit] + [type=submit][role=searchbox],
-[role=search] button[type=submit] + [type=submit][role=searchbox],
-[role=search] [role=combobox] + [type=submit][role=searchbox],
-[role=search] [role=listbox] + [type=submit][role=searchbox],
-[role=search] [role=searchbox] + [type=submit][role=searchbox],
-[role=search] [role=spinbutton] + [type=submit][role=searchbox],
-[role=search] [role=textbox] + [type=submit][role=searchbox],
-[role=search] [type=button][role=combobox] + [type=submit][role=searchbox],
-[role=search] [type=button][role=listbox] + [type=submit][role=searchbox],
-[role=search] [type=button][role=searchbox] + [type=submit][role=searchbox],
-[role=search] [type=button][role=spinbutton] + [type=submit][role=searchbox],
-[role=search] [type=button][role=textbox] + [type=submit][role=searchbox],
-[role=search] [type=reset][role=combobox] + [type=submit][role=searchbox],
-[role=search] [type=reset][role=listbox] + [type=submit][role=searchbox],
-[role=search] [type=reset][role=searchbox] + [type=submit][role=searchbox],
-[role=search] [type=reset][role=spinbutton] + [type=submit][role=searchbox],
-[role=search] [type=reset][role=textbox] + [type=submit][role=searchbox],
-[role=search] [type=submit][role=combobox] + [type=submit][role=searchbox],
-[role=search] [type=submit][role=listbox] + [type=submit][role=searchbox],
-[role=search] [type=submit][role=searchbox] + [type=submit][role=searchbox],
-[role=search] [type=submit][role=spinbutton] + [type=submit][role=searchbox],
-[role=search] [type=submit][role=textbox] + [type=submit][role=searchbox],
-[role=search] input + [type=submit][role=spinbutton],
-[role=search] button + [type=submit][role=spinbutton],
-[role=search] [role=button] + [type=submit][role=spinbutton],
-[role=search] input[type=button] + [type=submit][role=spinbutton],
-[role=search] button[type=button] + [type=submit][role=spinbutton],
-[role=search] input[type=reset] + [type=submit][role=spinbutton],
-[role=search] button[type=reset] + [type=submit][role=spinbutton],
-[role=search] input[type=submit] + [type=submit][role=spinbutton],
-[role=search] button[type=submit] + [type=submit][role=spinbutton],
-[role=search] [role=combobox] + [type=submit][role=spinbutton],
-[role=search] [role=listbox] + [type=submit][role=spinbutton],
-[role=search] [role=searchbox] + [type=submit][role=spinbutton],
-[role=search] [role=spinbutton] + [type=submit][role=spinbutton],
-[role=search] [role=textbox] + [type=submit][role=spinbutton],
-[role=search] [type=button][role=combobox] + [type=submit][role=spinbutton],
-[role=search] [type=button][role=listbox] + [type=submit][role=spinbutton],
-[role=search] [type=button][role=searchbox] + [type=submit][role=spinbutton],
-[role=search] [type=button][role=spinbutton] + [type=submit][role=spinbutton],
-[role=search] [type=button][role=textbox] + [type=submit][role=spinbutton],
-[role=search] [type=reset][role=combobox] + [type=submit][role=spinbutton],
-[role=search] [type=reset][role=listbox] + [type=submit][role=spinbutton],
-[role=search] [type=reset][role=searchbox] + [type=submit][role=spinbutton],
-[role=search] [type=reset][role=spinbutton] + [type=submit][role=spinbutton],
-[role=search] [type=reset][role=textbox] + [type=submit][role=spinbutton],
-[role=search] [type=submit][role=combobox] + [type=submit][role=spinbutton],
-[role=search] [type=submit][role=listbox] + [type=submit][role=spinbutton],
-[role=search] [type=submit][role=searchbox] + [type=submit][role=spinbutton],
-[role=search] [type=submit][role=spinbutton] + [type=submit][role=spinbutton],
-[role=search] [type=submit][role=textbox] + [type=submit][role=spinbutton],
-[role=search] input + [type=submit][role=textbox],
-[role=search] button + [type=submit][role=textbox],
-[role=search] [role=button] + [type=submit][role=textbox],
-[role=search] input[type=button] + [type=submit][role=textbox],
-[role=search] button[type=button] + [type=submit][role=textbox],
-[role=search] input[type=reset] + [type=submit][role=textbox],
-[role=search] button[type=reset] + [type=submit][role=textbox],
-[role=search] input[type=submit] + [type=submit][role=textbox],
-[role=search] button[type=submit] + [type=submit][role=textbox],
-[role=search] [role=combobox] + [type=submit][role=textbox],
-[role=search] [role=listbox] + [type=submit][role=textbox],
-[role=search] [role=searchbox] + [type=submit][role=textbox],
-[role=search] [role=spinbutton] + [type=submit][role=textbox],
-[role=search] [role=textbox] + [type=submit][role=textbox],
-[role=search] [type=button][role=combobox] + [type=submit][role=textbox],
-[role=search] [type=button][role=listbox] + [type=submit][role=textbox],
-[role=search] [type=button][role=searchbox] + [type=submit][role=textbox],
-[role=search] [type=button][role=spinbutton] + [type=submit][role=textbox],
-[role=search] [type=button][role=textbox] + [type=submit][role=textbox],
-[role=search] [type=reset][role=combobox] + [type=submit][role=textbox],
-[role=search] [type=reset][role=listbox] + [type=submit][role=textbox],
-[role=search] [type=reset][role=searchbox] + [type=submit][role=textbox],
-[role=search] [type=reset][role=spinbutton] + [type=submit][role=textbox],
-[role=search] [type=reset][role=textbox] + [type=submit][role=textbox],
-[role=search] [type=submit][role=combobox] + [type=submit][role=textbox],
-[role=search] [type=submit][role=listbox] + [type=submit][role=textbox],
-[role=search] [type=submit][role=searchbox] + [type=submit][role=textbox],
-[role=search] [type=submit][role=spinbutton] + [type=submit][role=textbox],
-[role=search] [type=submit][role=textbox] + [type=submit][role=textbox] {
+[role=search] [role=button] + input[type=submit] {
   flex: initial;
 }
 [role=search] p {
@@ -1444,7 +570,7 @@ details [role=alert] summary {
 }
 
 body > div {
-  margin: 30px auto;
+  margin: 0 auto;
   padding: 10px;
   width: 680px;
 }
@@ -1453,6 +579,7 @@ body > div > footer {
   flex-wrap: wrap;
   gap: 1.15rem;
   justify-content: space-between;
+  padding: 0 1.5rem;
 }
 body > div > footer p {
   margin: 0;
@@ -1476,33 +603,23 @@ body > div > header h1 {
   font-size: 200%;
   font-weight: var(--title);
   letter-spacing: 0.2rem;
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.5rem;
 }
 body > div > header h1 a,
-body > div > header h1 [role=link],
-body > div > header h1 details summary,
-details body > div > header h1 summary {
+body > div > header h1 [role=link] {
   color: inherit;
 }
 body > div > header h1 a:focus,
 body > div > header h1 [role=link]:focus,
-body > div > header h1 details summary:focus,
-details body > div > header h1 summary:focus,
 body > div > header h1 a:hover,
-body > div > header h1 [role=link]:hover,
-body > div > header h1 details summary:hover,
-details body > div > header h1 summary:hover {
+body > div > header h1 [role=link]:hover {
   color: inherit;
   text-decoration: none;
 }
 body > div > header h1 a:focus:visited,
 body > div > header h1 [role=link]:focus:visited,
-body > div > header h1 details summary:focus:visited,
-details body > div > header h1 summary:focus:visited,
 body > div > header h1 a:hover:visited,
-body > div > header h1 [role=link]:hover:visited,
-body > div > header h1 details summary:hover:visited,
-details body > div > header h1 summary:hover:visited {
+body > div > header h1 [role=link]:hover:visited {
   color: inherit;
 }
 body > div > header p {
@@ -1536,18 +653,15 @@ body > div > nav > ul {
   padding: 0;
 }
 body > div > nav > ul > li > a,
-body > div > nav > ul > li > [role=link],
-details body > div > nav > ul > li > summary {
+body > div > nav > ul > li > [role=link] {
   display: block;
   font-weight: bold;
   padding: 0 1.15rem;
 }
 body > div > nav > ul > li > a:focus,
 body > div > nav > ul > li > [role=link]:focus,
-details body > div > nav > ul > li > summary:focus,
 body > div > nav > ul > li > a:hover,
-body > div > nav > ul > li > [role=link]:hover,
-details body > div > nav > ul > li > summary:hover {
+body > div > nav > ul > li > [role=link]:hover {
   text-decoration: none;
 }
 body > div > header + div,
@@ -1640,94 +754,53 @@ body > div > nav + div > main > article > header h2,
 body > div > nav + div > main > article > header h3 {
   color: var(--color-title);
   font-size: 150%;
-  margin: 0;
 }
 body > div > header + div > main > article > header h2 a,
 body > div > header + div > main > article > header h2 [role=link],
-body > div > header + div > main > article > header h2 details summary,
-details body > div > header + div > main > article > header h2 summary,
 body > div > header + div > main > article > header h3 a,
 body > div > header + div > main > article > header h3 [role=link],
-body > div > header + div > main > article > header h3 details summary,
-details body > div > header + div > main > article > header h3 summary,
 body > div > nav + div > main > article > header h2 a,
 body > div > nav + div > main > article > header h2 [role=link],
-body > div > nav + div > main > article > header h2 details summary,
-details body > div > nav + div > main > article > header h2 summary,
 body > div > nav + div > main > article > header h3 a,
-body > div > nav + div > main > article > header h3 [role=link],
-body > div > nav + div > main > article > header h3 details summary,
-details body > div > nav + div > main > article > header h3 summary {
+body > div > nav + div > main > article > header h3 [role=link] {
   color: var(--color-title-link);
   text-decoration: none;
 }
 body > div > header + div > main > article > header h2 a:focus,
 body > div > header + div > main > article > header h2 [role=link]:focus,
-body > div > header + div > main > article > header h2 details summary:focus,
-details body > div > header + div > main > article > header h2 summary:focus,
 body > div > header + div > main > article > header h2 a:hover,
 body > div > header + div > main > article > header h2 [role=link]:hover,
-body > div > header + div > main > article > header h2 details summary:hover,
-details body > div > header + div > main > article > header h2 summary:hover,
 body > div > header + div > main > article > header h3 a:focus,
 body > div > header + div > main > article > header h3 [role=link]:focus,
-body > div > header + div > main > article > header h3 details summary:focus,
-details body > div > header + div > main > article > header h3 summary:focus,
 body > div > header + div > main > article > header h3 a:hover,
 body > div > header + div > main > article > header h3 [role=link]:hover,
-body > div > header + div > main > article > header h3 details summary:hover,
-details body > div > header + div > main > article > header h3 summary:hover,
 body > div > nav + div > main > article > header h2 a:focus,
 body > div > nav + div > main > article > header h2 [role=link]:focus,
-body > div > nav + div > main > article > header h2 details summary:focus,
-details body > div > nav + div > main > article > header h2 summary:focus,
 body > div > nav + div > main > article > header h2 a:hover,
 body > div > nav + div > main > article > header h2 [role=link]:hover,
-body > div > nav + div > main > article > header h2 details summary:hover,
-details body > div > nav + div > main > article > header h2 summary:hover,
 body > div > nav + div > main > article > header h3 a:focus,
 body > div > nav + div > main > article > header h3 [role=link]:focus,
-body > div > nav + div > main > article > header h3 details summary:focus,
-details body > div > nav + div > main > article > header h3 summary:focus,
 body > div > nav + div > main > article > header h3 a:hover,
-body > div > nav + div > main > article > header h3 [role=link]:hover,
-body > div > nav + div > main > article > header h3 details summary:hover,
-details body > div > nav + div > main > article > header h3 summary:hover {
+body > div > nav + div > main > article > header h3 [role=link]:hover {
   color: var(--color-title-link-1);
   text-decoration: none;
 }
 body > div > header + div > main > article > header h2 a:focus:visited,
 body > div > header + div > main > article > header h2 [role=link]:focus:visited,
-body > div > header + div > main > article > header h2 details summary:focus:visited,
-details body > div > header + div > main > article > header h2 summary:focus:visited,
 body > div > header + div > main > article > header h2 a:hover:visited,
 body > div > header + div > main > article > header h2 [role=link]:hover:visited,
-body > div > header + div > main > article > header h2 details summary:hover:visited,
-details body > div > header + div > main > article > header h2 summary:hover:visited,
 body > div > header + div > main > article > header h3 a:focus:visited,
 body > div > header + div > main > article > header h3 [role=link]:focus:visited,
-body > div > header + div > main > article > header h3 details summary:focus:visited,
-details body > div > header + div > main > article > header h3 summary:focus:visited,
 body > div > header + div > main > article > header h3 a:hover:visited,
 body > div > header + div > main > article > header h3 [role=link]:hover:visited,
-body > div > header + div > main > article > header h3 details summary:hover:visited,
-details body > div > header + div > main > article > header h3 summary:hover:visited,
 body > div > nav + div > main > article > header h2 a:focus:visited,
 body > div > nav + div > main > article > header h2 [role=link]:focus:visited,
-body > div > nav + div > main > article > header h2 details summary:focus:visited,
-details body > div > nav + div > main > article > header h2 summary:focus:visited,
 body > div > nav + div > main > article > header h2 a:hover:visited,
 body > div > nav + div > main > article > header h2 [role=link]:hover:visited,
-body > div > nav + div > main > article > header h2 details summary:hover:visited,
-details body > div > nav + div > main > article > header h2 summary:hover:visited,
 body > div > nav + div > main > article > header h3 a:focus:visited,
 body > div > nav + div > main > article > header h3 [role=link]:focus:visited,
-body > div > nav + div > main > article > header h3 details summary:focus:visited,
-details body > div > nav + div > main > article > header h3 summary:focus:visited,
 body > div > nav + div > main > article > header h3 a:hover:visited,
-body > div > nav + div > main > article > header h3 [role=link]:hover:visited,
-body > div > nav + div > main > article > header h3 details summary:hover:visited,
-details body > div > nav + div > main > article > header h3 summary:hover:visited {
+body > div > nav + div > main > article > header h3 [role=link]:hover:visited {
   color: var(--color-title-link-2, var(--color-title-link-1));
 }
 body > div > header + div > main > article > header p time,
@@ -1739,12 +812,6 @@ body > div > nav + div > main > article > header p time {
   letter-spacing: 0.2rem;
   text-transform: uppercase;
   display: block;
-}
-body > div > header + div > main > article > header p + h2,
-body > div > header + div > main > article > header p + h3,
-body > div > nav + div > main > article > header p + h2,
-body > div > nav + div > main > article > header p + h3 {
-  margin-top: 0.4rem;
 }
 body > div > header + div > main > article > header + div,
 body > div > nav + div > main > article > header + div {
@@ -1789,6 +856,7 @@ body > div > nav + div > main > article + nav {
   --color-1: #ccc;
   --color-2: #777;
   --color-button: #ccc;
+  --color-input: inherit;
   --color-link-1: #ad9;
   --color-link-2: #a7a;
   --color-link: #9ad;
@@ -1817,6 +885,7 @@ body > div > nav + div > main > article + nav {
   --color-1: #eee;
   --color-2: #579;
   --color-button: #ccc;
+  --color-input: inherit;
   --color-link-1: #fc6;
   --color-link-2: #a7a;
   --color-link: #9bd;
@@ -1829,14 +898,14 @@ body > div > nav + div > main > article + nav {
   --face: "Trebuchet MS", Trebuchet, sans-serif;
   --fill-alert: rgba(51, 51, 51, 0.5);
   --fill-button: #357 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
-  --fill-input: #135 linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)) repeat-x 0 0;
+  --fill-input: #0f2d4a linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)) repeat-x 0 0;
   --fill-mark: #246;
   --fill: #135;
   --stroke-1: rgba(68, 102, 136, 0.5);
   --stroke-alert: rgba(255, 255, 255, 0.5);
   --stroke-button-1: rgba(255, 255, 255, 0.25);
   --stroke-button: rgba(255, 255, 255, 0.15);
-  --stroke-input: #468;
+  --stroke-input: rgba(68, 102, 136, 0.5);
   --stroke: #468;
   --title: 700;
 }
@@ -1845,6 +914,7 @@ body > div > nav + div > main > article + nav {
   --color-1: #aaa;
   --color-2: #a77;
   --color-button: #ccc;
+  --color-input: inherit;
   --color-link-1: #bbb;
   --color-link-2: #777;
   --color-link: #999;
@@ -1857,14 +927,14 @@ body > div > nav + div > main > article + nav {
   --face: "Trebuchet MS", Trebuchet, sans-serif;
   --fill-alert: rgba(204, 204, 204, 0.125);
   --fill-button: #855 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
-  --fill-input: #533 linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)) repeat-x 0 0;
+  --fill-input: #592d2d linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)) repeat-x 0 0;
   --fill-mark: #844;
   --fill: #633;
   --stroke-1: rgba(136, 85, 85, 0.5);
   --stroke-alert: rgba(0, 0, 0, 0.45);
   --stroke-button-1: rgba(255, 255, 255, 0.25);
   --stroke-button: rgba(255, 255, 255, 0.15);
-  --stroke-input: #855;
+  --stroke-input: rgba(136, 85, 85, 0.5);
   --stroke: #855;
   --title: 700;
 }
@@ -1873,6 +943,7 @@ body > div > nav + div > main > article + nav {
   --color-1: #874;
   --color-2: #774;
   --color-button: #ffc;
+  --color-input: inherit;
   --color-link-1: #c80;
   --color-link-2: #996;
   --color-link: #684;
@@ -1901,6 +972,7 @@ body > div > nav + div > main > article + nav {
   --color-1: #666;
   --color-2: #999;
   --color-button: #fff;
+  --color-input: inherit;
   --color-link-1: #c60;
   --color-link-2: #999;
   --color-link: #58a;
