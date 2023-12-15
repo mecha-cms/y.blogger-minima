@@ -1,9 +1,18 @@
 <?php
 
 if (isset($state->x->tag)) {
+    $deep = 0;
+    $folder = LOT . D . 'page' . ($route ?? $state->routeBlog ?? '/article');
+    if ($file = exist([
+        $folder . '.archive',
+        $folder . '.page'
+    ], 1)) {
+        $page = new Page($file);
+        $deep = $page->deep ?? 0;
+    }
     $pages = [];
     $tags = [];
-    foreach (Pages::from(LOT . D . 'page' . ($route ?? $state->routeBlog ?? '/article'), 'page') as $page) {
+    foreach (Pages::from($folder, 'page', $deep) as $page) {
         $tags = array_merge($tags, (array) $page->kind);
     }
     if (count($tags) > 0) {
@@ -12,28 +21,28 @@ if (isset($state->x->tag)) {
             if (!$k = To::tag($k)) {
                 continue;
             }
-            $tag = Tag::from(LOT  . D . 'tag' . D . $k . '.page');
+            $tag = new Tag(LOT  . D . 'tag' . D . $k . '.page', ['parent' => $file ?: null]);
             if (!$tag->exist) {
                 continue;
             }
             $pages[strip_tags($tag->title . '@' . $tag->name)] = [$current === $k, $tag->link, $tag->title, $v];
         }
     }
-    $list = "";
+    $content = "";
     if (count($pages) > 0) {
         ksort($pages);
-        $list .= '<ul>';
+        $content .= '<ul>';
         foreach ($pages as $k => $v) {
-            $list .= '<li>';
-            $list .= '<a' . ($v[0] ? ' aria-current="page"' : "") . ' href="' . eat($v[1]) . '" rel="tag">' . $v[2] . ' <span role="status">' . $v[3] . '</span></a>';
-            $list .= '</li>';
+            $content .= '<li>';
+            $content .= '<a' . ($v[0] ? ' aria-current="page"' : "") . ' href="' . eat($v[1]) . '" rel="tag">' . $v[2] . ' <span aria-label="' . eat(i('%d post' . (1 === $v[3] ? "" : 's'), [$v[3]])) . '" role="status">' . $v[3] . '</span></a>';
+            $content .= '</li>';
         }
-        $list .= '</ul>';
+        $content .= '</ul>';
     } else {
-        $list .= '<p>' . i('No %s yet.', 'tags') . '</p>';
+        $content .= '<p>' . i('No %s yet.', 'tags') . '</p>';
     }
     echo self::widget([
-        'content' => $content ?? $list,
+        'content' => $content,
         'title' => $title ?? i('Tags')
     ]);
 }
