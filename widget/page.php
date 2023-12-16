@@ -11,15 +11,15 @@ if ($file = exist([
 }
 $pages = [];
 $pages_data = Pages::from($folder, 'page', $deep ?? 0)->sort([$sort[0] ?? -1, $sort[1] ?? 'time']);
-if (!empty($query)) {
-    $query = (array) $query;
-    $pages_data = $pages_data->is(function ($v) use ($current, $query) {
-        if ($current === $v->url) {
+$search = array_filter((array) ($search ?? []));
+if (!empty($search)) {
+    $pages_data = $pages_data->is(function ($page) use ($current, $search) {
+        if ($current === $page->url) {
             return false;
         }
-        $name = strtr($v->name, ['-' => ""]);
-        foreach ($query as $q) {
-            if (false !== strpos($name, $q)) {
+        $name = '-' . $page->name . '-';
+        foreach ($search as $v) {
+            if (false !== strpos($name, '-' . $v . '-')) {
                 return true;
             }
         }
