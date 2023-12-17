@@ -43,7 +43,7 @@ if (count($pages) > 0) {
     }
     $content .= '</ul>';
 } else {
-    $content .= '<p>' . i('No related %s yet.', 'posts') . '</p>';
+    $content .= '<p role="status">' . i('No' . (!empty($search) ? ' related' : "") . ' %s yet.', 'posts') . '</p>';
 }
 
 echo self::widget([

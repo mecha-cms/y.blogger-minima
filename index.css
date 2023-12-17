@@ -865,7 +865,7 @@ body > div > nav + div > main > article + nav {
   --color-title: #ad9;
   --color: #ccc;
   --face-1: "Trebuchet MS", Trebuchet, sans-serif;
-  --face-2: monospace;
+  --face-2: "Courier New", Courier, monospace;
   --face: "Trebuchet MS", Trebuchet, sans-serif;
   --fill-alert: rgba(51, 51, 51, 0.5);
   --fill-button: #333 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
@@ -894,7 +894,7 @@ body > div > nav + div > main > article + nav {
   --color-title: #fc6;
   --color: #ccc;
   --face-1: "Trebuchet MS", Trebuchet, sans-serif;
-  --face-2: monospace;
+  --face-2: "Courier New", Courier, monospace;
   --face: "Trebuchet MS", Trebuchet, sans-serif;
   --fill-alert: rgba(51, 51, 51, 0.5);
   --fill-button: #357 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
@@ -923,7 +923,7 @@ body > div > nav + div > main > article + nav {
   --color-title: #886;
   --color: #ccc;
   --face-1: "Trebuchet MS", Trebuchet, sans-serif;
-  --face-2: monospace;
+  --face-2: "Courier New", Courier, monospace;
   --face: "Trebuchet MS", Trebuchet, sans-serif;
   --fill-alert: rgba(204, 204, 204, 0.125);
   --fill-button: #855 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
@@ -952,7 +952,7 @@ body > div > nav + div > main > article + nav {
   --color-title: #c80;
   --color: #333;
   --face-1: "Trebuchet MS", Trebuchet, sans-serif;
-  --face-2: monospace;
+  --face-2: "Courier New", Courier, monospace;
   --face: Georgia, serif;
   --fill-alert: rgba(204, 204, 204, 0.5);
   --fill-button: #874 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05)) repeat-x 0 0;
@@ -981,7 +981,7 @@ body > div > nav + div > main > article + nav {
   --color-title: #c60;
   --color: #333;
   --face-1: "Trebuchet MS", Trebuchet, sans-serif;
-  --face-2: monospace;
+  --face-2: "Courier New", Courier, monospace;
   --face: Georgia, serif;
   --fill-alert: rgba(204, 204, 204, 0.5);
   --fill-button: #58a linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)) repeat-x 0 0;
