@@ -146,6 +146,24 @@ details[role=tree] + [role=tree] {
 
 label,
 select,
+input[type=checkbox],
+button[type=checkbox],
+[type=checkbox][role=button],
+input[type=file],
+button[type=file],
+[type=file][role=button],
+input[type=radio],
+button[type=radio],
+[type=radio][role=button],
+input[type=range],
+button[type=range],
+[type=range][role=button],
+input[type=color],
+button[type=color],
+[type=color][role=button],
+input[type=image],
+button[type=image],
+[type=image][role=button],
 details summary {
   cursor: pointer;
   user-select: none;
@@ -445,7 +463,6 @@ button[type=range],
 [type=range][role=button] {
   background: 0 0;
   border: 0;
-  cursor: pointer;
   padding: 0;
 }
 

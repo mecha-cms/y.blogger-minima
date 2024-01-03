@@ -403,6 +403,7 @@ input {
 input {
   &[type='color'],
   &[type='image'] {
+    @extend label;
     height: 2.25rem;
     padding: 0;
     width: 2.25rem;
@@ -421,9 +422,9 @@ input {
   &[type='image'],
   &[type='radio'],
   &[type='range'] {
+    @extend label;
     background: 0 0;
     border: 0;
-    cursor: pointer;
     padding: 0;
   }
 }
