@@ -697,7 +697,7 @@ body > div > footer {
   flex-wrap: wrap;
   gap: 1.15rem;
   justify-content: space-between;
-  padding: 0 1.5rem;
+  padding: 1.5rem 0;
 }
 body > div > footer p {
   margin: 0;
@@ -787,7 +787,6 @@ body > div > header + div,
 body > div > nav + div {
   display: flex;
   gap: 2.5rem;
-  margin: 1.15rem 0;
 }
 body > div > header + div > aside,
 body > div > nav + div > aside {
