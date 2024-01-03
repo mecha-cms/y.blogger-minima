@@ -88,10 +88,6 @@ th {
   @extend b;
 }
 
-[role='link'] {
-  @extend a;
-}
-
 blockquote {
   color: var(--color-1);
   font-size: 1.185rem;
@@ -112,7 +108,6 @@ code {
   font-family: var(--face-2);
 }
 
-[role='deletion'],
 del {
   @extend s;
 }
@@ -161,7 +156,6 @@ details {
   }
 }
 
-[role='insertion'],
 ins {
   @extend u;
 }
@@ -252,10 +246,6 @@ mark {
   background: var(--fill-mark);
 }
 
-[role='mark'] {
-  @extend mark;
-}
-
 img {
   height: auto;
   max-width: 100%;
@@ -323,12 +313,17 @@ video {
 }
 
 * {
+  + address,
+  + article,
+  + aside,
   + blockquote,
   + details,
+  + div,
   + dl,
   + dt,
   + fieldset,
   + figure,
+  + footer,
   + form,
   + h1,
   + h2,
@@ -336,10 +331,14 @@ video {
   + h4,
   + h5,
   + h6,
+  + header,
   + hr,
+  + main,
+  + nav,
   + ol,
   + p,
   + pre,
+  + section,
   + table,
   + ul {
     margin-top: 1.15rem;
@@ -385,7 +384,6 @@ button {
   }
 }
 
-[role='button'],
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
@@ -454,6 +452,26 @@ textarea {
   resize: vertical;
 }
 
+[role='button'] {
+  @extend button;
+}
+
+[role='deletion'] {
+  @extend del;
+}
+
+[role='insertion'] {
+  @extend ins;
+}
+
+[role='link'] {
+  @extend a;
+}
+
+[role='mark'] {
+  @extend mark;
+}
+
 [role='status'] {
   color: var(--color-2);
 }
@@ -465,8 +483,6 @@ textarea {
 
 @import './_/x/alert';
 @import './_/x/comment';
-@import './_/x/markdown';
-@import './_/x/part';
 @import './_/x/search';
 @import './_/x/t-o-c';
 
@@ -530,6 +546,7 @@ body {
       border-color: var(--stroke);
       font-size: 100%;
       line-height: 2.7rem;
+      margin: 0;
       text-align: center;
       > ul {
         display: flex;
@@ -558,6 +575,7 @@ body {
         gap: 2.5rem;
         margin: 1.15rem 0;
         > aside {
+          margin: 0;
           width: 220px;
           > div {
             border-bottom: 1px dotted;
@@ -585,9 +603,6 @@ body {
               list-style: none;
               margin-left: 0;
             }
-            + div {
-              margin-top: 1.15rem;
-            }
           }
         }
         > main {
@@ -600,9 +615,6 @@ body {
             > div {
               &::after {
                 @include clear();
-              }
-              + footer {
-                margin-top: 1.15rem;
               }
             }
             > footer {
@@ -632,17 +644,10 @@ body {
                   display: block;
                 }
               }
-              + div {
-                margin-top: 1.15rem;
-              }
-            }
-            + article {
-              margin-top: 1.15rem;
             }
             + nav {
               display: flex;
               justify-content: space-between;
-              margin-top: 1.15rem;
             }
           }
         }
