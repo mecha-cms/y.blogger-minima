@@ -10,7 +10,7 @@ images:
 - /lot/y/blogger-minima/index/4.png
 author: Taufik Nurrohman
 type: Markdown
-version: 1.0.5
+version: 1.0.6
 ...
 
 This is not a clone of the original Minima template. I didn’t make it from the original source code, but by refactoring
