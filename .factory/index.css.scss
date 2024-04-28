@@ -357,7 +357,6 @@ textarea {
   display: inline-block;
   height: 2rem;
   line-height: calc(2rem - 2px); // Minus the border width
-  outline: 0;
   padding: 0 0.5rem;
   vertical-align: middle;
   width: 12rem;
@@ -370,9 +369,6 @@ button {
   color: var(--color-button) !important;
   cursor: pointer;
   line-height: 2rem;
-  outline: 1px solid;
-  outline-color: var(--stroke-button);
-  outline-offset: -3px;
   padding: {
     left: 0.65rem;
     right: 0.65rem;
@@ -380,8 +376,10 @@ button {
   text-align: center;
   text-decoration: none !important;
   width: auto;
-  &:focus {
-    outline-color: var(--stroke-button-1);
+  &:not(:focus-visible) {
+    outline: 1px solid;
+    outline-color: var(--stroke-button);
+    outline-offset: -3px;
   }
 }
 
@@ -501,6 +499,10 @@ body {
       padding: 1.5rem 0;
       p {
         margin: 0;
+        &:only-child {
+          flex: 1;
+          text-align: center;
+        }
       }
     }
     > header {
@@ -510,8 +512,8 @@ body {
       border-color: var(--stroke);
       color: var(--color-1);
       letter-spacing: 0.2rem;
-      // Make the inner border color a bit softer. This will give it a nice accent :)
       outline: 1px solid;
+      // Make the inner border color a bit softer. This will give it a nice accent :)
       outline-color: var(--stroke-1);
       outline-offset: -7px;
       padding: 1.5rem;
