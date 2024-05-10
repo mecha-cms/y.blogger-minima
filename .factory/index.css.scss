@@ -17,7 +17,9 @@
 
 /*! Originally developed by the Blogger Team <https://www.blogger.com> on 26 February 2004. */
 
-* {
+*,
+::after,
+::before {
   background: 0 0;
   border: 0;
   box-sizing: border-box;
@@ -28,6 +30,80 @@
   text-align: inherit;
   text-decoration: none;
   word-wrap: break-word;
+}
+
+:where(
+  address,
+  article,
+  aside,
+  blockquote,
+  dd,
+  details,
+  div,
+  dl,
+  dt,
+  fieldset,
+  figure,
+  footer,
+  form,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  hgroup,
+  hr,
+  main,
+  nav,
+  ol,
+  p,
+  pre,
+  search,
+  section,
+  table,
+  ul
+):where(:not(:last-child)) {
+  margin-bottom: 1.15rem;
+}
+
+li {
+  &:where(:not(:first-child)) {
+    > :where(
+      address,
+      article,
+      aside,
+      blockquote,
+      dd,
+      details,
+      div,
+      dl,
+      dt,
+      fieldset,
+      figure,
+      footer,
+      form,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      header,
+      hgroup,
+      hr,
+      main,
+      nav,
+      p,
+      pre,
+      search,
+      section,
+      table
+    ):where(:first-child) {
+      margin-top: 1.15rem;
+    }
+  }
 }
 
 :root {
@@ -100,7 +176,7 @@ blockquote {
 caption,
 figcaption {
   @include all-caps(0.1rem, var(--color-1));
-  margin: 0.5rem 0 0;
+  margin: 1rem 0 0;
   text-align: center;
 }
 
@@ -113,7 +189,7 @@ del {
 }
 
 details {
-  summary {
+  > summary {
     @extend label;
     display: block;
     padding-left: 1.15rem;
@@ -135,7 +211,8 @@ details {
     }
   }
   &[open] {
-    summary {
+    > summary {
+      margin-bottom: 1.15rem;
       &::before {
         border-bottom: 0 solid transparent;
         border-left: 4px solid transparent;
@@ -146,12 +223,14 @@ details {
     }
   }
   &[role='tree'] {
-    ul {
-      margin-top: 0;
-      list-style: none;
+    margin-bottom: 0;
+    &[open] {
+      > summary {
+        margin-bottom: 0;
+      }
     }
-    + [role='tree'] {
-      margin-top: 0;
+    ul {
+      list-style: none;
     }
   }
 }
@@ -241,9 +320,6 @@ hr {
 legend {
   @include all-caps(0.2rem, var(--color-1), var(--title));
   padding: 0 0.5rem;
-  + * {
-    margin-top: 0;
-  }
 }
 
 mark {
@@ -310,44 +386,11 @@ ul {
 }
 
 audio,
+iframe,
 video {
   display: block;
   height: auto;
   width: 100%;
-}
-
-* {
-  + address,
-  + article,
-  + aside,
-  + blockquote,
-  + details,
-  + div,
-  + dl,
-  + dt,
-  + fieldset,
-  + figure,
-  + footer,
-  + form,
-  + h1,
-  + h2,
-  + h3,
-  + h4,
-  + h5,
-  + h6,
-  + header,
-  + hr,
-  + main,
-  + nav,
-  + ol,
-  + p,
-  + pre,
-  + search,
-  + section,
-  + table,
-  + ul {
-    margin-top: 1.15rem;
-  }
 }
 
 input,
@@ -500,7 +543,7 @@ body {
       flex-wrap: wrap;
       gap: 1.15rem;
       justify-content: space-between;
-      padding: 1.5rem 0;
+      padding: 0 0 1.5rem;
       p {
         margin: 0;
         &:only-child {
@@ -516,6 +559,7 @@ body {
       border-color: var(--stroke);
       color: var(--color-1);
       letter-spacing: 0.2rem;
+      margin-bottom: 0;
       outline: 1px solid;
       // Make the inner border color a bit softer. This will give it a nice accent :)
       outline-color: var(--stroke-1);
@@ -581,6 +625,8 @@ body {
       + div {
         display: flex;
         gap: 2.5rem;
+        margin: 0;
+        padding: 1.15rem 0;
         > aside {
           margin: 0;
           width: 220px;
@@ -614,6 +660,7 @@ body {
         }
         > main {
           flex: 1;
+          margin: 0;
           min-width: 0;
           > article {
             border-bottom: 1px dotted;
@@ -667,21 +714,15 @@ body {
   body {
     > div {
       width: auto;
+      > footer {
+        padding-bottom: 0;
+      }
       > header,
       > nav {
         + div {
           flex-direction: column;
           > aside {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
             width: auto;
-            > div {
-              flex: 1;
-              + div {
-                margin-top: 0;
-              }
-            }
           }
         }
       }
