@@ -32,6 +32,13 @@
   word-wrap: break-word;
 }
 
+::-moz-focus-inner {
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
 :where(
   address,
   article,
@@ -64,8 +71,10 @@
   section,
   table,
   ul
-):where(:not(:last-child)) {
-  margin-bottom: 1.15rem;
+) {
+  & + & {
+    margin-top: 1.15rem;
+  }
 }
 
 li {
@@ -112,7 +121,7 @@ li {
   font: 400 normal 13px/1.5 var(--face);
 }
 
-a {
+%a {
   color: var(--color-link);
   img {
     border: 1px solid;
@@ -138,30 +147,73 @@ a {
   }
 }
 
+%b {
+  font-weight: bold;
+}
+
+%i {
+  font-style: italic;
+}
+
+%input {
+  accent-color: var(--color-link);
+  background: var(--fill-input, var(--fill));
+  border: 1px solid;
+  border-color: var(--stroke-input, var(--stroke));
+  color: var(--color-input);
+  display: inline-block;
+  height: 2rem;
+  line-height: calc(2rem - 2px); // Minus the border width
+  padding: 0 0.5rem;
+  vertical-align: middle;
+  width: 12rem;
+}
+
+%label {
+  cursor: pointer;
+  user-select: none;
+}
+
+%s {
+  text-decoration: line-through;
+}
+
+%small {
+  font-size: 0.79em;
+}
+
+%u {
+  text-decoration: underline;
+}
+
+a {
+  @extend %a;
+}
+
 abbr {
   cursor: help;
 }
 
 b {
-  font-weight: bold;
+  @extend %b;
 }
 
 i {
-  font-style: italic;
+  @extend %i;
 }
 
 s {
-  text-decoration: line-through;
+  @extend %s;
 }
 
 u {
-  text-decoration: underline;
+  @extend %u;
 }
 
 dt,
 strong,
 th {
-  @extend b;
+  @extend %b;
 }
 
 blockquote {
@@ -185,12 +237,12 @@ code {
 }
 
 del {
-  @extend s;
+  @extend %s;
 }
 
 details {
   > summary {
-    @extend label;
+    @extend %label;
     display: block;
     padding-left: 1.15rem;
     position: relative;
@@ -223,7 +275,6 @@ details {
     }
   }
   &[role='tree'] {
-    margin-bottom: 0;
     &[open] {
       > summary {
         margin-bottom: 0;
@@ -232,26 +283,24 @@ details {
     ul {
       list-style: none;
     }
+    + [role='tree'] {
+      margin-top: 0;
+    }
   }
 }
 
 ins {
-  @extend u;
+  @extend %u;
 }
 
 label {
-  cursor: pointer;
-  user-select: none;
-}
-
-p > label {
-  line-height: calc(2rem - 2px);
+  @extend %label;
 }
 
 dfn,
 em,
 var {
-  @extend i;
+  @extend %i;
 }
 
 dl,
@@ -279,8 +328,8 @@ figure {
 
 form {
   > p {
-    &:last-of-type {
-      margin-bottom: 0;
+    > label {
+      line-height: calc(2rem - 2px);
     }
   }
 }
@@ -357,7 +406,7 @@ pre {
 small,
 sub,
 sup {
-  font-size: 0.79em;
+  @extend %small;
 }
 
 sub,
@@ -401,24 +450,14 @@ video {
   width: 100%;
 }
 
+button,
 input,
 select,
 textarea {
-  accent-color: var(--color-link);
-  background: var(--fill-input, var(--fill));
-  border: 1px solid;
-  border-color: var(--stroke-input, var(--stroke));
-  color: var(--color-input);
-  display: inline-block;
-  height: 2rem;
-  line-height: calc(2rem - 2px); // Minus the border width
-  padding: 0 0.5rem;
-  vertical-align: middle;
-  width: 12rem;
+  @extend %input;
 }
 
 button {
-  @extend input;
   background: var(--fill-button, var(--fill));
   border-width: 0;
   color: var(--color-button) !important;
@@ -444,20 +483,10 @@ input[type='submit'] {
   @extend button;
 }
 
-button,
-input {
-  &::-moz-focus-inner {
-    border: 0;
-    margin: 0;
-    outline: 0;
-    padding: 0;
-  }
-}
-
 input {
   &[type='color'],
   &[type='image'] {
-    @extend label;
+    @extend %label;
     height: 2.25rem;
     padding: 0;
     width: 2.25rem;
@@ -476,7 +505,7 @@ input {
   &[type='image'],
   &[type='radio'],
   &[type='range'] {
-    @extend label;
+    @extend %label;
     background: 0 0;
     border: 0;
     padding: 0;
@@ -484,7 +513,7 @@ input {
 }
 
 select {
-  @extend label;
+  @extend %label;
 }
 
 @each $v in (-moz-color-swatch, -webkit-color-swatch) {
@@ -538,6 +567,7 @@ textarea {
 
 @import './_/x/alert';
 @import './_/x/comment';
+@import './_/x/markdown';
 @import './_/x/search';
 @import './_/x/t-o-c';
 
@@ -551,7 +581,7 @@ body {
       flex-wrap: wrap;
       gap: 1.15rem;
       justify-content: space-between;
-      padding: 0 0 1.5rem;
+      padding: 1.15rem 0;
       p {
         margin: 0;
         &:only-child {
@@ -567,7 +597,6 @@ body {
       border-color: var(--stroke);
       color: var(--color-1);
       letter-spacing: 0.2rem;
-      margin-bottom: 0;
       outline: 1px solid;
       // Make the inner border color a bit softer. This will give it a nice accent :)
       outline-color: var(--stroke-1);
@@ -634,7 +663,7 @@ body {
         display: flex;
         gap: 2.5rem;
         margin: 0;
-        padding: 1.15rem 0;
+        padding: 1.15rem 0 0;
         > aside {
           margin: 0;
           width: 220px;
@@ -723,7 +752,7 @@ body {
     > div {
       width: auto;
       > footer {
-        padding-bottom: 0;
+        padding: 0;
       }
       > header,
       > nav {
