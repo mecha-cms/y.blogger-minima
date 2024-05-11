@@ -194,23 +194,9 @@ abbr {
   cursor: help;
 }
 
-b {
-  @extend %b;
-}
-
-i {
-  @extend %i;
-}
-
-s {
-  @extend %s;
-}
-
-u {
-  @extend %u;
-}
-
+b,
 dt,
+legend,
 strong,
 th {
   @extend %b;
@@ -236,7 +222,8 @@ code {
   font-family: var(--face-2);
 }
 
-del {
+del,
+s {
   @extend %s;
 }
 
@@ -289,7 +276,8 @@ details {
   }
 }
 
-ins {
+ins,
+u {
   @extend %u;
 }
 
@@ -299,18 +287,24 @@ label {
 
 dfn,
 em,
+i,
 var {
   @extend %i;
 }
 
-dl,
 ol,
 ul {
-  margin-left: 1.15rem;
+  margin-left: 2rem;
+  & & {
+    margin-left: 1.15rem;
+  }
 }
 
 dl {
-  margin-right: 1.15rem;
+  margin: {
+    left: 1.15rem;
+    right: 1.15rem;
+  }
 }
 
 fieldset {
@@ -477,13 +471,12 @@ button {
   }
 }
 
-input[type='button'],
-input[type='reset'],
-input[type='submit'] {
-  @extend button;
-}
-
 input {
+  &[type='button'],
+  &[type='reset'],
+  &[type='submit'] {
+    @extend button;
+  }
   &[type='color'],
   &[type='image'] {
     @extend %label;
@@ -536,8 +529,16 @@ textarea {
   resize: vertical;
 }
 
+:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 [role='button'] {
   @extend button;
+  &:not(:any-link) {
+    @extend :disabled;
+  }
 }
 
 [role='deletion'] {
@@ -558,11 +559,6 @@ textarea {
 
 [role='status'] {
   color: var(--color-2);
-}
-
-:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 @import './_/x/alert';

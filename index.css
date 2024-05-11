@@ -161,17 +161,18 @@ a[aria-disabled]:visited,
   color: inherit;
 }
 
+b,
 dt,
+legend,
 strong,
-th,
-b {
+th {
   font-weight: bold;
 }
 
 dfn,
 em,
-var,
-i {
+i,
+var {
   font-style: italic;
 }
 
@@ -295,13 +296,19 @@ details[role=tree] + [role=tree] {
   margin-top: 0;
 }
 
-dl,
 ol,
 ul {
+  margin-left: 2rem;
+}
+ol ol,
+ol ul,
+ul ol,
+ul ul {
   margin-left: 1.15rem;
 }
 
 dl {
+  margin-left: 1.15rem;
   margin-right: 1.15rem;
 }
 
@@ -507,13 +514,14 @@ textarea {
   resize: vertical;
 }
 
-[role=status] {
-  color: var(--color-2);
-}
-
-:disabled {
+:disabled,
+[role=button]:not(:any-link) {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+[role=status] {
+  color: var(--color-2);
 }
 
 [role=alert] {
