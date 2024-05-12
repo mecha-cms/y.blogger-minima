@@ -321,6 +321,10 @@ figure {
   text-align: center;
   img {
     display: block;
+    margin: {
+      left: auto;
+      right: auto;
+    }
   }
 }
 
@@ -367,7 +371,6 @@ h6 {
 }
 
 hr {
-  border: 0;
   border: {
     top: 1px dotted;
     color: var(--stroke);
