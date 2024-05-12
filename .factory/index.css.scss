@@ -235,10 +235,12 @@ details {
     position: relative;
     text-decoration: none !important;
     &::before {
-      border-bottom: 4px solid transparent;
-      border-left: 8px solid;
-      border-right: 0 solid transparent;
-      border-top: 4px solid transparent;
+      border: {
+        bottom: 4px solid transparent;
+        left: 8px solid;
+        right: 0 solid transparent;
+        top: 4px solid transparent;
+      }
       color: var(--color-2);
       content: "";
       height: 0;
@@ -253,10 +255,12 @@ details {
     > summary {
       margin-bottom: 1.15rem;
       &::before {
-        border-bottom: 0 solid transparent;
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-        border-top: 8px solid;
+        border: {
+          bottom: 0 solid transparent;
+          left: 4px solid transparent;
+          right: 4px solid transparent;
+          top: 8px solid;
+        }
         margin-top: -3px;
       }
     }
@@ -364,8 +368,10 @@ h6 {
 
 hr {
   border: 0;
-  border-top: 1px dotted;
-  border-color: var(--stroke);
+  border: {
+    top: 1px dotted;
+    color: var(--stroke);
+  }
 }
 
 legend {
@@ -627,8 +633,10 @@ body {
     }
     > nav {
       @include all-caps(0.2rem, var(--color-1));
-      border-bottom: 1px dotted;
-      border-color: var(--stroke);
+      border: {
+        bottom: 1px dotted;
+        color: var(--stroke);
+      }
       font-size: 100%;
       line-height: 2.7rem;
       margin: 0;
@@ -664,8 +672,10 @@ body {
           margin: 0;
           width: 220px;
           > div {
-            border-bottom: 1px dotted;
-            border-color: var(--stroke);
+            border: {
+              bottom: 1px dotted;
+              color: var(--stroke);
+            }
             padding-bottom: 1.15rem;
             li,
             summary {
@@ -696,8 +706,10 @@ body {
           margin: 0;
           min-width: 0;
           > article {
-            border-bottom: 1px dotted;
-            border-color: var(--stroke);
+            border: {
+              bottom: 1px dotted;
+              color: var(--stroke);
+            }
             padding-bottom: 1.15rem;
             > div {
               &::after {
