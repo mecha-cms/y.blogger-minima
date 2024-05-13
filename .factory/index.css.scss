@@ -273,6 +273,7 @@ details {
     }
     ul {
       list-style: none;
+      margin-left: 1.15rem;
     }
     + [role='tree'] {
       margin-top: 0;
@@ -296,18 +297,18 @@ var {
   @extend %i;
 }
 
+dl {
+  margin: {
+    left: 1.15rem;
+    right: 1.15rem;
+  }
+}
+
 ol,
 ul {
   margin-left: 2rem;
   & & {
     margin-left: 1.15rem;
-  }
-}
-
-dl {
-  margin: {
-    left: 1.15rem;
-    right: 1.15rem;
   }
 }
 
@@ -447,6 +448,7 @@ ul {
 
 audio,
 iframe,
+picture,
 video {
   display: block;
   height: auto;

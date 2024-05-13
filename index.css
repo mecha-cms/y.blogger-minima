@@ -291,9 +291,15 @@ details[role=tree][open] > summary {
 }
 details[role=tree] ul {
   list-style: none;
+  margin-left: 1.15rem;
 }
 details[role=tree] + [role=tree] {
   margin-top: 0;
+}
+
+dl {
+  margin-left: 1.15rem;
+  margin-right: 1.15rem;
 }
 
 ol,
@@ -305,11 +311,6 @@ ol ul,
 ul ol,
 ul ul {
   margin-left: 1.15rem;
-}
-
-dl {
-  margin-left: 1.15rem;
-  margin-right: 1.15rem;
 }
 
 fieldset {
@@ -366,7 +367,6 @@ h6 {
 }
 
 hr {
-  border: 0;
   border-top: 1px dotted;
   border-color: var(--stroke);
 }
@@ -439,6 +439,7 @@ ul {
 
 audio,
 iframe,
+picture,
 video {
   display: block;
   height: auto;
