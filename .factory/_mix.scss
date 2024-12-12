@@ -1,0 +1,16 @@
+@mixin all-caps($letter-spacing: 0.2rem, $color: #999, $weight: 400) {
+  color: $color;
+  font: {
+    family: var(--face-1);
+    size: 80%;
+    weight: $weight;
+  }
+  letter-spacing: $letter-spacing;
+  text-transform: uppercase;
+}
+
+@mixin clear() {
+  clear: both;
+  content: "";
+  display: table;
+}
