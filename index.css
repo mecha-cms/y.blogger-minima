@@ -800,7 +800,6 @@ body > div > nav + div > main > article > header h2 [role=link],
 body > div > nav + div > main > article > header h3 a,
 body > div > nav + div > main > article > header h3 [role=link] {
   color: var(--color-title-link);
-  text-decoration: none;
 }
 body > div > header + div > main > article > header h2 a:focus,
 body > div > header + div > main > article > header h2 [role=link]:focus,
