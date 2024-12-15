@@ -110,11 +110,6 @@ li {
 
 %a {
   color: var(--color-link);
-  img {
-    border: 1px solid;
-    border-color: var(--stroke);
-    padding: 4px;
-  }
   &:focus,
   &:hover {
     color: var(--color-link-1);
@@ -175,6 +170,11 @@ li {
 
 a {
   @extend %a;
+  img {
+    border: 1px solid;
+    border-color: var(--stroke);
+    padding: 4px;
+  }
 }
 
 abbr {
@@ -335,27 +335,27 @@ h6 {
 }
 
 h1 {
-  font-size: 310%;
+  font-size: 260%;
 }
 
 h2 {
-  font-size: 250%;
-}
-
-h3 {
   font-size: 200%;
 }
 
+h3 {
+  font-size: 150%;
+}
+
 h4 {
-  font-size: 160%;
+  font-size: 110%;
 }
 
 h5 {
-  font-size: 130%;
+  font-size: 80%;
 }
 
 h6 {
-  font-size: 110%;
+  font-size: 60%;
 }
 
 hr {
