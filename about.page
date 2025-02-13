@@ -1,5 +1,5 @@
 ---
-title: Blogger: Minima
+title: 'Blogger: Minima'
 description: Minima (classic Blogger template), ported to Mecha.
 image: /lot/y/blogger-minima/index.png
 images:
@@ -10,7 +10,7 @@ images:
 - /lot/y/blogger-minima/index/4.png
 author: Taufik Nurrohman
 type: Markdown
-version: 1.0.9
+version: 1.0.10
 ...
 
 This is not a clone of the original Minima template. I didn’t make it from the original source code, but by refactoring
