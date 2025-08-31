@@ -88,5 +88,5 @@ if (isset($state->x->excerpt) && $state->is('page')) {
 }
 
 if ($skin = $state->y->{'blogger-minima'}->skin->name ?? "") {
-    State::set('[y].skin:' . $skin, true);
+    State::set('[y].state.skin-' . $skin, true);
 }

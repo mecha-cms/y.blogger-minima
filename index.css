@@ -871,7 +871,7 @@ body > div > nav + div > main > article + nav {
     width: auto;
   }
 }
-.skin\:black {
+.skin-black {
   --color-1: #ccc;
   --color-2: #777;
   --color-button: #ccc;
@@ -899,7 +899,7 @@ body > div > nav + div > main > article + nav {
   --title: 700;
 }
 
-.skin\:blue {
+.skin-blue {
   --color-1: #eee;
   --color-2: #579;
   --color-button: #ccc;
@@ -927,7 +927,7 @@ body > div > nav + div > main > article + nav {
   --title: 700;
 }
 
-.skin\:brick {
+.skin-brick {
   --color-1: #aaa;
   --color-2: #a77;
   --color-button: #ccc;
@@ -955,7 +955,7 @@ body > div > nav + div > main > article + nav {
   --title: 700;
 }
 
-.skin\:ochre {
+.skin-ochre {
   --color-1: #874;
   --color-2: #774;
   --color-button: #ffc;
@@ -983,7 +983,7 @@ body > div > nav + div > main > article + nav {
   --title: 400;
 }
 
-.skin\:white {
+.skin-white {
   --color-1: #666;
   --color-2: #999;
   --color-button: #fff;
