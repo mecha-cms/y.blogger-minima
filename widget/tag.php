@@ -25,7 +25,7 @@ if (isset($state->x->tag)) {
             if (!$tag->exist) {
                 continue;
             }
-            $pages[strip_tags($tag->title . '@' . $tag->name)] = [$current === $k, $tag->link, $tag->title, $v];
+            $pages[strip_tags($tag->title . '@' . $tag->name)] = [$current === $k, $tag->url, $tag->title, $v];
         }
     }
     $content = "";
