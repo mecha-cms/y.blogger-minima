@@ -3,7 +3,7 @@
 
   $author = $page->author;
 
-  if ($author instanceof User) {
+  if (isset($state->x->user) && $author instanceof User) {
       $author = '<a href="' . eat($author->url) . '" rel="author">' . $author . '</a>';
   }
 
@@ -11,17 +11,17 @@
 
   echo '<p>';
 
-  echo i('Posted by %s at %s', [$author, $time]);
+  echo i('Posted by %s at %s', [$author ?? '<span role="status">' . i('Anonymous') . '</span>', $time]);
 
-  if (isset($state->x->tag)) {
+  if (isset($state->x->tag) && ($tags = $page->tags ?? [])) {
       echo '<br>';
-      echo i('Tags') . ': ';
-      if (count($tags = $page->tags ?? []) > 0) {
-          $links = [];
+      echo i('Tag' . (1 === ($count = $tags->count) ? "" : 's')) . ': ';
+      if ($count) {
+          $r = [];
           foreach ($tags->sort([1, 'title']) as $tag) {
-              $links[] = '<a href="' . eat($tag->url) . '" rel="tag">' . $tag->title . '</a>';
+              $r[] = '<a href="' . eat($tag->url) . '" rel="tag">' . $tag->title . '</a>';
           }
-          echo implode(', ', $links);
+          echo implode(', ', $r);
       } else {
           echo '<span role="status">' . i('Untagged') . '</span>';
       }

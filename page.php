@@ -33,7 +33,7 @@
           <?php endif; ?>
         </div>
         <?php if ($site->has('parent')): ?>
-          <?= self::get('page.footer'); ?>
+          <?= self::get('footer.page'); ?>
         <?php endif; ?>
       </article>
       <?php if (isset($state->x->pager)): ?>

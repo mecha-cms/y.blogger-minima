@@ -33,7 +33,7 @@
                 </p>
               <?php endif; ?>
             </div>
-            <?= self::get('page.footer', ['page' => $page]); ?>
+            <?= self::get('footer.page', ['page' => $page]); ?>
           </article>
         <?php endforeach; ?>
         <?php if (isset($state->x->pager)): ?>
@@ -42,13 +42,15 @@
           <?= self::pager(); ?>
         <?php endif; ?>
       <?php else: ?>
-        <p role="status">
-          <?php if ($site->has('part')): ?>
-            <?= i('No more %s to show.', 'posts'); ?>
-          <?php else: ?>
-            <?= i('No %s yet.', 'posts'); ?>
-          <?php endif; ?>
-        </p>
+        <?php if ($site->has('prev')): ?>
+          <p role="status">
+            <?= i('No more %s to show.', 'pages'); ?>
+          </p>
+        <?php else: ?>
+          <p role="status">
+            <?= i('No %s yet.', 'pages'); ?>
+          </p>
+        <?php endif; ?>
       <?php endif; ?>
     <?php else: ?>
       <p role="status">
