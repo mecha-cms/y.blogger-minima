@@ -7,13 +7,12 @@ if (isset($state->x->tag)) {
         $folder . '.archive',
         $folder . '.page'
     ], 1)) {
-        $page = new Page($file);
-        $deep = $page->deep ?? 0;
+        $deep = (new Page($file))->deep ?? 0;
     }
     $pages = [];
     $tags = [];
-    foreach (Pages::from($folder, 'page', $deep) as $page) {
-        $tags = array_merge($tags, (array) $page->kind);
+    foreach (Pages::from($folder, 'page', $deep) as $v) {
+        $tags = array_merge($tags, (array) $v->kind);
     }
     if (count($tags) > 0) {
         $current = $site->is('tags') && isset($tag) ? $tag->name : "";

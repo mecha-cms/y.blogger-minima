@@ -1,49 +1,48 @@
 <?php
 
-$current = $current ?? $url->current;
+$current = $current ?? $page->url ?? $url->current;
 $folder = LOT . D . 'page' . ($route ?? $state->routeBlog ?? '/article');
 if ($file = exist([
     $folder . '.archive',
     $folder . '.page'
 ], 1)) {
-    $page = new Page($file);
-    $deep = $page->deep ?? 0;
+    $deep = (new Page($file))->deep ?? 0;
 }
-$pages = [];
-$pages_data = Pages::from($folder, 'page', $deep ?? 0)->sort([$sort[0] ?? -1, $sort[1] ?? 'time']);
-$search = array_filter((array) ($search ?? []));
-if (!empty($search)) {
-    $pages_data = $pages_data->is(function ($page) use ($current, $search) {
-        if ($current === $page->url) {
+
+$pages = Pages::from($folder, 'page', $deep ?? 0)->sort([$sort[0] ?? -1, $sort[1] ?? 'time']);
+
+if ($query = array_filter((array) ($query ?? []))) {
+    $pages = $pages->is(function ($v) use ($current, $query) {
+        if ($current === $v->url) {
             return false;
         }
-        $name = '-' . $page->name . '-';
-        foreach ($search as $v) {
-            if (false !== strpos($name, '-' . $v . '-')) {
+        $name = '-' . $v->name . '-';
+        foreach ($query as $q) {
+            if (false !== strpos($name, '-' . $q . '-')) {
                 return true;
             }
         }
         return false;
     });
 }
+
 if (!empty($shake)) {
-    $pages_data->shake();
+    $pages = $pages->shake();
 }
-foreach ($pages_data->chunk($take ?? 5, 0) as $page) {
-    $pages[$page->url] = $page->title;
-}
+
+$pages = $pages->chunk($take ?? 5, 0);
 
 $content = "";
 if (count($pages) > 0) {
     $content .= '<ul>';
-    foreach ($pages as $k => $v) {
+    foreach ($pages as $page) {
         $content .= '<li>';
-        $content .= '<a' . ($current === $k ? ' aria-current="page"' : "") . ' href="' . eat($k) . '">' . $v . '</a>';
+        $content .= '<a' . ($current === ($k = $page->url) ? ' aria-current="page"' : "") . ' href="' . eat($k) . '">' . $page->title . '</a>';
         $content .= '</li>';
     }
     $content .= '</ul>';
 } else {
-    $content .= '<p role="status">' . i('No' . (!empty($search) ? ' related' : "") . ' %s yet.', 'posts') . '</p>';
+    $content .= '<p role="status">' . i('No' . (!empty($query) ? ' related' : "") . ' %s yet.', 'posts') . '</p>';
 }
 
 echo self::widget([
