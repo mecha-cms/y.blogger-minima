@@ -8,6 +8,7 @@
       <?= i('Newer %s', 'Posts'); ?>
     </a>
   <?php endif; ?>
+  <br>
   <?php if ($site->is('home')): ?>
     <a aria-disabled="true">
       <?= i('Home'); ?>
@@ -17,6 +18,7 @@
       <?= i('Home'); ?>
     </a>
   <?php endif; ?>
+  <br>
   <?php if ($next = $pager->next): ?>
     <a href="<?= eat($next->link); ?>" rel="next">
       <?= i('Older %s', 'Posts'); ?>

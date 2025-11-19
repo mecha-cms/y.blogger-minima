@@ -675,17 +675,6 @@ body {
               color: var(--stroke);
             }
             padding-bottom: 1.15rem;
-            li,
-            summary {
-              [role='status'] {
-                &::after {
-                  content: ')';
-                }
-                &::before {
-                  content: '(';
-                }
-              }
-            }
             &::after {
               @include clear();
             }

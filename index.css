@@ -724,18 +724,6 @@ body > div > nav + div > aside > div {
   border-color: var(--stroke);
   padding-bottom: 1.15rem;
 }
-body > div > header + div > aside > div li [role=status]::after,
-body > div > header + div > aside > div summary [role=status]::after,
-body > div > nav + div > aside > div li [role=status]::after,
-body > div > nav + div > aside > div summary [role=status]::after {
-  content: ")";
-}
-body > div > header + div > aside > div li [role=status]::before,
-body > div > header + div > aside > div summary [role=status]::before,
-body > div > nav + div > aside > div li [role=status]::before,
-body > div > nav + div > aside > div summary [role=status]::before {
-  content: "(";
-}
 body > div > header + div > aside > div::after,
 body > div > nav + div > aside > div::after {
   clear: both;

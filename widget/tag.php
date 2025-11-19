@@ -33,7 +33,7 @@ if (isset($state->x->tag)) {
         $content .= '<ul>';
         foreach ($pages as $k => $v) {
             $content .= '<li>';
-            $content .= '<a' . ($v[0] ? ' aria-current="page"' : "") . ' href="' . eat($v[1]) . '" rel="tag">' . $v[2] . ' <span aria-label="' . eat(i('%d post' . (1 === $v[3] ? "" : 's'), [$v[3]])) . '" role="status">' . $v[3] . '</span></a>';
+            $content .= '<a' . ($v[0] ? ' aria-current="page"' : "") . ' href="' . eat($v[1]) . '" rel="tag">' . $v[2] . '</a> <span aria-label="' . eat(i('%d post' . (1 === $v[3] ? "" : 's'), [$v[3]])) . '" role="status">(' . $v[3] . ')</span>';
             $content .= '</li>';
         }
         $content .= '</ul>';
